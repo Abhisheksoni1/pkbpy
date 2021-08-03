@@ -1,0 +1,649 @@
+{% extends '/layout.html' %}
+{% block title %}
+Take Order
+{% endblock %}
+{% block right_col %}
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Re-Order</h3>
+
+            </div>
+            <a href=javascript:void(0)" id="go_back" class="{{" btn btn-primary pull-right" if user.is_superuser else
+            ""}}">{{ "Go back" if user.is_superuser else ""}}</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <!-- <div class="x_title">
+                        </div> -->
+                    <div class="clearfix"></div>
+                    <div class="x_content take_ordr">
+                        <section class="content invoice">
+                            <div class="row invoice-info">
+                                <div class="col-sm-12 invoice-col">
+                                    <form class="form-horizontal form-label-left input_mask" id="order_form">
+                                        <div class="form-group">
+                                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+<div class="mktoRadioList mktoHasWidth">
+     <label class="control-label ">{{order.delivery_type }} Order </label>
+
+<!--<input name="delivery_type" id="mktoRadio_0" value="SELF-PICKUP" type="radio" class="mktoField" {{"checked" if (order.delivery_type=='SELF-PICKUP') else ''}} readonly><label for="mktoRadio_0">SELF-PICKUP</label>-->
+<!--<input name="delivery_type" id="mktoRadio_1" value="DELIVERY" type="radio" class="mktoField" {{"checked" if (order.delivery_type=='DELIVERY') else ''}} readonly><label for="mktoRadio_1">DELIVERY</label>-->
+<!--<input name="delivery_type" id="mktoRadio_2" value="Dine IN" type="radio" class="mktoField"><label for="mktoRadio_2">Dine IN</label>-->
+
+</div>
+                                            <!-- <div class="col-md-3 col-sm-3 col-xs-12 margin_top_8">
+<span class="rdio_btn"><input type="radio" class="flat" name="delivery_type" value="Pick Up" checked></span> <span class="lbl_txt">Pick up</span>
+<span class="rdio_btn"><input type="radio" class="flat" name="delivery_type" value="Delivery"></span><span class="lbl_txt">Home  Delivery</span>
+<span class="rdio_btn"><input type="radio" class="flat" name="delivery_type"  value="Dine IN"></span>  <span class="lbl_txt">Dine IN</span>
+                                            </div> -->
+                                        </div> 
+                                        <hr> <div class="clearfix"></div>                     
+                                         <div class="form-group">
+                                           
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                    <label class="control-label ">Customer Mobile</label>
+                                                <input type="text" class="form-control" name="mobile" id="mobile"
+                                                       placeholder="Mobile No."
+                                                       data-validation="required number length"
+                                                       data-validation-length="min10"
+                                                       value="{{ order.user.mobile }}">
+                                            </div>
+                                          
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                    <label class="control-label">Name</label>
+                                                <input type="text" class="form-control" id="user_name"
+                                                       placeholder="Name"
+                                                       name="name"
+                                                       value="{{ order.user.name }}">
+                                            </div>
+                                           
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                <label class="control-label"> Wallet Points</label><div class="clearfix"></div>
+                                               <span class="wallet_amount">  {{ order.user.userwallet.amount }}</span>
+                                               <label><input id="redeem_checkbox" name="redeem" type="checkbox">Redeem Points</label>
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                             
+                            </div>
+                            <!-- /.row --></section> </div> </div>
+
+<!-- start second part ------------ adress ---------------         -->
+
+<div class="br_full"> 
+    <!--<label class="control-label col-lg-6 line_height_25">Addresses:</label>-->
+    <!--<div class="control-label col-lg-6"><button type="button" name="add_new_address" id="new_address" class="btn btn-success pull-right ">Add New Adddress </button></div>-->
+ </div>
+
+<section class="x_panel" style="padding:0">
+    <div class="x_content">
+        <div class="content invoice">
+            <div class="">
+                <div class="form-group" id="reorder_addresss">
+                <div class="clearfix"> </div>
+                {% if (order.delivery_type=='DELIVERY') %}
+                    <div class="pre_addresss">
+                         <label class="col-md-1 col-sm-1 col-xs-12"> Delivery Address</label>
+                        {% set full_adr = (order.delivery_address).split(',')  %}
+                        <label  class="col-md-3 col-sm-3 col-xs-12 pre_address">
+                            <input name="delivery_type" id="mktoRadio_1"
+                                    value="DELIVERY" type="radio" class="mktoField" {{ "checked" if (order.delivery_type=='DELIVERY') else ''}} readonly><label for="mktoRadio_1">DELIVERY</label>
+                            <address class="select_address">
+                                <input type="radio" name="address_type" value="{{  full_adr[0] if  full_adr[0] else 'HOME'  }}" class="hidden" checked>
+                                <input type="text" class="form-control"  value="{{ full_adr[0] if  full_adr[0] else 'HOME'}}" readonly>
+                            <input type="text" class="form-control" name="address_line1"
+                            id="address_line1"value="{{ full_adr[1] if  full_adr[1] else '' }}" readonly>
+                                <input type="text" class="form-control" name="address_line2" id="address_line2" value="{{ full_adr[2] if  full_adr[2] else ''}}" readonly>
+                            <input type="text" class="form-control" name="pin" id="pin" value="{{ full_adr[3] if  full_adr[3] else ''}}" readonly>
+
+                            </address>
+                        </label>
+                    </div>
+                    {% endif %}
+                <div class="clearfix"> </div>
+                
+            </div>
+            <div class="clearfix"></div>
+            <div id="address_field" class="bg_light_yellow" style="display:none">
+                    <hr><div class="clearfix"> </div>
+
+<div class="mktoRadioList mktoHasWidth col-lg-6">
+    <!-- Below code comment  from address type -->
+<!--<input name="address_type" id="mk_0" value="HOME" type="radio" class="mktoField"><label for="mk_0">HOME</label>-->
+<!--<input name="address_type" id="mk_1" value="WORK" type="radio" class="mktoField"><label for="mk_1">WORK</label>-->
+<!--<input name="address_type" id="mk_2" value="OTHERS" type="radio" class="mktoField"><label for="mk_2">OTHERS</label>-->
+</div>
+<div class="col-md-3 col-sm-3 col-xs-12"><button type="button" id="mapbtn" onclick="GetRoute()" class="btn_add_adress">CHECK DISTANCE AND TIME </button></div>
+<div class="col-md-3 col-sm-3 col-xs-12"><button type="button" id="closebtn" style="display:none" class="btn_add_adress">CLOSE MAP  </button></div>
+<div class="clearfix"></div>
+
+
+<br>
+                <div class="form-group">
+                  
+                    <!-- <div class="col-md-3 col-sm-3 col-xs-12">  <label class="control-label ">Address  Type</label>
+                        <select class="form-control" id="address_type" name="address_type">
+                            <option value="HOME">HOME</option>
+                            <option value="WORK">WORK</option>
+                            <option value="OTHERS">OTHERS</option>
+                        </select>
+                    </div> -->
+
+                    <div style="display:none" class="deliver_to"> 
+                    <div class="col-md-3 col-sm-3 col-xs-12"><label class="control-label ">Name  </label>
+                        <input type="text" class="form-control" name="deliver_to" id="deliver_to" placeholder="Name" data-validation="required">
+                    </div>
+                    </div>
+
+                </div>
+               
+                <div class="form-group">
+                <input id="address_id" name="address_id" type="hidden" value="">
+                
+                <!--<div class="col-md-3 col-sm-3 col-xs-12"><label class="control-label "> Address Line 1</label>-->
+
+                <!--</div>-->
+            </div>
+                <div class="form-group">
+                   
+                    <!--<div class="col-md-3 col-sm-3 col-xs-12"> <label class="control-label">Address Line  2</label>-->
+                        <!---->
+                    <!--</div>-->
+                </div>
+                    <!--<div class="col-md-3 col-sm-3 col-xs-12">  <label class="control-label ">PIN</label>-->
+                        <!---->
+                    <!--</div>-->
+
+                <div class="form-group" >
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <label class="control-label">Assign Delivery Boy</label>
+                <select class=" delivery form-control" id="delivery_boy">
+                    {% for i in delivery_boys %}
+                    <option value="{{i.id}}">{{i.name}}</option>
+                    {% endfor%}
+                </select>
+                </div>
+                </div>
+                </div>
+                <div class="clearfix"></div><br>
+
+                <!-- map start -->
+                <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div id="dvMap" style="width:100%;"></div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div id="dvPanel" style="width:100%;"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="quantity_info"> </div>
+                    <div class="ln_solid"></div>
+                    <div class="clearfix"> </div>
+            </div>
+</div>  </div></div></section>
+
+<!-- start second part ------------ ---------------address end -->
+ 
+
+ <div class="br_full">
+        <div class="form-group">
+                   
+                <div class="col-md-3 col-sm-3 col-xs-12"> <label class="control-label ">Kitchen</label>
+                    <input type="hidden" class="form-control" name="kitchen"  id="kitchen" value="{{order.kitchen_id}}">
+                    <input type="hidden" class="form-control" name="kitchen_address" value="">
+                    <select  class="form-control kitchen_list" disabled>
+
+                        <option value="{{user.kitchenmanager.kitchen.id}}" data-address="{{user.kitchenmanager.kitchen.address}}"
+                                data-packing_charges="{{ user.kitchenmanager.kitchen.packing_charges if user.kitchenmanager.kitchen.packing_charges else 0.00  }}"
+                                    data-delivery_charges="{{ user.kitchenmanager.kitchen.delivery_charges if user.kitchenmanager.kitchen.delivery_charges else 0.00 }}"
+                                {{ selected if user.kitchenmanager.kitchen.id==order.kitchen_id else ''}}>{{user.kitchenmanager.kitchen.name}}</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12"> <label class="control-label ">Enter item</label>
+                        <div class="autocomplete">
+                            <input type="text" name="item" id="search_item"
+                                   class="form-control"
+                                   placeholder="enter item name">
+                            <!--<div  class="autocomplete-items">-->
+                            <!--<li data-toggle="modal" data-target="#myModal">Niraj</li>-->
+                            <!--<li data-toggle="modal" data-target="#myModal">panner</li>-->
+                            <!--<li data-toggle="modal" data-target="#myModal">cichken</li>-->
+                            <!--</div>-->
+                            <div class=" srch_p item_list" style="display:none;">
+                                <div class="autocomplete-items items"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-sm-6 col-xs-12"><label class="control-label  ">Special Notes</label>
+                        <input type="text" class="form-control" name="special_note"
+                               placeholder="Notes"> <label class="control-label col-md-1 col-sm-31 col-xs-12"></label>
+         
+                    <strong id="lblDistance"></strong>
+                    <strong id="duration"></strong>
+                    </div>
+
+                    <!-- modal open here -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content row">
+                                <div class="modal-header">
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title">Modal Header</h4>
+                                </div>
+                                <div class="modal-body">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+                            <section class="x_panel" style="padding:0"> <div class="x_content"><div class="content invoice"> <div class="col-md-12"> 
+                            <div class="row">
+                                <div class="col-xs-12 table">
+                                    <table class="table table-striped">
+                                        <thead class="table_head">
+                                        <tr>
+                                            <th width="10"></th>
+                                            <th>Sr. No.</th>
+                                            <th>Item</th>
+                                            <th>Quantity Type</th>
+                                            <th class="text-center">Quantity</th>
+                                            <th>Unit Price</th>
+                                            <th>Total</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody class="selected_items">
+                                        <!-- Pre loaded Item -->
+                                        {% for item in items_detail %}
+                                        <tr>
+                                            <td class="delete_order">
+                                                <button type="button" class="close" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </td>
+                                            <td class="counter">{{ loop.index }}</td>
+                                            <td class="item" data-item_id='{{item.id}}'>
+                                                <span class='item_name'>{{item.name}}</span>
+                                                <span class='total_bg'><span class='item_tax'>{{ item.total_tax_amount_title_string }}</span>
+                                           <div class='total_tax hidden'>{{item.total_tax}}</div>
+                                           <span class='discount_val'>{{item.total_discount_amount_string}}</span>
+                                           <div class='discount_on_item hidden'> {{item.total_discount}}</div>
+                                           </span>
+                                            </td>
+                                            <td class="quantity_type">{{ item.quantity_type }}</td>
+                                            <td class="quantity">
+                                                <div class='input-group plus-minus-input'>
+                                                    <div class='input-group-button minus'>
+                                                        <button type='button' class='button hollow circle'
+                                                                data-quantity='minus' data-field='quantity'>
+                                                            <i class='fa fa-minus' aria-hidden='true'></i></button>
+                                                    </div>
+                                                    <input class='input-group-field input-number item_quantity'
+                                                           type='number' name='quantity' value='{{item.quantity}}'>
+                                                    <div class='input-group-button plus'>
+                                                        <button type='button' class='button hollow circle'
+                                                                data-quantity='plus' data-field='quantity'>
+                                                            <i class='fa fa-plus' aria-hidden='true'></i></button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="unit">{{ item.unit_price}}</td>
+                                            <td class="total">{{ item.unit_price*item.quantity}}</td>
+                                        </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                        <tbody class="take_ordr_tble">
+                                        <tr>
+                                            <td colspan="5"></td>
+                                            <td class="rt_brdr" style="width:10%">Subtotal:</td>
+
+                                            <td id="subtotal">{{ sub_total }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"></td>
+                                            <td class="rt_brdr">Redeem:</td>
+
+                                            <td id="redeem_points">0.00</td>
+                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td colspan="5"></td>-->
+                                            <!--<td class="rt_brdr">Discount:</td>-->
+
+                                            <!--<td>-->
+                                                <!--<input type="text" id="discount_value" value="0.00">-->
+                                                <!--&lt;!&ndash;                                       <input id="discount_Fixed" name="fixed" type="checkbox">Fixed-->
+                                                    <!--<input id="discount_percentage" name="percetage" type="checkbox">Percentage&ndash;&gt;-->
+                                            <!--</td>-->
+                                        <!--</tr>-->
+
+
+                                        <tr class="alert warning">
+
+                                            <td class="rt_brdr_none" colspan="3">Applied Taxes
+                                                <span id="taxes_detail" >(Show Detail)</span></td>
+                                            <td colspan="3"></td>
+                                            <td id="applied_taxes">{{ sub_total_tax }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"></td>
+                                            <td class="rt_brdr">Amount with Taxes:</td>
+                                            <td id="payable_amount">{{ item_price_with_tax }}</td>
+                                        </tr>
+
+                                        <tr class="alert light_grey">
+                                            <td class="rt_brdr_none" colspan="3">Applied Discounts
+                                                <span id="discount_detail" >(Show Detail)</span></td>
+                                            <td colspan="3"></td>
+                                            <td id="applied_discount">{{ sub_total_discount }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"></td>
+                                            <td class="rt_brdr">Packing Charge:</td>
+                                            <td id="packing_charge">{{ order.kitchen.packing_charges }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"></td>
+                                            <td class="rt_brdr">Delivery:</td>
+
+                                            <td><input type="text" id="shipping_value" value="{{ order.kitchen.delivery_charges }}" readonly></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"></td>
+                                            <td class="rt_brdr total_txt">Total :
+                                            </th>
+                                            <td id="grand_total">{{ grand_total }}</td>
+                                            <td class="hidden" id="actual_grand_total"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+                            <!-- /.row -->
+                            <!-- this row will not appear when printing -->
+                            <div class="row no-print">
+
+
+
+<hr><div class="clearfix"></div>
+<div class="col-md-3 col-sm-3 col-xs-12 margin_top_8">
+
+<label class="control-label">Payment Mode:</label>
+
+<div class="mktoRadioList mktoHasWidth">
+    <input name="payment_method" id="mktoR_0" value="Cash" type="radio" class="mktoField" checked><label for="mktoR_0">CASH</label>
+    <input name="payment_method" id="mktoR_1" value="Card" type="radio" class="mktoField"><label for="mktoR_1">CARD</label>
+</div>
+
+<!-- <span class="rdio_btn"><input type="radio" class="flat" name="payment_method" value="Cash" checked></span><span class="lbl_txt">Cash</span>
+<span class="rdio_btn"> <input type="radio" class="flat" name="payment_method" value="Card"></span><span class="lbl_txt">Card</span> -->
+</div>
+
+
+<div class="col-xs-9"><button class="btn btn-success pull-right save_order"><i class="fa fa-credit-card"></i>Save Order</button></div>
+
+                            </div>
+                        </div>  </div></div></section>
+
+<!-- start second part ------------ ---------------         -->
+
+
+            
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="recent_order">
+    <div class="modal-dialog modal-large">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Recent Order</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="box">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Date</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id="re_order">
+                            <tr>
+                                <th></th>
+                                <td>fsd</td>
+                                <td>sdfs</td>
+                                <td>
+                                    <span class="label label-info">span</span>
+                                </td>
+                                <td>
+                                    <a href="customer-order.html" class="btn btn-template-main btn-sm">link</a>
+                                </td>
+                            </tr>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="tax_detail_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-------Header------------>
+            <div class="modal-header ">
+                <h2 class="modal-tital"><b>Taxes Detail </b></h2>
+            </div>
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Item name</th>
+                        <th>Item value</th>
+                        <th>Total tax rate(%)</th>
+                        <th>Total tax (in Rs.)</th>
+
+                    </tr>
+                    </thead>
+                    <tbody class="tax_detail_modal">
+
+                    </tbody>
+                </table>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-success">close
+                </button>
+            </div>
+
+            <!-------Close-Modal-Footer------------>
+
+
+        </div><!---Close modal content-->
+
+    </div><!-----Close modal -dialog--->
+
+</div><!-----Close modal-fade---->
+<div id="discount_detail_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-------Header------------>
+            <div class="modal-header ">
+                <h2 class="modal-tital"><b>Discount Detail </b></h2>
+            </div>
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Item name</th>
+                        <th>Item Price</th>
+                        <th>Discount</th>
+                        <th>Quantity</th>
+                        <th>Total value after discount(in Rs.)</th>
+                    </tr>
+                    </thead>
+                    <tbody class="discount_detail_modal">
+
+                    </tbody>
+                </table>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-success">close
+                </button>
+            </div>
+
+            <!-------Close-Modal-Footer------------>
+
+
+        </div><!---Close modal content-->
+
+    </div><!-----Close modal -dialog--->
+
+</div><!-----Close modal-fade---->
+{% endblock %}
+{% block extra_js %}
+<script src="{{ static('js/trace-location.js') }}"></script>
+<script src="{{ static('js/order.js') }}"></script>
+
+<script>
+    function get_address(){
+       destination= $('input[name=address_line1]').val()+', '+$('input[name=address_line2]').val();
+       return destination;
+    }
+
+ $(document).ready(function (){
+    var kitchen_address = $(".kitchen_list option:selected").data('address');
+    console.log(kitchen_address, "ok")
+    $('input[name=kitchen_address]').val(kitchen_address)
+});
+
+</script>
+
+<!--<script>-->
+<!--    $(document).ready(function(){-->
+<!--    var applied_tax=0.00;-->
+<!--    var applied_discount=0.00;-->
+<!--        $('.selected_items tr').each(function(){-->
+<!--                    total_tax = $(this).find('.total_tax').text();-->
+<!--                    total = $(this).find('.total').text();-->
+
+<!--                    total_discount=$(this).find('.discount_on_item').text();-->
+
+<!--                    item_quantity=$(this).find('.item_quantity').val();-->
+
+<!--                    console.log(total_discount, item_quantity)-->
+
+
+<!--              applied_tax+=Number(calculateTax(total,total_tax));-->
+<!--              applied_discount+=Number(calculateDiscount(total, total_discount)*item_quantity);-->
+<!--        });-->
+<!--        $('#applied_taxes').text(applied_tax);-->
+<!--        console.log(applied_discount)-->
+<!--        $('#applied_discount').text(applied_discount.toFixed(2));-->
+
+<!--    });-->
+
+<!--$(document).ready(function(){-->
+<!--    $('#grand_total').text(grandTotal());-->
+<!--})-->
+<!--</script>-->
+
+<script>
+$(document).ready(function (){
+ $('.address').click();
+ $('#address_field').hide();
+ var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+ var mobile = $('#mobile').val();
+ var fullname = $('#user_name').val();
+    $.ajax({
+            url: "/admin/getuser/",
+            type: "POST",
+            data: {
+                'mobile': mobile,
+                'name': fullname,
+                'csrfmiddlewaretoken': csrftoken
+            },
+            success: function (res) {
+
+                if (res.status) {
+                    $('#recent_order_btn').css('display', 'block')
+                    address = ''
+                    $('.wallet_amount').text(res.data.wallet_point);
+                    $('#user_name').val(res.data.name)
+
+                }
+            }
+        });
+});
+</script>
+
+<script>
+
+    $(document).ready(function(){
+        var kitchen_address = $(".kitchen_list option:selected").data('address');
+
+        $('input[name=kitchen_address]').val(kitchen_address);
+
+        $("#packing_charge").text($(".kitchen_list option:selected").data('packing_charges'));
+        console.log($(".kitchen_list option:selected").data('packing_charges'), "ho ho ho")
+        if($("input[name=delivery_type]:checked").val()=="DELIVERY"){
+            $("#reorder_address").show();
+            $("#shipping_value").val($(".kitchen_list option:selected").data('delivery_charges'));
+        }
+        else{
+            $("#shipping_value").val('0.00');
+             $("#reorder_address").hide();
+        }
+
+    $('#grand_total').text(grandTotal());
+
+    });
+
+</script>
+
+{% endblock %}
+

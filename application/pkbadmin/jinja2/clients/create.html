@@ -1,0 +1,103 @@
+{% extends '/layout.html' %}
+{% block title %}
+Client
+{% endblock %}
+{% block right_col %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+<div class="right_col" role="main">
+   <div class="">
+      <div class="clearfix"></div>
+      <div class="page-title">
+         <div class="title_left">
+         </div>
+      </div>
+      <div class="container">
+         <form method="post" enctype="multipart/form-data" class="form-horizontal form-label-left" novalidate="">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                 <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            </div>
+            <div class="row">
+               <div class="col-sm-12 col-md-4 col-lg-4 coll-lg-offset-4 col-md-offset-4">
+                  <h1>Add New Client</h1>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-6 col-md-6 col-lg-6 coll-lg-offset-4 col-md-offset-3">
+
+                   <div class="form-group">
+
+                        <label for="role"> Role :</label>
+                        <select type="text" name="role" data-validation="required" data-validation-error-msg="Role is required field." class="form-control col-md-7 col-xs-12">
+
+                            <option value="{{ groups.id }}">{{ groups.name }}</option>
+                        </select>
+                   </div>
+                  <div class="form-group">
+                     <label for="first_name">First Name :</label>
+                      {{ form.first_name }}
+                     {% if form_errors['first_name'] %}
+                        <div class="alert alert-danger">{{ form_errors['first_name'] }}</div>
+                     {% endif %}
+                  </div>
+                  <div class="form-group">
+                     <label for="last_name">Last Name :</label>
+                        {{ form.last_name }}
+                     {% if form_errors['last_name'] %}
+                        <div class="alert alert-danger">{{ form_errors['last_name'] }}</div>
+                     {% endif %}
+                  </div>
+                   <div class="form-group">
+                     <label for="Mobile">Mobile Number :</label>
+                        {{ form.mobile }}
+                      {% if form_errors['mobile'] %}
+                        <div class="alert alert-danger">{{ form_errors['mobile'] }}</div>
+                     {% endif %}
+                  </div>
+
+                  <div class="form-group">
+                     <label for="Email">Email ID :</label>
+                        {{ form.email }}
+                     {% if form_errors['email'] %}
+                        <div class="alert alert-danger">{{ form_errors['email'] }}</div>
+                     {% endif %}
+                  </div>
+                  <div class="form-group">
+                     <label for="gender">Gender :</label>
+                        {{ form.gender }}
+                  </div>
+                  <div class="form-group">
+
+                     <label for="dob">DOB :</label>
+                        {{ form.dob }}
+                  </div>
+               </div>
+               </div>
+            <div class="ln_solid">
+            </div>
+            <div class="row">
+               <div class="col-md-1 col-sm-3 col-xs-3 col-md-offset-4">
+                  <a href="#" class="btn btn-primary">Cancel</a>
+               </div>
+               <div class="col-md-1 col-sm-3 col-xs-3">
+                  <button class="btn btn-primary" type="reset">Reset</button>
+               </div>
+               <div class="col-md-1 col-sm-3 col-xs-3 ">
+                  <input type="hidden" name="role_id" value="4" class="form-control" />
+                  <button type="submit" class="btn btn-success">Submit</button>
+               </div>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+
+   $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3d',
+});
+
+</script>
+{% endblock %}

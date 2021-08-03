@@ -1,0 +1,97 @@
+{% extends '/layout.html' %}
+{% block title %}
+Store Timings On/Off
+{% endblock %}
+
+
+{% block right_col %}
+
+
+
+<!--<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">-->
+
+<div class="right_col" role="main">
+    <div class="clearfix"></div>
+    <div class="title_left">
+        <h3>Store Timings On/Off</h3>
+    </div>
+     <div class="clearfix"></div>
+    {% for store in stores %}
+    <div class="col-md-4 col-sm-4 col-xs-12 kitchen-timings">
+        <div class="store-box">
+
+            <div class="">
+
+                <h2 class="brief">{{ store.name }}
+                                <!-- button start  -->
+<div class="onoffswitch">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox timings-button" id="a{{ store.id }}z" data-store_id="{{store.id}}" {{"checked" if
+                store.status else ""}} data-toggle="toggle">
+    <label class="onoffswitch-label" for="a{{ store.id }}z">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+</div>
+                <!-- button start  -->
+                </h2>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-building"></i> Address: {{store.address}}</li>
+                </ul>
+
+
+
+                <br>
+ <!--<input type="checkbox" class="timings-button" data-store_id="{{store.id}}" {{"checked" if  store.status else ""}} data-toggle="toggle">-->
+                <!--<input type="checkbox" class="timings-button" >-->
+
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    <div class="clear-fix"></div>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+$(document).ready( function(){
+$('.timings-button').click(function(){
+      var store_id=$(this).data('store_id');
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+      console.log(store_id, csrftoken)
+      $.ajax({
+        url: "{{url('custom-admin:update_store_status')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "store_id" : store_id
+
+        },
+
+        success: function (res){
+                    if (res.status) {
+                        new PNotify({
+                            title: 'Success!',
+                            text: 'Store status changed successfully.',
+                            type: 'success',
+                            styling: 'bootstrap3',
+                            nonblock: {
+                                nonblock: true
+                            }
+                        });
+                        }}
+});
+});
+});
+
+
+
+
+</script>
+{% endblock %}

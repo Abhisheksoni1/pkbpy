@@ -1,0 +1,85 @@
+{% extends '/layout.html' %}
+{% block title %}
+Kitchen Timings On/Off
+{% endblock %}
+
+
+{% block right_col %}
+
+
+<div class="right_col" role="main">
+    <div class="title_left">
+        <h3>Kitchen Timings On/Off</h3>
+    </div>
+    <br>
+    {% for kitchen in kitchens %}
+    <div class="col-md-4 col-sm-4 col-xs-12 kitchen-timings">
+        <div class="store-box">
+
+            <div class="">
+                <h2 class="brief">{{ kitchen.name }}
+                <div class="onoffswitch">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox timings-button" id="a{{ kitchen.id }}z" data-kitchen_id="{{kitchen.id}}" {{"checked" if
+                kitchen.status else ""}} data-toggle="toggle">
+    <label class="onoffswitch-label" for="a{{ kitchen.id }}z">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+</div>
+                </h2>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-building"></i> Address: {{kitchen.address}}</li>
+                </ul>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    <div class="clear-fix"></div>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!--<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>-->
+<script>
+$(document).ready( function(){
+$('.timings-button').click(function(){
+      var kitchen_id=$(this).data('kitchen_id');
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+      console.log(kitchen_id, csrftoken)
+      $.ajax({
+        url: "{{url('custom-admin:update_kitchen_status')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "kitchen_id" : kitchen_id
+
+        },
+
+        success: function (res){
+                    if (res.status) {
+                        new PNotify({
+                            title: 'Success!',
+                            text: 'Kitchen status changed successfully.',
+                            type: 'success',
+                            styling: 'bootstrap3',
+                            nonblock: {
+                                nonblock: true
+                            }
+                        });
+                        }}
+});
+});
+});
+
+
+
+
+</script>
+{% endblock %}

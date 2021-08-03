@@ -1,0 +1,243 @@
+{% extends '/layout.html' %}
+
+
+{% block title %}
+Add Promo
+{% endblock %}
+
+{% block right_col %}
+<style>
+.form-control, input {
+    box-shadow: none;
+    width: 60%;
+}
+</style>
+	<script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
+<div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Add Promo Banner</h3>
+                </div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+
+                        <div class="x_content">
+
+                            <form id="demo-form2" method="post" data-parsley-validate=""
+                                  class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+                                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> Store <span
+                                            class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                        {{ form.store }}
+                                         {% if errors.store %}
+
+                                            <div class="alert alert-danger">{{errors.store}}</div>
+
+                                         {% endif %}
+
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> Kitchen <span
+                                            class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 kitchen_list">
+
+                                        {{ form.kitchen }}
+                                         {% if errors.store %}
+
+                                            <div class="alert alert-danger">{{errors.kitchen}}</div>
+
+                                         {% endif %}
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="promo-title">
+                                        Title<span
+                                            class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                        {{ form.title }}
+                                         {% if errors.title %}
+
+                                            <div class="alert alert-danger">{{errors.title}}</div>
+
+                                         {% endif %}
+
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Description
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                        {{ form.description }}
+                                         {% if errors.description %}
+
+                                            <div class="alert alert-danger">{{errors.description}}</div>
+
+                                         {% endif %}
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> Banner<span
+                                            class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                        {{form.banner}}
+
+
+                                         {% if errors.banner %}
+
+                                            <div class="alert alert-danger">{{errors.banner}}</div>
+
+                                         {% endif %}
+                                        {% if image_path %}
+                                        '<img src="{{MEDIA_URL}}{{image_path}}"class="img-responsive center-block">'
+
+                                        {% endif %}
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> Status
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                        {{ form.status }}
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="ln_solid"></div>
+                                <div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+
+                                        <input style="width:100px" type="submit" class="btn btn-success" value="Submit">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</div>
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+    tinymce.init({
+            selector: 'textarea',
+            width: '99%',
+            height: 200,
+            theme: 'modern',
+            plugins: [
+                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+            ],
+            toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+            image_advtab: true,
+            templates: [
+                {title: 'Test template 1', content: 'Test 1'},
+                {title: 'Test template 2', content: 'Test 2'}
+            ],
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+   </script>
+
+<script>
+
+    $('.stores').change(function(){
+
+      var store_id=$(this).val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+      console.log(store_id)
+      console.log(csrftoken)
+
+      $.ajax({
+        url: "{{url('custom-admin:get_store_kitchens')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "store_id" : store_id
+
+        },
+        success: function (data) {
+           if(data.status){
+                $('.kitchen_list').html('');
+                kitchen_list=data.data;
+                if(kitchen_list.length>0){
+                    var kitchen_html=`<select name="kitchen" type="radio"
+                     class="btn btn-primary btn-md" data-parsley-multiple="gender" id="id_kitchen">`
+                    var options=''
+                    $.each(data.data, function (i, u) {
+                        options+=`<option value="`+u.id+`">`+u.name+`</option>`
+                    });
+                    options+'</select>';
+                    $('.kitchen_list').append(kitchen_html+options);
+				}
+				else{
+				alert('this store has no kitchen')
+				}
+           }
+        }
+      });
+
+    })
+
+    $('.stores').change();
+</script>
+
+<script src="{{ static('js/input-file.js') }}"></script>
+{% endblock %}

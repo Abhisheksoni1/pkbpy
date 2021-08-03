@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="#" type="image/ico"/>
+
+    <title> Fildum | {% block title %}{% endblock%} </title>
+
+    <!-- Bootstrap -->
+    <link href="{{ static('vendors/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/fontawesome.min.css" rel="stylesheet"> -->
+      <link href="{{ static('vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+      
+    <!-- NProgress -->
+
+
+    <link href="{{ static('vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+
+    <link href="{{ static('vendors/datatables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ static('css/pnotify.custom.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ static('css/checkstree.css') }}">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.css" />
+    <link rel="stylesheet" type="text/css" href="{{ static('css/bootstrap-material-design.min.css') }}">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{{ static('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ static('css/dashboard.css') }}" rel="stylesheet">
+    {% block extra_css %}
+
+    {% endblock %}
+
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="{{ url ('custom-admin:index') if user.is_superuser else url ('custom-admin:index') }}" class="site_title"><i class="fa fa-paw"></i> <span>Fildum</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <!--<div class="profile clearfix">-->
+                    <!--<div class="profile_pic">-->
+
+                    <!--</div>-->
+                    <!--<div class="profile_info">-->
+                        <!--<span>Welcome,</span>-->
+
+                        <!--<h2>{{ user.name  if user.name else "Guest User"}}</h2>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!-- /menu profile quick info -->
+
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+
+                        <ul class="nav side-menu">
+
+                            {%if user.is_superuser %}
+                            <li><a href="{{url('custom-admin:index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Check out for orders & users along with compiled report of kitchens on periodical basis."><i class="fa fa-home"></i>
+                                Dashboard </a>
+                            </li>
+                            <li><a href="{{url('custom-admin:group_index')}}" class ="color-tooltip" data-toggle="tooltip" data-placement= "right"title="Create & manage your own customized clique/group of managers, delivery boys and users."><i class="fa fa-users"></i>
+                               Manage Groups</a>
+                            </li>
+
+                            <li><a href="{{url('custom-admin:client_index')}}"><i class="fa fa-home"></i>
+                               Manage Clients</a>
+                            </li>
+
+<!--                             <li><a href="{{url('custom-admin:manager_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Create and edit profile of managers for different stores."><i class="fa fa-tasks"></i>-->
+<!--                               Manage Managers</a>-->
+
+
+                            <li><a href="{{url('custom-admin:contact_index')}}"class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Make your store more visible! Create and manage your store’s contact information."><i class="fa fa-at"></i>
+                               Contact</a>
+                            </li>
+                             <li><a href="{{url('custom-admin:promo_banner')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Entice customers by exciting offers! Manage your promos based on kitchens."><i class="fa fa-buysellads"></i>
+                               Promo Banners</a>
+                            </li>
+                             <li><a href="{{url('custom-admin:page_main')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right"title="Making content more clickacious! Custom and edit legal/digital documents including About Us, Privacy Policy, Terms of Service and many more exclusively for your store."><i class="fa fa-file"></i>
+                               Pages</a>
+                            </li>
+                            <li><a class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Reach your users beyond a click! View the userbase based on your outlet(s) and right(s)."><i class="fa fa-user"></i> User Management <span
+                                    class="fa fa-chevron-down"></span></a>
+
+                                <ul class="nav child_menu">
+                                    <li><a href="{{url('custom-admin:users_index')}}" >All Users</a></li>
+                                </ul>
+                            </li>
+                             {% endif %}
+                            {%if not user.is_superuser and "Manager" in user.group_name %}
+                            </li>
+                                <li><a class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Manage your units and subunits including Kitchens, Stores, Categories and Items."><i class="fas fa-store"></i>Kitchen Management<span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{url('custom-admin:categories')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Use this option to manage the categories of your units/items.">Category</a></li>
+                                    <li><a href="{{url('custom-admin:items_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Use this option to manage the list of items/menu of your outlet(s).">Items</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Manage your Orders here."><i class="fas fa-store"></i>Order Management<span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                            <li><a href="{{url('custom-admin:all_order')}}">All Order</a></li>
+                            <li><a href="{{url('custom-admin:take_order')}}">Take order</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{url('custom-admin:delivery_index')}}" class="color-tooltip" data-toggle="tooltip"data-placement="right"title="Create and edit profile of delivery-boy for different stores."><i class="fa fa-child"></i>
+                               Manage Delivery boy</a></li>
+                            <li><a href="#" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="View the feedbacks for order(s) and kitchen(s) given by user(s)."><i class="fa fa-comments"></i>
+                               Feedback <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{url('custom-admin:order_feedback_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="View feedback on different order(s) given by the user(s).">Order Feedback</a></li>
+                                    <li><a href="{{url('custom-admin:kitchen_feedback_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" View feedback of kitchen(s) given by the user(s).">Kitchen Feedback</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                            {%if not user.is_superuser and "Owner" in user.group_name %}
+                                     <li><a class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Manage your units and subunits including Kitchens, Stores, Categories and Items."><i class="fas fa-store"></i>Store Management<span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{url('custom-admin:kitchens_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Use this option to manage your kitchen(s)">Kitchens</a></li>
+                                    <li><a href="{{url('custom-admin:categories')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Use this option to manage the categories of your units/items.">Category</a></li>
+                                    <li><a href="{{url('custom-admin:items_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Use this option to manage the list of items/menu of your outlet(s).">Items</a></li>
+                                </ul>
+                            </li>
+                                     <li><a class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Based on your kitchen(s), manage your taxes and discounts."><i class="fa fa-percent"></i>Taxes & Discounts<span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{url('custom-admin:taxes_index')}}">Taxes</a></li>
+                                    <li><a href="{{url('custom-admin:discount_index')}}">Discounts</a></li>
+                                </ul>
+                            </li>
+                                     <li><a href="{{url('custom-admin:manager_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Create and edit profile of managers for different stores."><i class="fa fa-tasks"></i>
+                               Manage Managers</a>
+                            </li>
+                             {% endif %}
+
+
+
+
+                             {%if user.is_superuser %}
+                            <li><a class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Manage your units and subunits including Kitchens, Stores, Categories and Items."><i class="fas fa-store"></i>Store Management<span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{url('custom-admin:stores_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Use this option to manage your store(s)">Stores</a></li>
+                                </ul>
+                            </li>
+<!--                                    <li><a href="{{url('custom-admin:kitchens_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Use this option to manage your kitchen(s)">Kitchens</a></li>-->
+<!--                                    <li><a href="{{url('custom-admin:categories')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Use this option to manage the categories of your units/items.-->
+<!--">Category</a></li>-->
+<!--                                    <li><a href="{{url('custom-admin:items_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Use this option to manage the list of items/menu of your outlet(s).-->
+<!--">Items</a></li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+
+<!--                            <li><a class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Based on your kitchen(s), manage your taxes and discounts."><i class="fa fa-percent"></i>Taxes & Discounts<span-->
+<!--                                    class="fa fa-chevron-down"></span></a>-->
+<!--                                <ul class="nav child_menu">-->
+<!--                                    <li><a href="{{url('custom-admin:taxes_index')}}">Taxes</a></li>-->
+<!--                                    <li><a href="{{url('custom-admin:discount_index')}}">Discounts</a></li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+                            <li><a class="color-tooltip" data-toggle="tooltip" data-placement="right" title="View and manage new and existing promo codes for your outlet(s)."><i class="fa fa-tag" ></i>Offers<span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{url('custom-admin:promo_code_index')}}">Promo Code</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+
+
+
+                            {%if user.is_superuser %}
+                             <li>
+                                 <a href="{{url('custom-admin:notifications')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title="Send and notify users regarding your latest offers, exciting discounts, enticing dishes and many more!"><i class="fa fa-bell"></i>Notifications</a>
+                             </li>
+                            <li>
+                                 <a href="{{url('custom-admin:manage_points')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title=" Award certain user(s), the tally of wallet points based on user activity."><i class="fa fa-rupee-sign"></i> Manage Wallet Points</a>
+                             </li>
+
+                            <li><a href="#" class="color-tooltip" data-toggle="tooltip" data-placement="right" title= "view the billing section and norms of the financial year(s)."><i class="fa fa-wrench"></i>
+                               Settings<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{url('custom-admin:financial_year')}}">Financial Year</a></li>
+                                </ul>
+                            </li>
+
+
+
+                            <li><a href="{{url('custom-admin:faqs_index')}}" class="color-tooltip" data-toggle="tooltip" data-placement="right" title= "Having trouble while using certain functionality! Go through our Frequently Answered Questions which may assist you."><i class="fa fa-question"></i>
+                               FAQ's</a>
+                            </li>
+{% endif %}
+
+                        </ul>
+                    </div>
+
+                    <!--<div class="menu_section">-->
+                        <!--<h3>Live On</h3>-->
+
+                    <!--</div>-->
+
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen" class="glyphicon glyphicon-fullscreen" >
+<!--                        <a href="#" class="open">Open Fullscreen</a>-->
+<!--                        <a href="#" class="close">Exit fullscreen</a>-->
+<!--                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="false"></span>-->
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout"
+                       href="{{ url('custom-admin:auth_logout') }}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="false"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="">
+
+                            <a href="javascript:void(0);" class="user-profile dropdown-toggle top_right_click " data-toggle="dropdown" aria-expanded="false">
+                             <div  class="profile_top">
+                                  <!--<span>Welcome,</span>-->
+                                  <h2>{{ user.name  if user.name else "Guest User"}}</h2>
+                              </div>
+<!--                                {% if user.name %}-->
+<!--                                {{user.name.title()}}-->
+<!--                                {% endif %}-->
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="{{ url('custom-admin:auth_change_password') }}"> Change Password</a></li>
+
+                                <li><a href="{{ url('custom-admin:auth_logout') }}"><i
+                                        class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        {% block right_col %}
+
+        {% endblock %}
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Developed by <a href="http://codeflowtech.com/" target="_blank">Code Flow Tech</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="{{ static('js/jquery.min.js') }}"></script>
+<script src="{{ static('js/jquery.nicescroll.min.js') }}" ></script>
+<script type="text/javascript">
+ $(document).ready(function(e) {
+    $("#sidebar-menu").niceScroll();
+    });
+</script>
+
+<script src="{{ static('js/autocomplete.js') }}"></script>
+<script src="{{ static('vendors/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ static('js/moment.min.js') }}"></script>
+<script src="{{ static('js/bootbox.min.js') }}"></script>
+<!-- Tinymce -->
+<script type='text/javascript' src="{{ static('vendors/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+<script src="{{ static('js/form-validator/jquery.form-validator.min.js') }}"></script>
+<script type="text/javascript" src="{{ static('js/checktree.js') }}"></script>
+<script src="{{ static('js/pnotify.custom.min.js') }}"></script>
+
+{% include "include/messages.html" %}
+
+{% block extra_js_lib %}{% endblock %}
+<script src="{{ static('js/bootstrap-material-datetimepicker.js') }}"></script>
+<script src="{{ static('vendors/datatables/datatables.min.js') }}"></script>
+<!-- Custom Theme Scripts -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="{{ static('js/custom.js') }}"></script>
+<script src="{{ static('js/web-socket.js') }}"></script>
+<script type='text/javascript' src="{{ static('vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}" ></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr-INLeH6yG9JI_AkVJlRygrHvOa7Q_KU&libraries=places&callback=initMap" async defer></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<div class="modal fade" id="img_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Uploaded Image</h4>
+            </div>
+            <div class="modal-body">
+                <img src="" class="img-responsive center-block">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+      $.validate({
+        modules: 'date, security, file',
+       });
+  
+      $(document).on("click",".view_img_card",function () {
+          var img = $(this).data("img");
+          $('#img_modal').find('img').attr('src', img);
+          $('#img_modal').modal();
+      });
+
+       $('.glyphicon-fullscreen').click(function() {
+
+            document.fullScreenElement && null !== document.fullScreenElement || !document.mozFullScreen && !document.webkitIsFullScreen ? document.documentElement.requestFullScreen ? document.documentElement.requestFullScreen() : document.documentElement.mozRequestFullScreen ? document.documentElement.mozRequestFullScreen() : document.documentElement.webkitRequestFullScreen && document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT) : document.cancelFullScreen ? document.cancelFullScreen() : document.mozCancelFullScreen ? document.mozCancelFullScreen() : document.webkitCancelFullScreen && document.webkitCancelFullScreen()
+
+       });
+    });
+
+function loader(ele) {
+        var class_name = ele.attr("class");
+        if (!!!class_name) {
+            class_name = ""
+        }
+        if ($(ele).prop("tagName") == "BUTTON") {
+            var o_html = $(ele).html()
+            ele.data("o_html", o_html);
+            ele.prop('disabled', true);
+            return ele.html('<i class="fa fa-spin fa-spinner loader_element"></i>')
+        } else {
+            ele.hide();
+            ele.parent().append('<i class="fa fa-spin fa-spinner loader_element ' + class_name + ' "></i>');
+        }
+    }
+
+    function reset_loader(ele) {
+        if ($(ele).prop("tagName") == "BUTTON") {
+            ele.prop('type', 'submit');
+            ele.prop('disabled', false);
+            return ele.html(ele.data("o_html"));
+        }
+        ele.parent().find(".loader_element").remove();
+        ele.show();
+    }
+
+</script>
+
+
+{% block extra_js %} {% endblock %}
+
+</body>
+</html>

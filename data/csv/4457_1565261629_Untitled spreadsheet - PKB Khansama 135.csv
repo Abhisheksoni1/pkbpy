@@ -1,0 +1,22 @@
+name,food_type,category_name,half,full,base_price
+Paneer Butter Masala,Vegetarian,Main Course (Veg),,,240
+Kadai Paneer,Vegetarian,Main Course (Veg),,,260
+Dal Makhani,Vegetarian,Main Course (Veg),,,220
+Mix Vegetable,Vegetarian,Main Course (Veg),,,190
+Soya Chaap Masala,Vegetarian,Main Course (Veg),,,200
+Egg Curry,Non-Vegetarian,Main Course (Non-Veg),140,210,140
+Butter Chicken,Non-Vegetarian,Main Course (Non-Veg),350,580,350
+Chicken Korma,Non-Vegetarian,Main Course (Non-Veg),340,580,340
+Chicken Kali Mirch,Non-Vegetarian,Main Course (Non-Veg),380,580,380
+Chicken Curry,Non-Vegetarian,Main Course (Non-Veg),320,550,320
+Mutton Rogan Josh,Non-Vegetarian,Main Course (Non-Veg),,,590
+Paneer Tikka,Vegetarian,Snacks,,,220
+Chicken Lolipop,Non-Vegetarian,Snacks,,,220
+Tandoori Chicken,Non-Vegetarian,Snacks,250,450,250
+Plain Naan,Vegetarian,Breads,,,30
+Butter Naan,Vegetarian,Breads,,,35
+Tandoori Roti,Vegetarian,Breads,,,15
+Lachha Paratha,Vegetarian,Breads,,,30
+Plain Curd,Vegetarian,Extras,,,30
+Raita,Vegetarian,Extras,,,50
+Chutney,Vegetarian,Extras,,,30

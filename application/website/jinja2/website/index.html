@@ -1,0 +1,270 @@
+{% extends 'website/base_templates/base.html' %}
+<!-- Start your project here-->
+
+{% block body %}
+<div class="menu-wrap"></div>
+<div class="clearfix"></div>
+
+<section class="banner bnr_top_110px">
+    <div class="hom_banner owl-carousel">
+
+        <div class="item">
+            <img src="{{static('images/b1_offer.jpg')}}" alt="" class="ban_desk_ban">
+            <img src="{{static('images/b1_offer_mob.jpg')}}" alt="" class="ban_mob_ban">
+        </div>
+
+
+        <div class="item">
+            <img src="{{static('images/b3_offer.jpg')}}" alt="" class="ban_desk_ban">
+            <img src="{{static('images/b3_offer_mob.jpg')}}" alt="" class="ban_mob_ban">
+        </div>
+
+        <div class="item">
+            <img src="{{static('images/b4_offer.jpg')}}" alt="" class="ban_desk_ban">
+            <img src="{{static('images/b4_offer_mob.jpg')}}" alt="" class="ban_mob_ban">
+        </div>
+
+        <div class="item">
+            <img src="{{static('images/b3.jpg')}}" alt="" class="ban_desk_ban">
+            <img src="{{static('images/b3_mob.jpg')}}" alt="" class="ban_mob_ban">
+        </div>
+        <div class="item">
+            <img src="{{static('images/b4.jpg')}}" alt="" class="ban_desk_ban">
+            <img src="{{static('images/b4_mob.jpg')}}" alt="" class="ban_mob_ban">
+        </div>
+        <div class="item">
+            <img src="{{static('images/b5.jpg')}}" alt="" class="ban_desk_ban">
+            <img src="{{static('images/b5_mob.jpg')}}" alt="" class="ban_mob_ban">
+        </div>
+    </div>
+    <div class="mobile_msg">
+        <ul>
+            <li><a href="tel:+91 9540665522 "><img src="{{static('images/icon/Call-Btn.png')}}" alt="call now"></a></li>
+            <li><a href="sms:+91 9540665522"><img src="{{static('images/icon/Msgl-Btn.png')}}" alt="call now"></a></li>
+        </ul>
+    </div>
+    <div class="cal_order_wrap play_store">
+        <div class="">
+
+
+            <a href="https://play.google.com/store/apps/details?id=com.rest.petukibiryani.user&hl=en"
+               onclick="trackOutboundLink('https://play.google.com/store/apps/details?id=com.rest.petukibiryani.user&hl=en'); return false;"
+               target="_blank"><img src="{{static('images/pkb_andriod.png')}}" alt="Download PKB app"></a>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="clearfix"></div>
+<section class="mid_page">
+    <div class="container">
+        <div class="feture_itms">
+            <h3 class="mid_heding">FEATURED ITEMS</h3>
+            <ul>
+                <div class="">
+                    <li class="bg_text"><h4>NAWABI CHICKEN DUM BIRYANI</h4>
+                        <p>
+                            Our Nawabi Chicken Dum Biryani is infused with fresh and locally sourced ingredients that
+                            are rich in fragrance. The quality and purity of this dish alone is our recommendation. </p>
+                        <span class="item_price"><img src="{{static('images/icon/rupee.png')}}" alt=""> 490/-</span></li>
+                    <li class="bg_img"><img src="{{static('images/chicken_dum_img.jpg')}}" alt=""><img
+                            src="{{static('images/icon/items_right_arow.png')}}" alt="" class="lft_arw"></li>
+                </div>
+
+                <div class="">
+                    <li class="bg_text"><h4>SHAHI VEG BIRYANI</h4>
+                        <p> The name holds the rich and royal flavour in itself. The secret herbs, spices, long-grain
+                            rice and fresh vegetables cooked in handis enhance the aroma and texture of this
+                            cuisine.</p><span class="item_price"><img src="{{static('images/icon/rupee.png')}}" alt=""> 430/-</span>
+                    </li>
+                    <li class="bg_img flex-first flex-md-unordered"><img src="{{static('images/shahi_vegimg.jpg')}}"
+                                                                         alt=""> <img
+                            src="{{static('images/icon/items_right_arow.png')}}" alt="" class="lft_arw"></li>
+                </div>
+                <!-- start botoom  -->
+
+                <div class="clearfix"></div>
+
+                <div class="rev_top_btm">
+                    <li class="bg_img"><img src="{{static('images/chicken_lollipop_img.jpg')}}" alt=""><img
+                            src="{{static('images/icon/items_lft_arow.png')}}" alt="" class="right_arw"></li>
+                    <li class="bg_text"><h4>CHICKEN LOLLIPOP</h4>
+                        <p>Savour an expose of bountiful chicken dish, enhanced by the combination of exotic flavours.
+                            Every bite of this mouth-watering dish is a feast for your taste buds.</p><span
+                                class="item_price"><img src="{{static('images/icon/rupee.png')}}" alt=""> 210/-</span></li>
+                </div>
+
+                <div class="rev_top_btm ">
+                    <li class="bg_img"><img src="{{static('images/egg_briyani_img.jpg')}}" alt=""><img
+                            src="{{static('images/icon/items_lft_arow.png')}}" alt="" class="right_arw"></li>
+                    <li class="bg_text"><h4>EGG BIRYANI</h4>
+                        <p>The succulent pieces of egg enveloped in a lot of spices including Onion, Ginger, Garlic &
+                            other herbs, emanate an irresistible aroma that will definitely make you hungry
+                            instantly.</p><span class="item_price"><img src="{{static('images/icon/rupee.png')}}" alt=""> 399/-</span>
+                    </li>
+                </div>
+
+
+            </ul>
+            <div class="clearfix"></div>
+            <a class="viw_menu" href="/menu-screen">VIEW OUR MENU <img
+                    src="{{static('images/icon/right_arrow.png')}}" alt=""></a>
+        </div>
+
+
+    </div>
+    <div class="ordr_online">
+        <div class="container">
+            <ul>
+                <li><a href="https://www.zomato.com/petukibiryani" target="_blank"><img
+                        src="{{static('images/zomato.png')}}" alt=""></a></li>
+                <li><a href=" https://www.swiggy.com/delhi/petu-ki-biryani-indirapuram-indirapuram" target="_blank"><img
+                        src="{{static('images/swigy.png')}}" alt=""></a></li>
+                <li><a href=" https://www.foodpanda.in/restaurant/m6gq/petu-ki-biryanib-shakti-khand-iv"
+                       target="_blank"><img src="{{static('images/foodpanda.png')}}" alt=""></a></li>
+                <li><a href="http://www.petukibiryani.com/contact-us.html" target="_blank"><img
+                        src="{{static('images/direct_order.png')}}" alt=""></a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <a href="http://www.petukibiryani.com/contact-us.html" target="_blank" class="btn_ordr_onl_now">Direct Order
+                <img src="{{static('images/icon/right_arrow-dbl.png')}}" alt=""></a>
+        </div>
+    </div>
+
+    <div class="the_best">
+        <div class="container">
+            <h3 class="">Experience The Best</h3>
+            <p class="head_ylow_tag">Good Food &nbsp; . &nbsp; Great Services &nbsp; . &nbsp; Delectable Times</p>
+            <div class="the_best_main">
+                <div class="the_best_sml">
+                    <div class="the_best_sm"><img src="{{static('images/icon/fresh.png')}}" alt=""><h4>FRESH
+                        INGREDIENTS</h4>
+                        <p>We use only the best ingredients to cook the tasty fresh food for you.</p></div>
+                </div>
+                <div class="the_best_sml">
+                    <div class="the_best_sm"><img src="{{static('images/icon/chef.png')}}" alt=""><h4>EXPERIENCED
+                        CHEFS</h4>
+                        <p>The brilliance is captured through flavours & textures in the dishes created by our finest
+                            chefs.</p></div>
+                </div>
+                <div class="the_best_sml">
+                    <div class="the_best_sm"><img src="{{static('images/icon/handi.png')}}" alt=""><h4>HAND MADE
+                        HANDI</h4>
+                        <p>Porous nature of handi locks in nutrients giving a delicious taste to the dish.</p></div>
+                </div>
+                <div class="the_best_sml">
+                    <div class="the_best_sm"><img src="{{static('images/icon/scooter.png')}}" alt=""><h4>FAST
+                        DELIVERY</h4>
+                        <p>Everything you order from Petu ki Biryani will be quickly delivered at your door. </p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container">
+        <div class="testmn">
+            <div class="owl-carousel testmn_slider owl-theme">
+                <div class="item"><p>“I am a regular customer. I found the biryani one of the best in Indirapuram.</p>
+                    <p>Specially Nawabi biryani. Very polite staffs.”</p>  <img
+                            src="{{static('images/testmnl_user/Zahid-Ahmad.png')}}" alt="" class="testmn_img">
+                    <p class="testmn_user">Zahid Ahmad</p></div>
+
+                <div class="item">
+                    <p> “Nice food, Just had Nawabi Chicken Biryani and for me it is one of the best biryani I have till
+                        date. Nice flavour & taste, good amount of chicken in biryani and well marinated. Rayta along
+                        with biryani was also good. It was feeling like rayta made of Dahi (not like Rayta made of Dahi
+                        flavoured water like many of other vendors makes it). Over all good biryani and I believe they
+                        will be getting lots of more in future. Wishing them luck”</p>  <img
+                        src="{{static('images/testmnl_user/Yash-Khanna.png')}}" alt="" class="testmn_img">
+                    <p class="testmn_user">Yash Khanna</p></div>
+
+                <div class="item"><p>“This is a must try biryani place.</p>
+                    <p>I tried Nawabi chicken dum biryani and Nizami chicken dum biryani. Both of the biryanis tasted
+                        amazing. Quantity was also good. They must add some salad in their food. Apart from that,
+                        there's nothing i can add in the Suggestions.</p>
+                    <p>Thumbs up to this place.”</p>  <img src="{{static('images/testmnl_user/Himani-Verma.png')}}"
+                                                           alt="" class="testmn_img">
+                    <p class="testmn_user">Himani Verma</p></div>
+
+                <div class="item"><p>“Looks beautiful in the pottery container.</p>
+                    <p>The onion garnishing should not be that thick & flavouring can be improved. Still good :)”</p>
+                    <img src="{{static('images/testmnl_user/Ishita.png')}}" alt="" class="testmn_img">
+                    <p class="testmn_user">Ishita S</p></div>
+
+                <div class="item">
+                    <p> “There are places in Delhi which serves some good Biryani but they are not actually Biryanis.
+                        Now, if I talk about PKB, they managed to serve good Biryani, in a good package and believe me
+                        for the first time, I had one of the sumptuous Biryani with the juiciest chicken pieces in Delhi
+                        NCR. Then I had their chicken korma which did not have the taste of korma but a good chicken
+                        curry. Overall, a good place for Biryani lovers in Ghaziabad.”</p>  <img
+                        src="{{static('images/testmnl_user/Niraj-Bahadur-Lal.png')}}" alt="" class="testmn_img">
+                    <p class="testmn_user">Niraj Bahadur Pal</p></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="abt_us">
+        <div class="container">
+            <div class="abt_lft_txt">
+                <h3>ABOUT US</h3>
+                <p>Cuisines have their own blend, their own aroma and they leave their own imprint in history. We,
+                    Indians are the flavour lovers and we like our food to be rich with aroma and right amount of
+                    spices. Biryani, just mentioning the word is enough to arouse and excite the gastronomic juices of
+                    million plates. </p>
+                <p>We understand the value that a good entrée of delightful food holds. 3 years back with a single
+                    vision to serve you only the best with authentic taste and uncompromising quality, “Petu Ki Biryani”
+                    was founded on April 2015. We established Petu Ki Biryani only to produce good cuisine, impart
+                    excellent services and provide a delightful and consistent experience to our food lovers. </p>
+                <a href="aboutus.html">Know MORE <img src="{{static('images/icon/right_arrow_yellow.png')}}" alt=""></a>
+            </div>
+            <div class="abt_lft_img">
+                <ul>
+                    <li><img src="{{static('images/about_us_img1.jpg')}}" alt=""></li>
+                    <li><img src="{{static('images/about_us_img2.jpg')}}" alt=""></li>
+                    <li><img src="{{static('images/about_us_img3.jpg')}}" alt=""></li>
+                    <li><img src="{{static('images/about_us_img4.jpg')}}" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="home_map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14005.254182707937!2d77.371606!3d28.650329!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9d4a2a985cd96eb9!2sPetu+Ki+Biryani!5e0!3m2!1sen!2sin!4v1526470590329"
+                width="100%" height="526" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
+
+</section>
+
+<div class="clearfix"></div>
+
+
+<div class="container">
+
+    <!-- Trigger the modal with a button -->
+    <!--  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+
+    <!-- Modal -->
+    <div class="modal modal_pkb fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <img class="close" data-dismiss="modal" src="{{static('images/close.png')}}" alt="image missing">
+
+
+                <div class="modal-body pkb_modal">
+                    <img src="{{static('images/popup.jpg')}}" alt="pop image missing">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,315 @@
+id,name,description,short_description,status,is_deleted,created_on,updated_on
+50,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+51,Soft Drinks,Truffle Nuts Pudding [1 piece],Truffle Nuts Pudding [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+52,Sweets,Melting Brownie [1 piece],Melting Brownie [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+53,Non-Vegetarian,Rainbow Pastry [1 piece],Rainbow Pastry [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+54,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+55,Soft Drinks,Gulab Jamun,Gulab Jamun,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+56,Soft Drinks,Rasgulla,Rasgulla,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+57,Combo,Rasmalai,Rasmalai,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+58,Vegetarian,Badam Chaap,Badam Chaap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+59,Soft Drinks,Anarkali,Anarkali,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+60,Sweets,Pista Chakra,Pista Chakra,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+61,Combo,Varmala,Varmala,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+62,Non-Vegetarian,Malai Chaap,Malai Chaap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+63,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+64,Sweets,Pista Milk Cookies [200 grams],Pista Milk Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+65,Combo,Milk Pista Flake Cookies [200 grams],Milk Pista Flake Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+66,Vegetarian,Milk Coconut Cookies [200 grams],Milk Coconut Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+67,Vegetarian,Milk Badam Cookies [200 grams],Milk Badam Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+68,Soft Drinks,Ajwain Butter Salt Cookies [200 grams],Ajwain Butter Salt Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+69,Vegetarian,Kaju Pista Cookies [200 grams],Kaju Pista Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+70,Sweets,Chocolate Kaju Cookies [200 grams],Chocolate Kaju Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+71,Non-Vegetarian,French Hearts [250 grams],French Hearts [250 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+72,Non-Vegetarian,Besan Khatai [200 grams],Besan Khatai [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+73,Soft Drinks,Honey Oats Cookies [200 grams],Honey Oats Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+74,Non-Vegetarian,Nankhatai [200 grams],Nankhatai [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+75,Sweets,Coconut Khatai [200 grams],Coconut Khatai [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+76,Non-Vegetarian,Butter Jeera Cookies [200 grams],Butter Jeera Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+77,Sweets,Choco Chips Cookies [200 grams],Choco Chips Cookies [200 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+78,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+79,Vegetarian,White Forest Cake,White Forest Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+80,Vegetarian,Black Forest Cake,Black Forest Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+81,Non-Vegetarian,Blueberry Cake,Blueberry Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+82,Combo,Choco Truffle Cake,Choco Truffle Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+83,Combo,Choco Chip Cake,Choco Chip Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+84,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+85,Non-Vegetarian,Banana Walnut Dry Cake,Banana Walnut Dry Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+86,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+87,Non-Vegetarian,Chocolate Lolipop,Chocolate Lolipop,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+88,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+89,Sweets,Pineapple Pastry [1 piece],Pineapple Pastry [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+90,Soft Drinks,Black Forest Pastry [1 piece],Black Forest Pastry [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+91,Sweets,Butter Scotch Pastry [1 piece],Butter Scotch Pastry [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+92,Sweets,Blueberry Pastry [1 piece],Blueberry Pastry [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+93,Vegetarian,Choco Truffle Pastry [1 piece],Choco Truffle Pastry [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+94,Vegetarian,Truffle Nuts Pudding [1 piece],Truffle Nuts Pudding [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+95,Non-Vegetarian,Red Velvet Pastry [1 piece],Red Velvet Pastry [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+96,Soft Drinks,Melting Brownie [1 piece],Melting Brownie [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+97,Soft Drinks,Muddy Chocolate Roll [1 piece],Muddy Chocolate Roll [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+98,Vegetarian,Brownie Lava [1 piece],Brownie Lava [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+99,Vegetarian,Rainbow Pastry [1 piece],Rainbow Pastry [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+100,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+101,Vegetarian,Cake Rusk,Cake Rusk,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+102,Non-Vegetarian,Pao Bun,Pao Bun,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+103,Soft Drinks,Garlic Bread,Garlic Bread,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+104,Combo,Kulcha Bun,Kulcha Bun,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+105,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+106,Non-Vegetarian,Ajwain Puff [150 grams],Ajwain Puff [150 grams],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+107,Vegetarian,Mix Veg Roll [1 piece],Mix Veg Roll [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+108,Sweets,Cheese Burger [1 piece],Cheese Burger [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+109,Vegetarian,Methi Twister,Methi Twister,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+110,Vegetarian,Aloo Patties [1 piece],Aloo Patties [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+111,Combo,Paneer Patties [1 piece],Paneer Patties [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+112,Vegetarian,Mushroom Patties [1 piece],Mushroom Patties [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+113,Vegetarian,Veg Sandwich [1 piece],Veg Sandwich [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+114,Soft Drinks,Pizza Bite [1 piece],Pizza Bite [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+115,Vegetarian,Cream Roll [1 piece],Cream Roll [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+116,Non-Vegetarian,Doughnuts [1 piece],Doughnuts [1 piece],True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+117,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+118,Sweets,Gulab Jamun,Gulab Jamun,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+119,Combo,Jalebi,Jalebi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+120,Soft Drinks,Rajbhog,Rajbhog,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+121,Sweets,Rasgulla,Rasgulla,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+122,Non-Vegetarian,Rasmalai,Rasmalai,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+123,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+124,Soft Drinks,Bikaneri Burfi,Bikaneri Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+125,Soft Drinks,Plain Burfi,Plain Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+126,Non-Vegetarian,Pista Burfi,Pista Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+127,Soft Drinks,Doda Burfi,Doda Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+128,Non-Vegetarian,Moong Dal Burfi,Moong Dal Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+129,Soft Drinks,Coconut Burfi,Coconut Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+130,Combo,Kesar Coconut Burfi,Kesar Coconut Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+131,Sweets,Chocolate Burfi,Chocolate Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+132,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+133,Non-Vegetarian,Choorma laddoo,Choorma laddoo,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+134,Soft Drinks,Marwari laddoo,Marwari laddoo,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+135,Combo,Jodhpuri Laddoo,Jodhpuri Laddoo,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+136,Combo,Special Laddoo,Special Laddoo,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+137,Sweets,Panjeeri Laddoo,Panjeeri Laddoo,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+138,Non-Vegetarian,Besan Laddoo,Besan Laddoo,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+139,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+140,Combo,Milk Cake,Milk Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+141,Non-Vegetarian,White Peda,White Peda,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+142,Soft Drinks,Brown Peda,Brown Peda,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+143,Combo,Kesar Peda,Kesar Peda,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+144,Sweets,Khoya Badam Pakeeja,Khoya Badam Pakeeja,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+145,Vegetarian,Moti Pak,Moti Pak,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+146,Non-Vegetarian,Gulab Jamun,Gulab Jamun,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+147,Combo,Kala Jamun,Kala Jamun,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+148,Soft Drinks,Kali Rasbhari,Kali Rasbhari,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+149,Combo,Kheer Kadam,Kheer Kadam,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+150,Vegetarian,Khoya Roll,Khoya Roll,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+151,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+152,Combo,Kaju Burfi,Kaju Burfi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+153,Vegetarian,Kaju Ghujia,Kaju Ghujia,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+154,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+155,Soft Drinks,Gajra Malai Chaap,Gajra Malai Chaap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+156,Combo,Badam Chaap,Badam Chaap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+157,Vegetarian,Anarkali,Anarkali,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+158,Non-Vegetarian,Malai Rabdi,Malai Rabdi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+159,Sweets,Pista Chakra,Pista Chakra,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+160,Vegetarian,Rasbhari,Rasbhari,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+161,Sweets,Varmala,Varmala,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+162,Combo,Malai Chaap,Malai Chaap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+163,Non-Vegetarian,Chena Toast,Chena Toast,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+164,Vegetarian,Chenna Murki,Chenna Murki,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+165,Sweets,Kalakand,Kalakand,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+166,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+167,Non-Vegetarian,Ghujia,Ghujia,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+168,Vegetarian,Balushahi,Balushahi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+169,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+170,Non-Vegetarian,Pinni,Pinni,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+171,Non-Vegetarian,Patisa,Patisa,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+172,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+173,Combo,Aloo Chips Masala,Aloo Chips Masala,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+174,Vegetarian,Aloo Chips Plain,Aloo Chips Plain,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+175,Non-Vegetarian,Aloo Chips (Wafers),Aloo Chips (Wafers),True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+176,Vegetarian,Navratan Mixture,Navratan Mixture,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+177,Non-Vegetarian,Aloo Lachcha Plain,Aloo Lachcha Plain,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+178,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+179,Non-Vegetarian,Plain Namakpara,Plain Namakpara,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+180,Vegetarian,Masala Namakpara,Masala Namakpara,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+181,Non-Vegetarian,Methi Matthi,Methi Matthi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+182,Sweets,Gol Matthi,Gol Matthi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+183,Combo,Tikoni Matthi,Tikoni Matthi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+184,Non-Vegetarian,Dabbi Matthi,Dabbi Matthi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+185,Non-Vegetarian,Palak Matthi,Palak Matthi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+186,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+187,Non-Vegetarian,Corn Flakes,Corn Flakes,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+188,Vegetarian,Moong Dal,Moong Dal,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+189,Combo,Chirwa Mixture,Chirwa Mixture,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+190,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+191,Vegetarian,Masala Kaju,Masala Kaju,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+192,Combo,Plain Salted Kaju,Plain Salted Kaju,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+193,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+194,Combo,Besan Papri,Besan Papri,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+195,Combo,Ratlami Sev,Ratlami Sev,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+196,Non-Vegetarian,Bhavnagiri Sev,Bhavnagiri Sev,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+197,Non-Vegetarian,Bikaneria Bhujia,Bikaneria Bhujia,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+198,Soft Drinks,Gujrati Mixture,Gujrati Mixture,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+199,Combo,Gathia,Gathia,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+200,Vegetarian,Plain Bhujia,Plain Bhujia,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+201,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+202,Sweets,2 Medium Pizzas at ₹199 each,2 Medium Pizzas at ₹199 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+203,Vegetarian,2 Medium Pizzas at ₹249 each,2 Medium Pizzas at ₹249 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+204,Sweets,2 Medium Pizzas at ₹299 each,2 Medium Pizzas at ₹299 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+205,Combo,2 Medium Pizzas at ₹399 each,2 Medium Pizzas at ₹399 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+206,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+207,Combo,2 Regular Pizzas at ₹99 each,2 Regular Pizzas at ₹99 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+208,Non-Vegetarian,2 Regular Pizzas at ₹139 each,2 Regular Pizzas at ₹139 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+209,Sweets,2 Regular pizzas at ₹179 each,2 Regular pizzas at ₹179 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+210,Combo,2 Regular Pizzas at ₹219 each,2 Regular Pizzas at ₹219 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+211,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+212,Soft Drinks,Margherita,Margherita,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+213,Vegetarian,Farmhouse,Farmhouse,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+214,Combo,Peppy Paneer,Peppy Paneer,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+215,Combo,Veg Extravaganza,Veg Extravaganza,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+216,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+217,Vegetarian,Onion,Onion,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+218,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+219,Sweets,2 Medium Pizzas at ₹199 each,2 Medium Pizzas at ₹199 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+220,Soft Drinks,2 Medium Pizzas at ₹249 each,2 Medium Pizzas at ₹249 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+221,Sweets,2 Medium Pizzas at ₹299 each,2 Medium Pizzas at ₹299 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+222,Sweets,2 Regular Pizzas at ₹99 each,2 Regular Pizzas at ₹99 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+223,Combo,2 Regular Pizzas at ₹139 each,2 Regular Pizzas at ₹139 each,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+224,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+225,Non-Vegetarian,Margherita,Margherita,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+226,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+227,Vegetarian,Farmhouse,Farmhouse,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+228,Combo,Peppy Paneer,Peppy Paneer,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+229,Non-Vegetarian,Mexican Green Wave,Mexican Green Wave,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+230,Sweets,Veggie Paradise,Veggie Paradise,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+231,Combo,Paneer Makhani,Paneer Makhani,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+232,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+233,Combo,Deluxe Veggie,Deluxe Veggie,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+234,Vegetarian,Veg Extravaganza,Veg Extravaganza,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+235,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+236,Vegetarian,Double Cheese Margherita,Double Cheese Margherita,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+237,Vegetarian,Cheese n Corn,Cheese n Corn,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+238,Combo,Fresh Veggie,Fresh Veggie,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+239,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+240,Non-Vegetarian,African Peri Peri Veg,African Peri Peri Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+241,Combo,Aussie Barbecue Veg,Aussie Barbecue Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+242,Sweets,Jamaican Jerk Veg,Jamaican Jerk Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+243,Combo,Indi Tandoori Paneer,Indi Tandoori Paneer,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+244,Soft Drinks,English Cheddar And Veggies,English Cheddar And Veggies,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+245,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+246,Combo,Pepper Barbecue Chicken,Pepper Barbecue Chicken,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+247,Combo,Chicken Sausage,Chicken Sausage,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+248,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+249,Vegetarian,Pepper Barbecue & Onion,Pepper Barbecue & Onion,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+250,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+251,Combo,Chicken Golden Delight,Chicken Golden Delight,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+252,Combo,Chicken Fiesta,Chicken Fiesta,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+253,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+254,Non-Vegetarian,Non Veg Supreme,Non Veg Supreme,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+255,Non-Vegetarian,Chicken Pepperoni,Chicken Pepperoni,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+256,Non-Vegetarian,Chicken Dominator,Chicken Dominator,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+257,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+258,Sweets,African Peri Peri Chicken,African Peri Peri Chicken,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+259,Soft Drinks,Aussie Barbecue Chicken,Aussie Barbecue Chicken,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+260,Combo,Jamaican Jerk Chicken,Jamaican Jerk Chicken,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+261,Vegetarian,Indi Chicken Tikka,Indi Chicken Tikka,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+262,Non-Vegetarian,English Cheddar And Chicken Sausage,English Cheddar And Chicken Sausage,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+263,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+264,Sweets,Capsicum,Capsicum,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+265,Vegetarian,Onion,Onion,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+266,Combo,Golden Corn,Golden Corn,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+267,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+268,Soft Drinks,Non Veg Loaded,Non Veg Loaded,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+269,Non-Vegetarian,Chicken Sausage,Chicken Sausage,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+270,Soft Drinks,Pepper Barbecue Chicken,Pepper Barbecue Chicken,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+271,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+272,Vegetarian,Veg Loaded,Veg Loaded,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+273,Non-Vegetarian,Cheesy,Cheesy,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+274,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+275,Combo,White Pasta Italiano Veg,White Pasta Italiano Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+276,Vegetarian,White Pasta Italiano Non-Veg,White Pasta Italiano Non-Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+277,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+278,Non-Vegetarian,Garlic Breadsticks,Garlic Breadsticks,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+279,Vegetarian,Stuffed Garlic Breadsticks,Stuffed Garlic Breadsticks,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+280,Vegetarian,Chicken Parcel,Chicken Parcel,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+281,Combo,Veg Parcel,Veg Parcel,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+282,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+283,Sweets,Cheesy Jalapeno Dip,Cheesy Jalapeno Dip,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+284,Sweets,Cheesy Dip,Cheesy Dip,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+285,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+286,Vegetarian,Burger Pizza - Classic Veg,Burger Pizza - Classic Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+287,Non-Vegetarian,Burger Pizza - Premium Veg,Burger Pizza - Premium Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+288,Soft Drinks,Burger Pizza - Classic Non Veg,Burger Pizza - Classic Non Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+289,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+290,Sweets,Choco Lava Cake,Choco Lava Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+291,Vegetarian,Butterscotch Mousse Cake,Butterscotch Mousse Cake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+292,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+293,Vegetarian,Roasted Chicken Wings Peri-Peri,Roasted Chicken Wings Peri-Peri,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+294,Combo,Roasted Chicken Wings Classic Hot Sauce,Roasted Chicken Wings Classic Hot Sauce,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+295,Non-Vegetarian,Chicken Meatballs Peri-Peri,Chicken Meatballs Peri-Peri,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+296,Vegetarian,Boneless Chicken Wings Peri-Peri,Boneless Chicken Wings Peri-Peri,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+297,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+298,Sweets,Taco Mexicana Non Veg,Taco Mexicana Non Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+299,Sweets,Taco Mexicana Veg,Taco Mexicana Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+300,Combo,Potato Cheese Shots,Potato Cheese Shots,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+301,Vegetarian,Taco Mexicana-Veg (Single),Taco Mexicana-Veg (Single),True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+302,Sweets,Crunchy Strips,Crunchy Strips,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+303,Sweets,Crinkle Fries,Crinkle Fries,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+304,Vegetarian,Brownie Fantasy,Brownie Fantasy,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+305,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+306,Non-Vegetarian,Classic Combo - Veg,Classic Combo - Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+307,Sweets,Classic Combo - Non-veg,Classic Combo - Non-veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+308,Vegetarian,Meal for 1 - Veg,Meal for 1 - Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+309,Soft Drinks,Meal for 1 - Non-veg,Meal for 1 - Non-veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+310,Sweets,Meal for 2 - Veg - Farmhouse,Meal for 2 - Veg - Farmhouse,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+311,Soft Drinks,Meal for 2 - Veg - Peppy Paneer,Meal for 2 - Veg - Peppy Paneer,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+312,Vegetarian,Meal for 2 - Non-veg,Meal for 2 - Non-veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+313,Soft Drinks,Pizza Feast - Veg,Pizza Feast - Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+314,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+315,Sweets,Crispy Veg Wrap,Crispy Veg Wrap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+316,Combo,King Egg Wrap,King Egg Wrap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+317,Vegetarian,Chicken Keema Wrap,Chicken Keema Wrap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+318,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+319,Sweets,King Egg Wrap,King Egg Wrap,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+320,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+321,Sweets,Crispy Veg,Crispy Veg,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+322,Soft Drinks,Crispy Veg Supreme,Crispy Veg Supreme,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+323,Combo,Crispy Chicken,Crispy Chicken,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+324,Sweets,BK® Veggie,BK® Veggie,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+325,Vegetarian,Crispy Chicken Supreme,Crispy Chicken Supreme,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+326,Sweets,Veg Chilli Cheese Melt,Veg Chilli Cheese Melt,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+327,Sweets,Chicken Tandoor Grill,Chicken Tandoor Grill,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+328,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+329,Vegetarian,Veg Whopper®,Veg Whopper®,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+330,Soft Drinks,Chicken Whopper®,Chicken Whopper®,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+331,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+332,Sweets,Fries,Fries,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+333,Soft Drinks,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+334,Combo,Chocolate Thick Shake,Chocolate Thick Shake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+335,Sweets,Strawberry Thick Shake,Strawberry Thick Shake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+336,Combo,Mango Thick Shake,Mango Thick Shake,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+337,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+338,Combo,Black Currant Smoothie,Black Currant Smoothie,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+339,Sweets,Strawberry Smoothie,Strawberry Smoothie,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+340,Sweets,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+341,Combo,Navratra Combo 2,Navratra Combo 2,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+342,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+343,Sweets,Poori with Aloo ki Sabzi,Poori with Aloo ki Sabzi,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+344,Vegetarian,Poori with Choley,Poori with Choley,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+345,Non-Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+346,Vegetarian,Kheer,Kheer,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+347,Vegetarian,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+348,Non-Vegetarian,Navratra Combo 2,Navratra Combo 2,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+349,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+350,Vegetarian,Aloo Chaat,Aloo Chaat,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+351,Combo,,,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+352,Combo,Dal Makhani Rice Bowl,Dal Makhani Rice Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+353,Soft Drinks,Sambhar Rice,Sambhar Rice,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+354,Soft Drinks,Rajma Rice with Raita Bowl,Rajma Rice with Raita Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+355,Soft Drinks,Kadhi Rice Bowl,Kadhi Rice Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+356,Non-Vegetarian,Choley Rice Bowl,Choley Rice Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+357,Non-Vegetarian,Choley Rice with Raita Bowl,Choley Rice with Raita Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+358,Vegetarian,Dal Rice Bowl,Dal Rice Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+359,Soft Drinks,Dal Rice with Raita Bowl,Dal Rice with Raita Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+360,Non-Vegetarian,Rajma Rice Bowl,Rajma Rice Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+361,Sweets,Dal Makhani Rice with Raita Bowl,Dal Makhani Rice with Raita Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+362,Non-Vegetarian,Shahi Paneer Rice Bowl,Shahi Paneer Rice Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+363,Soft Drinks,Shahi Paneer Rice with Raita Bowl,Shahi Paneer Rice with Raita Bowl,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Rundkursiv';
+    src: url('Rundkursiv.woff2') format('woff2'),
+        url('Rundkursiv.woff') format('woff'),
+        url('Rundkursiv.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

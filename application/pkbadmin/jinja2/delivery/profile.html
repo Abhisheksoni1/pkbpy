@@ -1,0 +1,252 @@
+{% extends '/layout.html' %}
+{% block title %}
+Delivery boy Profile
+{% endblock %}
+{% block right_col %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Delivery boy Profile</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <div class=" profile_box">
+                                       {% if delivery.is_active == 1 %}
+                        <a class="btn btn_edit_profile btn_new  " href="{{ url('custom-admin:edit_delivery' , args=[delivery.id]) }}"><i
+                                class="fa fa-edit" style="width:2=10px"></i> Edit Profile </a>
+
+                        {% else %}
+                        <button class="btn btn_edit_profile disabled" style="width:2=10px" data-toggle="tooltip" title="Deactivated manager">Edit profile
+                        </button>
+                        {% endif %}
+
+                            <div class="profile_img">
+
+
+                                <div id="crop-avatar">
+
+                                    {% if delivery.profile_pic %}
+                                    <div class="profile_img">
+                                        <img class="img-responsive avatar-view" src="#" style="width:50px; height:50px">
+                                    </div>
+                                </div>
+                                {% else %}
+
+                                <div class="profile_img">
+                                    <div id="crop-avatar1">
+                                        <img class="img-responsive avatar-view" src="{{ MEDIA_URL }}/default.jpeg"
+                                             style="width:50px; height:50px">
+                                    </div>
+                                </div>
+                                {% endif %}
+
+
+                            </div>
+                        </div>
+
+
+                        <h3>{{delivery.name}}</h3>
+                        <ul class="list-unstyled user_data">
+                            <li><i class="fa fa-envelope user-profile-icon" style="font-size:15px"></i>
+                                {{delivery.email}}
+                            </li>
+                            <li>
+
+                                <i class="fa fa-mobile user-profile-icon" style="font-size:25px"></i> {{delivery.mobile}}
+
+                            </li>
+                            <li>
+                                    <i class="fa fa-birthday-cake user-profile-icon"></i> {{ delivery.dob if
+                                    delivery.dob else "N/A"}}
+                                </li>
+
+                        </ul>
+
+
+                    </div>
+
+                </div>
+
+
+</div>
+
+</div></div></div></div></div></div>
+
+{% endblock %}
+
+{% block extra_js %}
+<!--<script>-->
+
+<!--  var table = {};-->
+
+<!--  var csrftoken = $("[name=csrfmiddlewaretoken]").val();-->
+<!--  var manager_id = $("[name=manager_id]").val()-->
+
+<!--  var tableOption = {-->
+<!--    serverSide: true,-->
+<!--    "processing": true,-->
+<!--    //"stateSave": true,-->
+<!--    "stateDuration": -1,-->
+<!--    "language": {-->
+<!--      "processing": "loading please wait ..."-->
+<!--    },-->
+<!--    //searching: false,-->
+<!--    dom: '<lBf<t>ip><"processing_wrapper"r>',-->
+<!--      buttons: [ {-->
+<!--                extend: 'excel',-->
+<!--                text: 'Excel',-->
+<!--                className: 'btn btn-default',-->
+<!--                exportOptions: {-->
+<!--                columns: [1,2,3,4,5],-->
+<!--                }-->
+<!--                 },-->
+
+<!--                {-->
+<!--           extend: 'csv',-->
+<!--           footer: false,-->
+<!--          exportOptions: {-->
+<!--                columns: [1,2,3,4,5],-->
+<!--                }-->
+<!--       },-->
+<!--           ],-->
+
+<!--    "lengthMenu": [[10, 50, 100, 200, 500, 2000, 5000], [10, 50, 100, 200, 500, 2000, 5000]],-->
+<!--    ajax: {-->
+<!--      url: "/admin/manager/get/stores/",-->
+<!--      type: 'POST',-->
+<!--      data: function (data) {-->
+<!--        data.csrfmiddlewaretoken = csrftoken-->
+<!--        data.manager_id = manager_id-->
+
+<!--        {% if type %}-->
+<!--          data.type = "{{type}}"-->
+<!--        {% endif %}-->
+
+<!--      },-->
+<!--      timeout: 300000-->
+<!--    },-->
+
+<!--    columns: [-->
+
+<!--      { data: null, orderable: false, className: "text-center" },-->
+<!--      { data: "name", className: "text-center" },-->
+<!--      { data: "tag_line", className: "text-center" },-->
+<!--      { data: "description", className: "text-center" },-->
+<!--      { data: "address", className: "text-center" },-->
+
+<!--    ], "order": [],-->
+<!--    //responsive: true-->
+<!--    "drawCallback": function (settings) {-->
+<!--      var api = new $.fn.dataTable.Api(settings);-->
+<!--      api.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {-->
+<!--        var page = api.page();-->
+<!--        var len = api.page.len();-->
+<!--        cell.innerHTML = (page * len) + (i + 1);-->
+<!--        api.cell(cell).invalidate('dom');-->
+
+<!--      });-->
+<!--    }-->
+<!--  };-->
+
+
+<!--  window.table = $("#datatable1").DataTable(tableOption);-->
+<!--  $("#datatable1").on('processing.dt', function (e, settings, processing) {-->
+<!--    $('.processing_wrapper').css('display', processing ? 'block' : 'none');-->
+<!--  });-->
+
+
+
+
+<!--</script>-->
+<!--<script>-->
+
+ <!--var table = {};-->
+
+  <!--var csrftoken = $("[name=csrfmiddlewaretoken]").val();-->
+  <!--var manager_id = $("[name=manager_id]").val()-->
+
+  <!--var tableOption = {-->
+    <!--serverSide: true,-->
+    <!--"processing": true,-->
+    <!--//"stateSave": true,-->
+    <!--"stateDuration": -1,-->
+    <!--"language": {-->
+      <!--"processing": "loading please wait ..."-->
+    <!--},-->
+    <!--//searching: false,-->
+    <!--dom: '<lBf<t>ip><"processing_wrapper"r>',-->
+      <!--buttons: [ {-->
+                <!--extend: 'excel',-->
+                <!--text: 'Excel',-->
+                <!--className: 'btn btn-default',-->
+                <!--exportOptions: {-->
+                <!--columns: [1,2,3,4,5,6],-->
+                <!--}-->
+                 <!--},-->
+
+                <!--{-->
+           <!--extend: 'csv',-->
+           <!--footer: false,-->
+          <!--exportOptions: {-->
+                <!--columns: [1,2,3,4,5,6],-->
+                <!--}-->
+       <!--},-->
+           <!--],-->
+
+    <!--"lengthMenu": [[10, 50, 100, 200, 500, 2000, 5000], [10, 50, 100, 200, 500, 2000, 5000]],-->
+    <!--ajax: {-->
+      <!--url: "/admin/manager/get/kitchens/",-->
+      <!--type: 'POST',-->
+      <!--data: function (data) {-->
+        <!--data.csrfmiddlewaretoken = csrftoken-->
+        <!--data.store_id = $("#store_id").val()-->
+        <!--data.manager_id = manager_id-->
+        <!--{% if type %}-->
+          <!--data.type = "{{type}}"-->
+        <!--{% endif %}-->
+
+      <!--},-->
+      <!--timeout: 300000-->
+    <!--},-->
+
+    <!--columns: [-->
+
+      <!--{ data: null, orderable: false, className: "text-center" },-->
+      <!--{ data: "name", className: "text-center" },-->
+      <!--{ data: "tag_line", className: "text-center" },-->
+      <!--{ data: "description", className: "text-center" },-->
+      <!--{ data: "address", className: "text-center" },-->
+      <!--{ data: "store_id__name", className: "text-center" },-->
+
+    <!--], "order": [],-->
+    <!--//responsive: true-->
+    <!--"drawCallback": function (settings) {-->
+      <!--var api = new $.fn.dataTable.Api(settings);-->
+      <!--api.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {-->
+        <!--var page = api.page();-->
+        <!--var len = api.page.len();-->
+        <!--cell.innerHTML = (page * len) + (i + 1);-->
+        <!--api.cell(cell).invalidate('dom');-->
+      <!--});-->
+    <!--}-->
+  <!--};-->
+
+
+  <!--window.table = $("#datatable2").DataTable(tableOption);-->
+  <!--$("#datatable2").on('processing.dt', function (e, settings, processing) {-->
+    <!--$('.processing_wrapper').css('display', processing ? 'block' : 'none');-->
+  <!--});-->
+
+
+
+
+<!--</script>-->
+
+
+<!--{% endblock %}-->

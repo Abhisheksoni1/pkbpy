@@ -1,0 +1,95 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Financial Year
+{% endblock %}
+
+{% block right_col %}
+<style>
+.form-control {
+    border-radius: 0;
+    width: 43%;
+}
+
+@media (min-width: 992px)
+.col-md-3 {
+    width: 30%;
+}
+
+</style>
+
+<div class="right_col" role="main">
+
+    <div class="">
+
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+
+                    <div class="x_content">
+
+                        <form id="demo-form2" method="post" data-parsley-validate=""
+                              class="form-horizontal form-label-left">
+
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5">Year<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    <input type="text" name="financial_year" class="form-control"
+                                           value="{{fyear if fyear else ""}}"
+                                    data-validation="required length custom" data-validation-length="7"
+                                    data-validation-regexp="^[0-9]+(-[0-9]+)+$"
+                                    data-validation-error-msg-custom="Please enter the correct financial year.(ex- 2019-20)"
+                                    data-validation-error-msg-length="You did not enter correct financial year.(ex- 2019-20)"
+                                    data-validation-error-msg-required="You did not enter financial year.(ex- 2019-20)"
+                                    placeholder="Enter Financial Year." maxlength="7" id="id_name">
+
+                                    <br>
+                                    <p style="font-size:18px">Financial Year which uses for maintaining the record of
+                                        billing year.</p>
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="clearfix"></div>
+
+
+                            <div class="ln_solid"></div>
+                            <div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 ">
+
+                                    <input style="width:75px" type="submit" class="btn btn-success" value="Submit">
+                                </div>
+                            </div>
+
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+{% endblock %}
+
+{% block extra_js %}
+
+
+{% endblock %}

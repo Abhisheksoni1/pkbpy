@@ -1,0 +1,28 @@
+
+<script>
+
+
+        function show_noti(type,msg){
+
+
+            new PNotify({
+                text: msg,
+                type:type,
+                styling: 'bootstrap3',
+                nonblock: {
+                    nonblock: true
+                }
+            });
+        
+        }
+
+
+{% if messages %}
+   {% for message in messages %}
+        text = `{{ message }}`;
+        type = "{{ message.tags }}";
+        show_noti(type,text)
+    {% endfor %}
+{% endif %}
+
+</script>

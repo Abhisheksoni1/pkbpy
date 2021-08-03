@@ -1,0 +1,341 @@
+{% extends '/layout.html' %}
+{% block title %}
+Clients
+{% endblock %}
+
+{% block right_col %}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Push Notification</h3>
+            </div>
+            <div class="title_right">
+                <div class="pull-right">
+                    <a href="/admin/notifications/" class="btn btn-primary">Back</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix">
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Select Users</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-striped table-bordered dataTable no-footer list_table">
+                            <thead>
+                                <tr>
+                                    <th><input name="select_all" value="all" id="select-all" type="checkbox" /></th>
+                                    <th>S. No.</th>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Mobile   </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="assign_innovation_model" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <form class="form-horizontal form-label-left">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Send Notification</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                                 <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-6" for="message">Message</label>
+                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                        <textarea class="form-control col-md-7 col-xs-12" name="message" rows="10"
+                                                  data-validation="required"
+                                                  data-validation-error-msg="Kindly put some message."
+                                                  id="text_message"></textarea>(<span id="maxlength">500</span> characters left)
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 style="text-align: center;color:#26B99A" id="sent_notification"></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary send_notification">Send Notification</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+assign_innovation
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+    var selected_rows = [];
+    window.table = false;
+    var tableOption = {
+
+        serverSide: true,
+
+        dom: 'Blfrtip',
+        lengthMenu: [[50, 100, 1000], [50, 100, 1000]],
+
+        buttons: [
+
+            {
+
+                extend: "excel",
+
+                className: "btn-sm",
+
+                exportOptions: {
+
+                    columns: [1,2,3,4]
+
+                }
+
+            },
+
+            {
+
+                extend: "csv",
+
+                className: "btn-sm",
+
+                exportOptions: {
+
+                    columns: [1,2,3, 4]
+
+                }
+
+            }
+
+        ],
+        ajax: {
+            url: "/admin/users/get/",
+            type: 'POST',
+            data: function (data) {
+            data.csrfmiddlewaretoken = csrftoken
+        },
+
+        },
+        rowId: 'id',
+        columnDefs: [
+            {
+                'targets': 0,
+                'searchable': false,
+                'orderable': false,
+                'checkboxes': true,
+                'className': 'dt-body-center',
+                'render': function (data, type, full, meta) {
+                    return '<input class="" type="checkbox" name="id[]" value="' + full.id + '">';
+                }
+            },
+
+        ],
+        //select: true,
+        columns: [
+            {data: null, orderable: false, className: "text-center"},
+            {data: "id", className: "text-center"},
+            {data: "id", className: "text-center"},
+            {data: "name", className: "text-center"},
+            {data: "mobile", className: "text-center"},
+
+        ], "order": [],
+        //responsive: true
+        "drawCallback": function (settings) {
+            var api = new $.fn.dataTable.Api(settings);
+            api.column(1, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                var page = api.page();
+                var len = api.page.len();
+                cell.innerHTML = (page * len) + (i + 1);
+                api.cell(cell).invalidate('dom');
+            });
+        },
+        "rowCallback": function (row, data, index) {
+            var index = $.inArray($(row).attr("id"), selected_rows);
+            if (index != -1) {
+                table.row(row).select();
+                //selected_rows.splice(index,1);
+                $("td:first-child input[type=checkbox]", row).prop('checked', true);
+                $("td:first-child input[type=checkbox]", row).trigger("change");
+                //console.log($("td:first-child input[type=checkbox]",row));
+            }
+
+
+        },
+        buttons: [
+            {
+                enabled: false,
+                text: 'Send Notification',
+                action: function (e, dt, node, config) {
+                    /*$.post("<?php echo base_url(); ?>/admin/innovation/getDataByIds", {ids: selected_rows}, function (res) {*/
+
+                    $("#assign_innovation_model").modal();
+                    // $("#assign_innovation_model .modal-body").text(res);
+                    $("#assign_innovation_model form p code").text(selected_rows.length);
+
+
+                    /*});*/
+                }
+            }
+        ]
+    };
+
+    $(document).ready(function(){
+        table = $(".list_table").DataTable(tableOption);
+
+    });
+
+    function updateDataTableSelectAllCtrl(table) {
+        var $table = table.table().node();
+        var $chkbox_all = $('tbody input[type="checkbox"]', $table);
+        var $chkbox_checked = $('tbody input[type="checkbox"]:checked', $table);
+        var chkbox_select_all = $('thead input[name="select_all"]', $table).get(0);
+        // If none of the checkboxes are checked
+        if ($chkbox_checked.length === 0) {
+            chkbox_select_all.checked = false;
+            if ('indeterminate' in chkbox_select_all) {
+                chkbox_select_all.indeterminate = false;
+            }
+
+            // If all of the checkboxes are checked
+        } else if ($chkbox_checked.length === $chkbox_all.length) {
+            chkbox_select_all.checked = true;
+            if ('indeterminate' in chkbox_select_all) {
+                chkbox_select_all.indeterminate = false;
+            }
+
+            // If some of the checkboxes are checked
+        } else {
+            chkbox_select_all.checked = true;
+            if ('indeterminate' in chkbox_select_all) {
+                chkbox_select_all.indeterminate = true;
+            }
+        }
+    }
+
+    $(document).on("change", "tbody td input[type=checkbox]", function () {
+        updateDataTableSelectAllCtrl(table);
+        var tr = $(this).closest('tr');
+        var id = $(tr).attr("id");
+        var index = $.inArray(id, selected_rows);
+        if (this.checked) {
+            table.row(tr).select();
+            /*if alredy assigned*/
+            row_data = table.row(tr).data()
+            if (!!!row_data.assign_admin_id)
+                selected_rows.push($(this).val());
+        } else {
+            selected_rows.splice(index, 1);
+            table.row(tr).deselect();
+        }
+
+
+        table.buttons(0).text("Send Notification (" + selected_rows.length + ")")
+        if (selected_rows.length == 0) {
+            table.button(0).text("Send Notification");
+            table.button(0).enable(false);
+        } else {
+            table.button(0).enable(true)
+        }
+
+
+    });
+
+
+
+
+
+
+    /*asign innovation*/
+    $(".send_notification").click(function (e) {
+
+        var that = $(this);
+        e.preventDefault();
+        if($(that).isValid()){
+            loader(that);
+            var message = $('[name=message]').val();
+            $.post("/admin/notifications/send/", {message: message, user_ids: selected_rows, csrfmiddlewaretoken:csrftoken}, function (res) {
+                if (res.status) {
+                    reset_loader(that);
+                    new PNotify({
+                        title: 'Success!',
+                        text: 'Notification sent successfully to selected leads.',
+                        type: 'success',
+                        nonblock: {
+                            nonblock: true
+                        }
+                    });
+                    $('.form-horizontal')[0].reset();
+                    $('#assign_innovation_model').modal('hide');
+                } else {
+                    reset_loader(that);
+                    new PNotify({
+                        title: 'Error!',
+                        text: res.error_msg || 'No Notification sent Successfully.Please try again!',
+                        type: 'error',
+                        nonblock: {
+                            nonblock: true
+                        }
+                    });
+                }
+
+                table.ajax.reload(null, false);
+
+            });
+
+
+        }
+    });
+
+    $('#text_message').restrictLength($('#maxlength'));
+    $("#innovation_type").on("change", function () {
+        table.ajax.reload();
+    });
+
+    $('#select-all').on('click', function () {
+            // Check/uncheck all checkboxes in the table
+            var rows = table.rows({'search': 'applied'}).nodes();
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+            $("tbody td input[type=checkbox]").trigger("change");
+        });
+
+    $("#assign_innovation_model").on("hidden.bs.modal", function () {
+        $('#select-all').click();
+
+    });
+</script>
+{% endblock %}
+
+

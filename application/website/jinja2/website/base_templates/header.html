@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129118631-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129118631-1');
+
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> {% block title %}{% endblock%}</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="shortcut icon" href="{{ static('images/icon/favicon.ico') }}" type="image/x-icon">
+
+    <link rel="icon" href="images/icon/favicon.ico" type="image/x-icon">
+
+    <link href="{{ static('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ static('css/mdb.min.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ static('css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ static('css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ static('css/style.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ static('css/inner.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ static('css/responsive.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ static('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- Facebook Pixel Code -->
+    <script>
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '197226327833563');
+          fbq('track', 'PageView');
+
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=197226327833563&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!--Play store script-->
+    <script>
+/**
+* Function that tracks a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+    var trackOutboundLink = function(url) {
+      gtag('event', 'click', {
+        'event_category': 'Google Play',
+        'event_label': url,
+        'transport_type': 'beacon',
+        'event_callback': function(){document.location = url;}
+      });
+    }
+
+    </script>
+    <!--Play store script-->
+</head>
+<header>
+    <div class="full_width">
+        <div class="logo"><a href="/home"><img src="{{static('images/logo-biryani.png')}}" alt=""></a></div>
+        <div class="mnu" id="sidebar">
+            <ul>
+                <li><a href="/home" id="home">HOME</a></li>
+                <li><a href="/about-us" id="about-us">ABOUT US</a></li>
+                <li><a href="/menu-screen" id="menu" >MENU</a></li>
+                <li><a href="/review" id="review">REVIEW</a></li>
+                <li><a href="/contact-us" id="contact-us">CONTACT US</a></li>
+                <li><a href="http://www.petukibiryani.com/petpoojastories/" target="_blank">PetPoojaStories</a></li>
+                <li class="ordr_now"><a href="/contact-us">Direct Order</a></li>
+            </ul>
+            <div id="nav-toggle"><span></span></div>
+        </div>
+        <div class="ri_call">
+            <span><img src="{{static('images/icon/call_top.gif')}}" alt="" class="hidden_top_cal_icon_mob"><img
+                    src="{{static('images/icon/call_top.png')}}" alt="" class="hidden_top_cal_icon"> <a
+                    href="tel:9540665522 ">+91 9540665522</a> </span>
+            <span><img src="{{static('images/icon/call_email.png')}}" alt=""> <a href="mailto:info@petukibiryani.com"> info@petukibiryani.com</a> </span>
+        </div>
+    </div>
+</header>
+{% block body %}{% endblock %}
+{% block footer %} {% endblock %}
+</html>

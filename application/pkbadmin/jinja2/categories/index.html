@@ -1,0 +1,190 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Category Management
+{% endblock %}
+
+{% block right_col %}
+
+<div class="right_col" role="main">
+
+<div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Category Management</h3>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group pull-right top_search">
+          <a type="button" class="btn btn-primary pull-right"  href="{{url('custom-admin:add_category')}}">
+            Add Category
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <table id="datatable" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>S. No.</th>
+                  <th>Category</th>
+                  <th>Description</th>
+                  <th>Kitchen</th>
+                  <th>Store</th>
+                  <th>Action</th>
+
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+var table = {};
+
+  var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+  var tableOption = {
+    serverSide: true,
+    "processing": true,
+    //"stateSave": true,
+    "stateDuration": -1,
+    "language": {
+      "processing": "loading please wait ..."
+    },
+    //searching: false,
+    dom: '<lBf<t>ip><"processing_wrapper"r>',
+      buttons: [ {
+                extend: 'excel',
+                text: 'Excel',
+                className: 'btn btn-default',
+                exportOptions: {
+                columns: [1,2,3],
+                }
+                 },
+
+                {
+           extend: 'csv',
+           footer: false,
+          exportOptions: {
+                columns: [1,2,3],
+                }
+       },
+           ],
+
+    "lengthMenu": [[10, 50, 100, 200, 500, 2000, 5000], [10, 50, 100, 200, 500, 2000, 5000]],
+    ajax: {
+      url: "/admin/categories/get/",
+      type: 'POST',
+      data: function (data) {
+        data.csrfmiddlewaretoken = csrftoken
+
+        {% if type %}
+          data.type = "{{type}}"
+        {% endif %}
+
+      },
+      timeout: 300000
+    },
+    columnDefs: [{
+      "targets": -1,
+      "render": function (data, type, full, meta) {
+
+         var view_url = "#"
+         var edit_url = "{{ url('custom-admin:edit_category' , args=[1]) }}".replace(1, full.id);
+
+
+        return `<div class="btn-primary btn_both">
+                    <a href="`+edit_url+`" >Edit</a>
+                    <a href="javascript:void(0)" class="delete fa fa-trash" data-id="` + full.id + `"></a>
+                  </div>`;
+      }
+    }
+
+],
+
+    columns: [
+
+      { data: null, orderable: false, className: "text-center" },
+      { data: "name", className: "text-center" },
+      { data: "description", className: "text-center" },
+      { data: "kitchen_id__name", className: "text-center" },
+      { data: "kitchen_id__store_id__name", className: "text-center" },
+      { data: null, orderable: false,className: "text-center"},
+
+
+
+    ], "order": [],
+    //responsive: true
+    "drawCallback": function (settings) {
+      var api = new $.fn.dataTable.Api(settings);
+      api.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+        var page = api.page();
+        var len = api.page.len();
+        cell.innerHTML = (page * len) + (i + 1);
+        api.cell(cell).invalidate('dom');
+      });
+    }
+  };
+window.table = $("#datatable").DataTable(tableOption);
+  $("#datatable").on('processing.dt', function (e, settings, processing) {
+    $('.processing_wrapper').css('display', processing ? 'block' : 'none');
+  });
+
+
+  $("#datatable").on('click', '.delete', function () {
+    var id = $(this).data('id');
+
+    bootbox.confirm({
+      title: "Delete Category ?",
+      message: "Do you want to delete this category.",
+      buttons: {
+        cancel: {
+          label: '<i class="fa fa-times"></i> Cancel'
+        },
+        confirm: {
+          label: '<i class="fa fa-check"></i> Confirm'
+        }
+      },
+      callback: function (result) {
+        if (result) {
+        var del_url = "{{ url('custom-admin:delete_category' , args=[1]) }}".replace(1, id);
+          $.get(del_url, function (res) {
+            if (res.status) {
+
+              show_noti_text = res.message;
+              show_noti_type = "success";
+
+            } else {
+              show_noti_text = res.error_msg || 'Not Deleted Successfully.Please try again!';
+              show_noti_type = "error";
+            }
+
+            show_noti(show_noti_type,show_noti_text)
+            table.ajax.reload();
+          });
+        }
+      }
+    });
+
+  });
+
+
+</script>
+{% endblock %}

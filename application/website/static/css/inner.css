@@ -1,0 +1,226 @@
+@charset "utf-8";
+/* CSS Document */
+@import url('../font/opensanssmibold/font.css');
+@import url('../font/opensans-regular/font.css');
+@import url('../font/opensansbold/stylesheet.css');
+@import url('../font/raleway-bold/stylesheet.css');
+@import url('../font/raleway-medium/stylesheet.css');
+@import url('../font/raleway-smibold/font.css');
+@import url('../font/raleway-thin/stylesheet.css');
+@import url('../font/rundkursiv/stylesheet.css');
+
+.inner_banner{width: 100%;display: inline-block;}
+.inner_banner img{width: 100%;}
+.about_us_p{width:100%;display:block; padding: 80px 0;}
+.abt_lft_txt h1{font-size: 42px;font-weight: 300;color: #171612; font-family:'OpenSans-light';margin: 0px; line-height: 31px;}
+.abt_lft_txt span {border-bottom:solid 3px #7c1318;display: block;width: 60px;margin-top: 14px;margin-bottom: 32px;}
+.about_us_p .abt_lft_txt {float:left;width: 54.4%;}
+.about_us_p .abt_lft_txt p{font-size: 16px;font-weight: 500;color: #171612;line-height: 30px;font-family:'Raleway';margin: 0px;padding-bottom: 30px;}
+.about_us_p .abt_lft_txt p:last-child{padding-bottom: 0px;}
+.about_us_p .abt_lft_img {float: right;width:42.7%;}
+.about_us_p .abt_lft_img ul {padding: 0;float: right;  }
+.about_us_p .abt_lft_img ul li {float: left;width: 47%;list-style: none;margin: 0 1.5% 20px;}
+.about_us_p .abt_lft_img ul li img {width: 100%;}
+.intro{background: url(../images/about_us_bg_img.jpg);padding:60px 0;display:inline-block;float:left;width:100%;}
+.intro_heading{width:100%;display:inline-block;text-align: center;}
+.intro_heading p{font-size:42px;font-weight: 300;color:#fff;font-family:'OpenSans-Regular';margin:0px;}
+.intro_heading span{border-bottom:solid 3px #ffcb00;margin:0 auto;display:block;width:60px;margin-top:14px;margin-bottom:40px;}
+.pkb_specl{width:100%;display:inline-block;}
+.pkb_specl .pkb_specl_left_img{width:25%;float:left;border-left:3px solid #ffcb00;}
+.pkb_specl .pkb_specl_left_img img{width:100%; }
+.pkb_specl .pkb_specl_left_text{width:36.1%;padding:19px;background:#fff;float:left;border:1px solid #fff;}
+.pkb_specl_txt{font-size:18px;color:#7c1318;font-weight:normal;font-family:'Rundkursiv';}
+.handmade_txt{color:#171612;font-family:'OpenSans-Regular';font-weight:400;font-size: 18px;}
+.pkb_specl_left_text p{color:#171612;font-family:'OpenSans-Regular';font-weight:400;font-size:13px;line-height:25px; text-align:justify;margin:0px;}
+.chef_specl{width: 100%;display:inline-block;margin-top:32px;}
+.chef_specl_right_img{width:25%;float:right;border-right:3px solid #ffcb00;}
+.chef_specl_left_text{width:36.1%;padding:17px;background:#fff;float:right;border:1px solid #fff;}
+.chef_specl .pkb_specl_txt{font-size:18px;color:#7c1318;font-weight:normal;font-family:'Rundkursiv';}
+.chef_specl .handmade_txt{color:#171612;font-family:'OpenSans-Regular'; font-weight:400;font-size:18px;}
+.chef_specl .chef_specl_left_text p{color:#171612;font-family:'OpenSans-Regular';font-weight:400;font-size:13px;line-height:25px;text-align:justify;margin:0px;}
+
+/*** Menu Screen page css start ***/
+
+.menu_screen{width:100%;display:inline-block;}
+.top_design{background:url(../images/menu_screen_bg_img.png) repeat top;height:26px;}
+.menu_list_text{width:100%;display: inline-block;}
+.menu_list_text h1{font-size:20px;font-weight:600;color:#7c1318;font-family:'Open Sans';margin:0px;margin-top:40px;}
+.menu_list_text span{border-bottom:solid 3px #da491c;display:block;width:60px;margin-top:14px;margin-bottom:32px;}
+.chicken{width:47.2%;float:left;padding:0px;margin-bottom:6px;}
+.chicken li{list-style:none;width:100%;display:inline-block;}
+.chicken li h3{color:#171612;font-family:'Raleway';font-weight:600;font-size:16px;margin:0px;margin-bottom:0px; text-transform: uppercase;}
+.chicken li p{ font-family: 'raleway'; font-weight: 600; color:#171612; font-size: 13px;}
+.full_plate{width:auto !important;padding-bottom:9px;float:left;color:#171612;font-family:'OpenSans';font-weight:500;font-size:16px;border:none!important;margin:0 !important;}
+.price_details{width:auto !important;float:right;color:#171612;font-family:'OpenSans';font-weight:600;font-size:16px;border: none!important;margin: 0px !important;}
+.menu_list_text h2{font-size:20px;font-weight:600;color:#7c1318;font-family:'Open Sans';margin:0px;margin-top:40px;}
+.chicken_float_right{float:right;}
+.container_padding{padding-right:0;padding-left:0;}
+.new_row{display:inline-block;width:100%;margin-bottom:12px;}
+.container_padding h2{margin-top:50px;}
+.chicken li img{margin-left:15px;}
+.menu_list_text{margin-bottom:33px;}
+.price_wrap{width:auto;float: right;display: inline-block;}
+.price_wrap span.price_details{ display: block; float: none;}
+.any_two{color: #171612;
+    font-family: 'OpenSans';
+    font-weight: 500;
+    font-size: 16px;}
+.any_two_bold{ font-weight:600;display:inline-block;}
+.total_cost{ font-weight:700; font-size:21px;float:left;}
+.total_cost_value{ float:left;margin-left:20px;color: #171612;
+    font-weight: 700;margin-top: -7px; }
+.menu_list_text  .main_rate{ border-bottom:none; width:auto;margin:0;background:url(../images/OfferCutLine.png) right center no-repeat;    color: #171612;
+    font-weight: 700;background-position: 0 -5px;}
+
+.menu_list_text  .discounted_rate{ border-bottom:none; width:auto;margin:0;}
+
+/**** Review page css start  ****/
+
+.review_p{width:100%;display:inline-block;padding:80px 0px;}
+.review_p ul{width:100%;display:inline-block;text-align:center;margin:0px;padding:0px;}
+.review_p ul li{list-style:none;float:left;width:26.57%;}
+.review_p ul li:nth-child(2){margin:0 9.8%;}
+.review_p ul li a{display:inline-block;width:100%;}
+.review_p ul li a img{width:100%;}
+.order_now{width:100%;display:inline-block;text-align:center;}
+.order_now a{color:#7c1318;font-size:18px;font-weight:500;font-family:'OpenSans-Regular';}
+.review_p ul li p{margin:0px;color:#7c1318;font-size:36px;line-height:60px;font-family:'OpenSans';font-weight:300;}
+
+/**** Contactus page css ***/
+.contact_us_p{width:100%;display:block;}
+.contact_us_left{width:48%;float:left;padding-left:14%;}
+.contact_us_right{width:51.4%;float:right;}
+.contactus_text{width:79%;display:inline-block;margin-top:72px;}
+.contactus_text h1{font-size:30px;font-weight:600;color:#7c1318;font-family:'OpenSans';margin:0px;margin-top:48px;}
+.contactus_text span{border-bottom:solid 3px #eaab14;display:block;width:35px;margin-top:5px;margin-bottom:37px;}
+.contact_us_right img{width:100%;}
+.contactus_text ul{width:100%;display:inline-block;padding: 0; }
+.contactus_text ul li{list-style:none;font-size:16px;font-weight:400;color:#171612;font-family:'OpenSans';line-height:18px;}
+.contactus_text ul li:first-child{background: url(../images/icon/sprites_images.png) no-repeat 0 0;padding:0px 45px;}
+.contactus_text ul li:nth-child(2) {background: url(../images/icon/sprites_images.png) no-repeat 0;padding:49px 50px;}
+.contactus_text ul li:last-child {background: url(../images/icon/sprites_images.png) no-repeat 2px -146px;padding:8px 45px;}
+iframe{float:left;}
+.new_row_margin .chicken .full_plate{padding-bottom:32px;}
+
+/*Responsive code starts from here*/
+
+@media (max-width:1660px){
+	/*.contactus_text{margin-top:0px;}
+	.contactus_text{width:100%;}
+	.contactus_text h1{margin-top:45px;}
+	.contact_us_left{padding-left:10%;padding-top:20px;}
+	.contactus_text ul li:nth-child(2){padding:20px 45px;}*/
+}
+
+@media (max-width:1227px){
+	
+	/*.contactus_text h1{margin-top:20px;}	
+	.contactus_text span{margin-bottom:20px; margin-top:10px;}
+	.contactus_text ul li:nth-child(2){padding:10px 45px;}
+	.contact_us_left{padding-left: 5%;padding-top:10px;}*/
+	
+	
+}
+
+@media (max-width:1440px){
+	.contactus_text{width:100%;}
+}
+
+@media (max-width:1199px){
+    .the_best_sm{min-height: 295px;}
+	.pkb_specl .pkb_specl_left_img{display:block;width:100%;}
+	.pkb_specl{width:38%;float:left;}
+	.pkb_specl .pkb_specl_left_text{width:100%;}
+	.chef_specl{width:38%;float:right;}
+	.chef_specl_right_img{width:100%;}
+	.chef_specl_right_img img{width:100%;}
+	.chef_specl_left_text{width:100%;min-height:269px;}
+	.chef_specl{margin-top:0px;}
+	.price_details,.full_plate{font-size: 15px;}
+	
+	/*Contact US*/
+	.contactus_text h1{font-size:18px;margin-top:7px;}
+	.contactus_text ul li{font-size:14px;}
+	.contact_us_left{padding-left:2%;}
+	.contactus_text ul li:first-child{padding:0px 0px 0px 30px;}
+	.contactus_text ul li:nth-child(2){padding:30px 30px;}
+	.contactus_text ul li:last-child{padding:7px 30px;}
+	.contactus_text{width:100%;}
+	
+}
+
+@media(max-width:991px){
+	.the_best .the_best_sml{margin-bottom:40px;width:50%;}.the_best_sm{min-height:245px;}.the_best{padding:60px 0 40px}
+	.about_us_p .abt_lft_txt p{font-size:14px;padding-bottom:25px;}
+	.about_us_p .abt_lft_txt{width:67.4%;}
+	.about_us_p .abt_lft_img{width:29.7%;}
+	.abt_lft_txt h1{font-size:32px;}
+	.chicken{float:none;width:100%;}
+	.container_padding{padding-right:15px;padding-left:15px;}
+}
+
+@media(max-width:767px){.pkb_specl{width:100%;float:none;display:inline-block;}
+	.chef_specl{flot:none;display:inline-block;width:100%;margin-top:20px;}
+	.chef_specl_left_text{min-height:auto;}
+	.about_us_p .abt_lft_txt{width:100%;}
+	.about_us_p .abt_lft_txt p{width:100%;text-align:justify;padding-bottom:10px;}
+	.about_us_p .abt_lft_img{width:100%;}
+	.about_us_p{padding:20px 0 0 0;}
+	.intro_heading p{font-size:24px;}
+	.intro{padding-top:30px;}
+	.abt_lft_txt span{margin-bottom:20px;}
+	.abt_lft_txt h1{font-size:27px;}
+	
+	/*Contact Us*/
+    .contact_us_left{width:100%;padding-left:5%;padding-top:20px;padding-right:5%;}
+	.contactus_text ul li:nth-child(2){padding:30px 30px;}
+	.contactus_text ul li:first-child{padding:0px 0px 5px 30px;}
+	.contact_us_right{width:100%;}
+	.contactus_text{ margin:20px 0;}
+	.review_p{ padding:30px 0px;}
+	.total_cost_value{ float:right;}
+	
+}
+
+@media(max-width:479px){.price_details, .full_plate{font-size:12px;width: auto !important;}.price_details{/* width: 17% !important; */}.container_padding h2{margin-top:10px;}
+	.review_p ul li{width:100%;float:none;}
+	.review_p ul li:nth-child(2){margin:20px 0px;}
+	.total_cost{width: 161px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 37px;}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

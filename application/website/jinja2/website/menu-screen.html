@@ -1,0 +1,878 @@
+{% extends 'website/base_templates/base.html' %}
+<!-- Start your project here-->
+
+{% block body %}
+<div class="menu-wrap"></div>
+<div class="clearfix"></div>
+<div class="bnr_top_110px">
+    <div class="inner_banner">
+        <img src="{{static('images/menu_screen_img.jpg')}}" alt="aboutus banner" class="ban_desk_ban"><img
+            src="{{static('images/menu_banner-mob.jpg')}}" alt="" class="ban_mob_ban">
+    </div>
+
+    <div class="mobile_msg">
+        <ul>
+            <li><a href="tel: +91 9540665522 "><img src="{{static('images/icon/Call-Btn.png')}}" alt="call now"></a>
+            </li>
+            <li><a href="sms: +91 9540665522"><img src="{{static('images/icon/Msgl-Btn.png')}}" alt="call now"></a></li>
+        </ul>
+    </div>
+
+
+    <div class="cal_order_wrap play_store">
+        <div class="cal_order_now">
+
+
+            <a href="https://play.google.com/store/apps/details?id=com.rest.petukibiryani.user&hl=en"
+               onclick="trackOutboundLink('https://play.google.com/store/apps/details?id=com.rest.petukibiryani.user&hl=en'); return false;"
+               target="_blank"><img src="{{static('images/pkb_andriod.png')}}" alt="Download PKB app"></a>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="clearfix"></div>
+<section class="mid_page">
+    <div class="menu_screen">
+        <div class="top_design"></div>
+        <div class="ordr_online">
+            <div class="container">
+                <ul>
+                    <li><a href="https://www.zomato.com/petukibiryani" target="_blank"><img
+                            src="{{static('images/zomato.png')}}" alt=""></a></li>
+                    <li><a href=" https://www.swiggy.com/delhi/petu-ki-biryani-indirapuram-indirapuram" target="_blank"><img
+                            src="{{static('images/swigy.png')}}" alt=""></a></li>
+                    <li><a href=" https://www.foodpanda.in/restaurant/m6gq/petu-ki-biryanib-shakti-khand-iv"
+                           target="_blank"><img src="{{static('images/foodpanda.png')}}" alt=""></a></li>
+                    <li><a href="http://www.petukibiryani.com/contact-us.html" target="_blank"><img
+                            src="{{static('images/direct_order.png')}}" alt=""></a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <a href="http://www.petukibiryani.com/contact-us.html" target="_blank" class="btn_ordr_onl_now">Direct
+                    Order <img src="{{static('images/icon/right_arrow-dbl.png')}}" alt=""></a>
+            </div>
+        </div>
+
+        <div class="container-fluid menu_tab">
+            <div class="container container_padding">
+                <ul class="nav nav-pills">
+
+                    <li><a href="#1a" data-toggle="tab" class="active">NON-VEG BIRYANI</a></li>
+                    <li><a href="#2a" data-toggle="tab">VEG BIRYANI</a></li>
+                    <li><a href="#3a" data-toggle="tab">SNACKS</a></li>
+                    <li><a href="#4a" data-toggle="tab">MAIN COURSE</a></li>
+                    <li><a href="#5a" data-toggle="tab">BREADS</a></li>
+                    <li><a href="#6a" data-toggle="tab">COMBO'S</a></li>
+
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="container container_padding">
+
+
+            <div id="exTab1">
+
+
+                <div class="tab-content clearfix">
+                    <div class="tab-pane active" id="1a">
+                        <div class="new_row">
+                            <ul class="chicken">
+                                <li><h3>Nawabi Chicken Dum Biryani<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                       alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate (4 pcs)</span> <span class="price_details">₹ 490.00</span>
+                                </li>
+                                <li><span class="full_plate">Half Plate (2 pcs)</span> <span class="price_details">₹ 290.00</span>
+                                </li>
+                            </ul>
+                            <ul class="chicken chicken_float_right">
+                                <li><h3>NIZAMI CHICKEN DUM BIRYANI<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                       alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate (4 pcs)</span> <span class="price_details">₹ 490.00</span>
+                                </li>
+                                <li><span class="full_plate">Half Plate (2 pcs)</span> <span class="price_details">₹ 290.00</span>
+                                </li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="new_row">
+                            <ul class="chicken">
+                                <li><h3>CHICKEN KEEMA BIRYANI<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                  alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate (4 pcs)</span> <span class="price_details">₹ 490.00</span>
+                                </li>
+                                <li><span class="full_plate">Half Plate (2 pcs)</span> <span class="price_details">₹ 290.00</span>
+                                </li>
+                            </ul>
+
+                            <ul class="chicken chicken_float_right">
+                                <li><h3>MUTTON DUM BIRYANI<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                               alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate (4 pcs)</span> <span class="price_details">₹ 550.00</span>
+                                </li>
+                                <li><span class="full_plate">Half Plate (2 pcs)</span> <span class="price_details">₹ 330.00</span>
+                                </li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="new_row">
+                            <ul class="chicken">
+                                <li><h3>MUTTON KEEMA BIRYANI<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                 alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate (4 pcs)</span> <span class="price_details">₹ 550.00</span>
+                                </li>
+                                <li><span class="full_plate">Half Plate (2 pcs)</span> <span class="price_details">₹ 330.00</span>
+                                </li>
+                            </ul>
+
+
+                            <ul class="chicken chicken_float_right">
+                                <li><h3>EGG BIRYANI<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                        alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate (4 pcs)</span> <span class="price_details">₹ 399.00</span>
+                                </li>
+                                <li><span class="full_plate">Half Plate (2 pcs)</span> <span class="price_details">₹ 250.00</span>
+                                </li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" id="2a">
+                        <div class="new_row">
+                            <ul class="chicken">
+                                <li><h3>SHAHI VEG BIRYANI<img src="{{static('images/veg_icon.jpg')}}"
+                                                              alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate</span> <span
+                                        class="price_details">₹ 430.00</span></li>
+                                <li><span class="full_plate">Half Plate</span> <span
+                                        class="price_details">₹ 280.00</span></li>
+                            </ul>
+                            <ul class="chicken chicken_float_right">
+                                <li><h3>SOYA CHAAP BIRYANI<img src="{{static('images/veg_icon.jpg')}}"
+                                                               alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate</span> <span
+                                        class="price_details">₹ 430.00</span></li>
+                                <li><span class="full_plate">Half Plate</span> <span
+                                        class="price_details">₹ 280.00</span></li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken">
+                                <li><h3>PANEER TIKKA BIRYANI<img src="{{static('images/veg_icon.jpg')}}"
+                                                                 alt="veg icon missing"></h3>
+                                    <p>Served with raita</p></li>
+                                <li><span class="full_plate">Full Plate</span> <span
+                                        class="price_details">₹ 430.00</span></li>
+                                <li><span class="full_plate">Half Plate</span> <span
+                                        class="price_details">₹ 280.00</span></li>
+                            </ul>
+
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="3a">
+                        <div class="new_row new_row_margin">
+                            <ul class="chicken">
+                                <li><span class="full_plate">Tandoori Chicken<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">8 pcs  &nbsp;  &nbsp; ₹ 450.00</span><span
+                                            class="price_details">4 pcs  &nbsp;  &nbsp; ₹ 250.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Afghani Chicken<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">8 pcs  &nbsp;  &nbsp; ₹ 575.00</span><span
+                                            class="price_details">4 pcs &nbsp;  &nbsp; ₹ 300.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken">
+                                <li><span class="full_plate">Afghani Malai Tikka<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">8 pcs &nbsp;  &nbsp; ₹ 400.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Chicken Tikka <img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">8 pcs &nbsp;  &nbsp;₹ 360.00</span></li>
+                            </ul>
+
+                            <div class="clear"></div>
+
+
+                            <ul class="chicken">
+                                <li><span class="full_plate">Chicken Lollipop<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">6 pcs &nbsp;  &nbsp; ₹ 210.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Mutton Seekh Kebab<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">4 pcs &nbsp;  &nbsp;₹ 360.00</span></li>
+                            </ul>
+
+                            <div class="clear"></div>
+
+
+                            <ul class="chicken">
+                                <li><span class="full_plate">Chicken Seekh Kebab<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">4  pcs &nbsp;  &nbsp; ₹ 300.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Tangdi Seekh Kebab<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">4 pcs &nbsp;  &nbsp;₹ 360.00</span></li>
+                            </ul>
+                            <div class="clear"></div>
+
+
+                            <ul class="chicken">
+                                <li><span class="full_plate">Kalmi Seekh Kebab<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">4  pcs &nbsp;  &nbsp; ₹ 450.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Chicken Kaali Mirch<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 260.00</span></li>
+                            </ul>
+                            <div class="clear"></div>
+
+
+                            <ul class="chicken">
+                                <li><span class="full_plate">Hara Bhara Seekh Kebab <img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">8 pcs &nbsp;  &nbsp; ₹ 280.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Paneer Tikka<img src="{{static('images/veg_icon.jpg')}}"
+                                                                              alt="veg icon missing"></span> <span
+                                        class="price_details">8  pcs &nbsp;  &nbsp;₹ 200.00</span></li>
+                            </ul>
+                            <div class="clear"></div>
+
+
+                            <ul class="chicken">
+                                <li><span class="full_plate">Paneer Tikka Achari <img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">8 pcs &nbsp;  &nbsp; ₹ 200.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Dileri Paneer Kebab<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">6 pcs &nbsp;  &nbsp; ₹ 220.00</span></li>
+                            </ul>
+                            <div class="clear"></div>
+
+
+                            <ul class="chicken">
+                                <li><span class="full_plate">Dahi Ke Sholey<img src="{{static('images/veg_icon.jpg')}}"
+                                                                                alt="veg icon missing"></span>
+                                    <div class="price_wrap"><span
+                                            class="price_details">4  pcs &nbsp;  &nbsp; ₹ 220.00</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Chilli Paneer<img src="{{static('images/veg_icon.jpg')}}"
+                                                                               alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 200.00</span></li>
+                            </ul>
+                            <div class="clear"></div>
+
+
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="4a">
+                        <div class="new_row new_row_margin">
+                            <ul class="chicken">
+                                <li><span class="full_plate">Butter Chicken<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 280.00</span></li>
+                                <li><span class="full_plate">Chicken Korma<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 260.00</span></li>
+                                <li><span class="full_plate">Mutton Korma<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                              alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 320.00</span></li>
+                                <li><span class="full_plate">Chicken Keema Matar<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"> </span> <span
+                                        class="price_details">₹ 250.00</span></li>
+                                <li><span class="full_plate">Mutton Keema Matar<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 300.00</span></li>
+                                <li><span class="full_plate">Egg Curry<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                           alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 120.00</span></li>
+                                <li><span class="full_plate">Handi Chicken<img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 400.00</span></li>
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+
+                                <li><span class="full_plate">Handi Mutton<img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                              alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 550.00</span></li>
+                                <li><span class="full_plate">Paneer Butter Masala<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"> </span> <span
+                                        class="price_details">₹ 230.00</span></li>
+                                <li><span class="full_plate">Shahi Mix Vegetable<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 160.00</span></li>
+                                <li><span class="full_plate">Shahi Paneer<img src="{{static('images/veg_icon.jpg')}}"
+                                                                              alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 260.00</span></li>
+                                <li><span class="full_plate">Soya Chaap Curry<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 150.00</span></li>
+                                <li><span class="full_plate">Dal Makhani<img src="{{static('images/veg_icon.jpg')}}"
+                                                                             alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 160.00</span></li>
+                            </ul>
+
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="5a">
+                        <div class="new_row new_row_margin">
+                            <ul class="chicken">
+                                <li><span class="full_plate">Tawa Roti<img src="{{static('images/veg_icon.jpg')}}"
+                                                                           alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 15.00</span></li>
+                                <li><span class="full_plate">Tawa Butter Roti<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 18.00</span></li>
+                                <li><span class="full_plate">Plain Parantha <img src="{{static('images/veg_icon.jpg')}}"
+                                                                                 alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 18.00</span></li>
+                                <li><span class="full_plate">Tandoori Roti<img src="{{static('images/veg_icon.jpg')}}"
+                                                                               alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 16.00</span></li>
+                                <li><span class="full_plate">Tandoori Butter Roti<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 20.00</span></li>
+                                <li><span class="full_plate">Naan<img src="{{static('images/veg_icon.jpg')}}"
+                                                                      alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 30.00</span></li>
+                                <li><span class="full_plate">Butter Naan<img src="{{static('images/veg_icon.jpg')}}"
+                                                                             alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 40.00</span></li>
+                                <li><span class="full_plate">Lachcha Parantha<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 30.00</span></li>
+
+                            </ul>
+
+                            <div class="clear"></div>
+                            <ul class="chicken chicken_float_right">
+                                <li><span class="full_plate">Rogni Naan<img src="{{static('images/veg_icon.jpg')}}"
+                                                                            alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 40.00</span></li>
+                                <li><span class="full_plate">Garlic Naan<img src="{{static('images/veg_icon.jpg')}}"
+                                                                             alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 40.00</span></li>
+                                <li><span class="full_plate">Hara Bhara Naan<img src="{{static('images/veg_icon.jpg')}}"
+                                                                                 alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 40.00</span></li>
+                                <li><span class="full_plate">Paneer Naan<img src="{{static('images/veg_icon.jpg')}}"
+                                                                             alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 50.00</span></li>
+                                <li><span class="full_plate">Onion Naan<img src="{{static('images/veg_icon.jpg')}}"
+                                                                            alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 40.00</span></li>
+                                <li><span class="full_plate">Mutton Keema Naan<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 100.00</span></li>
+                                <li><span class="full_plate">Chicken Keema Naan<img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></span> <span
+                                        class="price_details">₹ 75.00</span></li>
+                            </ul>
+
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane menu_list_text" id="6a">
+
+                        <h2>Panther's Choice 1 (Meal for 3)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any Two {</p> Nawabi Chicken Dum Biryani (Half)
+                                / Nizami Chicken Dum Biryani (Half) /
+                                Chicken Keema Biryani (Half) <p class="any_two_bold"> } +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One {</p> Chicken Tikka 8pcs / Tangdi Seekh
+                                Kebab 4pcs / Mutton Seekh Kebab
+                                4pcs <p class="any_two_bold">} +</p><img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                         alt="veg icon missing"></div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 975</span> <span
+                                        class="discounted_rate">₹ 870</span></div>
+                            </div>
+                        </div>
+
+                        <h2>Lion's Meal 1 (Meal for 3)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any Two {</p> Mutton Dum Biryani (Half) /
+                                Mutton Keema Biryani (Half) <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One { </p>Afghani Chicken 4pcs / Chicken
+                                Seekh Kebab 4pcs <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 995</span> <span
+                                        class="discounted_rate">₹ 890</span></div>
+                            </div>
+                        </div>
+
+
+                        <h2>Panther's Choice 2 (Meal for 3)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any Two {</p> Nawabi Chicken Dum Biryani (Half)
+                                / Nizami Chicken Dum Biryani (Half) /
+                                Chicken Keema Biryani (Half) <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One {</p> Afghani Chicken 4pcs / Chicken
+                                Seekh Kebab 4pcs <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 915</span> <span
+                                        class="discounted_rate">₹ 820</span></div>
+                            </div>
+                        </div>
+
+
+                        <h2>Lion's Meal 2 (Meal for 3)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any Two {</p> Mutton Dum Biryani (Half) /
+                                Mutton Keema Biryani (Half) <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One { </p>Chicken Tikka 8pcs / Tangdi Seekh
+                                Kebab 4pcs / Mutton Seekh Kebab
+                                4pcs<p class="any_two_bold"> } +</p><img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                         alt="veg icon missing"></div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 1055</span> <span
+                                        class="discounted_rate">₹ 950</span></div>
+                            </div>
+                        </div>
+
+
+                        <h2>Just Biryani (Meal for 3)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any Two {</p> Nawabi Chicken Dum Biryani (Half)
+                                / Nizami Chicken Dum Biryani (Half) /
+                                Chicken Keema Biryani (Half) <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One { </p>Shahi Veg Biryani (Half) / Soya
+                                Chaap Biryani (Half) /
+                                Paneer Tikka Biryani (Half) <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 895</span> <span
+                                        class="discounted_rate">₹ 800</span></div>
+                            </div>
+                        </div>
+
+
+                        <h2>KuK-Doo-Koo Box (Meal for 2)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any One { </p>Nawabi Chicken Dum Biryani (Half)
+                                / Nizami Chicken Dum Biryani (Half) /
+                                Chicken Keema Biryani (Half)<p class="any_two_bold"> } +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One { </p>Chicken Tikka 8pcs / Tangdi Seekh
+                                Kebab 4pcs / Mutton Seekh Kebab
+                                4pcs<p class="any_two_bold"> } +</p><img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                         alt="veg icon missing"></div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 685</span> <span
+                                        class="discounted_rate">₹ 580</span></div>
+                            </div>
+                        </div>
+
+
+                        <h2>Green Box 1 (Meal for 2)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any One {</p> Shahi Veg Biryani (Half) / Soya
+                                Chaap Biryani (Half) /
+                                Paneer Tikka Biryani (Half)<p class="any_two_bold"> } +</p><img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One {</p> Paneer Tikka 8pcs / Paneer Tikka
+                                Achari 8pcs / Dileri Paneer Kebab
+                                6pcs <p class="any_two_bold">} +</p><img src="{{static('images/veg_icon.jpg')}}"
+                                                                         alt="veg icon missing"></div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 515</span> <span
+                                        class="discounted_rate">₹ 460</span></div>
+                            </div>
+                        </div>
+
+
+                        <h2>Green Box 2 (Meal for 2)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any One {</p> Shahi Veg Biryani (Half) / Soya
+                                Chaap Biryani (Half) /
+                                Paneer Tikka Biryani (Half) <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One { </p>Dahi Ke Sholey 4pcs / Hara Bhara
+                                Seekh Kebab 8pcs <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 565</span> <span
+                                        class="discounted_rate">₹ 510</span></div>
+                            </div>
+                        </div>
+
+
+                        <h2>Bento Box 1 (Meal for 4)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any Two { </p>Nawabi Chicken Dum Biryani (Half)
+                                / Nizami Chicken Dum Biryani (Half) /
+                                Chicken Keema Biryani (Half) <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One { </p>Shahi Veg Biryani (Half) / Soya
+                                Chaap Biryani (Half) /
+                                Paneer Tikka Biryani (Half) <p class="any_two_bold">} +</p><img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two">
+                                <p class="any_two_bold"> Any One { </p>Paneer Tikka 8pcs / Paneer Tikka Achari 8pcs /
+                                Dileri Paneer Kebab
+                                6pcs <p class="any_two_bold">} +</p><img src="{{static('images/veg_icon.jpg')}}"
+                                                                         alt="veg icon missing">
+                            </div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 1095</span> <span
+                                        class="discounted_rate">₹ 985</span></div>
+                            </div>
+                        </div>
+
+
+                        <h2>Bento Box 2 (Meal for 4)</h2>
+                        <span></span>
+                        <div class="new_row new_row_margin">
+                            <div class="any_two"><p class="any_two_bold">Any Two {</p> Nawabi Chicken Dum Biryani (Half)
+                                / Nizami Chicken Dum Biryani (Half) /
+                                Chicken Keema Biryani (Half)<p class="any_two_bold"> } +</p><img
+                                        src="{{static('images/no-veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two"><p class="any_two_bold">Any One {</p> Shahi Veg Biryani (Half) / Soya
+                                Chaap Biryani (Half) /
+                                Paneer Tikka Biryani (Half)<p class="any_two_bold"> } +</p> <img
+                                        src="{{static('images/veg_icon.jpg')}}" alt="veg icon missing"></div>
+
+                            <div class="any_two">
+                                <p class="any_two_bold">Any One { </p>Chicken Tikka 8pcs / Tangdi Seekh Kebab 4pcs /
+                                Mutton Seekh Kebab
+                                4pcs<p class="any_two_bold"> } +</p><img src="{{static('images/no-veg_icon.jpg')}}"
+                                                                         alt="veg icon missing">
+                            </div>
+
+                            <p class="any_two_bold"> Cold Drink (600ml)</p>
+
+                            <div class="new_row ">
+                                <div class="total_cost">Total Cost-------------------------------</div>
+                                <div class="total_cost_value"><span class="main_rate">₹ 1255</span> <span
+                                        class="discounted_rate">₹ 1130</span></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="menu_list_text">
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+
+
+<!-- /Start your project here-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+{% block script %}
+<script type="text/javascript" src="{{static('js/jquery-3.2.1.min.js')}}"></script>
+<script type="text/javascript" src="{{static('js/bootstrap.min.js')}}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{{static('js/formvalidator.js')}}"></script>
+<script type="text/javascript" src="{{static('js/mdb.min.js')}}"></script>
+<script type="text/javascript" src="{{static('js/owl.carousel.min.js')}}"></script>
+<script type="text/javascript" src="{{static('js/custom.js')}}"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	$('#menu').addClass('active');
+		// for home page testomonial
+	  $(".testmn_slider").owlCarousel({
+		loop:true,
+		margin:10,
+		nav:true,
+		navText: ["<img src='images/icon/slider_arrow_left.png'>","<img src='images/icon/slider_arrow_ri.png'>"],
+		items:1,
+	  });
+		// for home page testomonial
+	  $(".hom_banner").owlCarousel({
+		loop:true,
+		margin:10,
+		nav:false,
+		items:1,
+	  });
+
+
+	});
+
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119558799-1"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'UA-119558799-1');
+$.validate({
+   modules: 'date,security,file'
+ });
+
+</script>
+<script>
+		$(document).ready(function(){
+	$(window).scroll(function(){
+            if($(window).scrollTop()>150){
+             $('.full_width').addClass('hdr_fixed')
+            }
+		else{
+			 $('.full_width').removeClass('hdr_fixed')
+		}
+        })
+
+			$('.cal_order_now').on('click',function(){
+				$('.side_btn').toggleClass('slide_btn')
+
+//				$('.side_btn').css({
+//					right:14 +'px',
+//				})
+//				$('.side_btn span').toggleClass('slide_btn')
+
+			})
+
+
+
+});
+
+</script>
+<script>
+		$(document).ready(function(){
+	$(window).scroll(function(){
+            if($(window).scrollTop()>150){
+             $('.full_width').addClass('hdr_fixed')
+				$('.banner').css('margin-top','110px')
+            }
+		else{
+			 $('.full_width').removeClass('hdr_fixed')
+			$('.banner').css('margin-top','0px')
+		}
+        })
+});
+
+</script>
+
+<script>
+
+$("#newslatter-form").submit(function(e){
+	e.preventDefault();
+	var formdata = new FormData($("#newslatter-form")[0]);
+		$.ajax({
+		   url: "newslatter.php",
+		   type: "POST",
+		   data: formdata,
+		   processData: false,
+		   contentType: false,
+		   success: function(res) {
+				var res= JSON.parse(res);
+				console.log(res);
+				if(res.status){
+					$('#newslatter-form')[0].reset();
+					$("#error_message").append(`<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+							   <div class=" msg_error alert alert-success">` + res.message + `</div></div>`).delay(2000).fadeOut(300);
+					   window.setTimeout(function () {
+						   $("#error_message").css('display', "block").html('');
+					   }, 8000);
+
+				} else {
+				   $("#error_message").append(`<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+						   <div class="msg_error alert alert-danger">`+res.message+`</div></div>`).delay(2000).fadeOut(300);
+		   window.setTimeout(function () {
+			   $("#error_message").css('display', "block").html('');
+		   }, 8000);
+				}
+			},
+			error: function(res) {
+
+			 }
+			});
+	});
+
+</script>
+
+
+<script>
+	$(document).ready(function(){
+		if(window.innerWidth<=1199){
+			$('.container_padding ul.nav li a').on('click',function(){
+				//$(this).siblings().addClass('js')
+				$('.container_padding ul.nav li a').removeClass('active')
+			})
+
+
+			$('.container_padding .nav').addClass('owl-carousel')
+		$('.container_padding ul.nav li').addClass('item')
+			$('.container_padding ul.nav li').css({
+				width:100 +'%',
+				textAlign:"center",
+			})
+
+
+		  $(".container_padding .nav").owlCarousel({
+		loop:false,
+		margin:10,
+		nav:false,
+		items:4,
+
+			  responsive:{
+        0:{
+            items:2
+        },
+        600:{
+            items:3
+        },
+        991:{
+            items:3
+        }
+			  }
+	  });
+
+
+
+			}
+	})
+
+</script>
+{% endblock %}
+{% endblock %}

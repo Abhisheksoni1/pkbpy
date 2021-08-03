@@ -1,0 +1,255 @@
+{% extends '/layout.html' %}
+{% block title %}
+Manager
+{% endblock %}
+
+{% block right_col %}
+<div class="right_col" role="main">
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Delivery Management</h3>
+            </div>
+
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <a type="button" class="btn btn-primary pull-right" href="{{url('custom-admin:add_delivery')}}">
+                        New Delivery
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+
+                        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                        <table id="datatable" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Delivery boy Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+
+  var table = {};
+
+  var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+  var tableOption = {
+    serverSide: true,
+    "processing": true,
+    //"stateSave": true,
+    "stateDuration": -1,
+    "language": {
+      "processing": "loading please wait ..."
+    },
+    //searching: false,
+    dom: '<lBf<t>ip><"processing_wrapper"r>',
+      buttons: [ {
+                extend: 'excel',
+                text: 'Excel',
+                className: 'btn btn-default',
+                exportOptions: {
+                columns: [1,2,3],
+                }
+                 },
+
+                {
+           extend: 'csv',
+           footer: false,
+          exportOptions: {
+                columns: [1,2,3],
+                }
+       },
+           ],
+
+    "lengthMenu": [[10, 50, 100, 200, 500, 2000, 5000], [10, 50, 100, 200, 500, 2000, 5000]],
+    ajax: {
+      url: "/admin/delivery-boy/get/",
+      type: 'POST',
+      data: function (data) {
+        data.csrfmiddlewaretoken = csrftoken
+
+        {% if type %}
+          data.type = "{{type}}"
+        {% endif %}
+
+      },
+      timeout: 300000
+    },
+    columnDefs: [{
+      "targets": -1,
+      "render": function (data, type, full, meta) {
+         var view_url = "{{ url('custom-admin:detail_delivery' , args=[1]) }}".replace(1, full.id);
+
+         var edit_url = "{{ url('custom-admin:edit_delivery' , args=[1]) }}".replace(1, full.id);
+
+         console.log(edit_url)
+         if(full.is_active==true){
+
+                   var view_url = "{{ url('custom-admin:detail_delivery' , args=[1]) }}".replace(1, full.id);
+                   edit_list= `<li><a href="`+edit_url+`" class=""  data-id="" data-status="" >Edit</a></li>
+                   <li><a href="javascript:void(0)" class="delete" data-id="` + full.id + `">Deactivate</a>`
+          }
+         else{
+                edit_list =`<li><a href="javascript:void(0)" class="activate" data-id="`+full.id+`">Activate</a>`
+          }
+
+        return `<div class="btn-group">
+                    <a href="`+view_url+`" type="button" class="btn btn-primary">View</a>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                       `+edit_list+`
+
+                      </li>
+                    </ul>
+                  </div>`;
+      }
+    }
+    ],
+    columns: [
+
+      { data: null, orderable: false, className: "text-center" },
+      { data: "name", className: "text-center" },
+      { data: "email", className: "text-center" },
+      { data: "mobile", className: "text-center" },
+      { data: "is_active", className: "text-center" },
+      { data: null, orderable: false,className: "text-center action", },
+
+    ], "order": [],
+    //responsive: true
+    "drawCallback": function (settings) {
+      var api = new $.fn.dataTable.Api(settings);
+      api.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+        var page = api.page();
+        var len = api.page.len();
+        cell.innerHTML = (page * len) + (i + 1);
+        api.cell(cell).invalidate('dom');
+      });
+    }
+  };
+
+
+  window.table = $("#datatable").DataTable(tableOption);
+  $("#datatable").on('processing.dt', function (e, settings, processing) {
+    $('.processing_wrapper').css('display', processing ? 'block' : 'none');
+  });
+
+
+   $("#datatable").on('click', '.delete', function () {
+    var id = $(this).data('id');
+
+    bootbox.confirm({
+      title: "Deactivate Delivery boy?",
+      message: "Do you want to deactivate this delivery boy.",
+      buttons: {
+        cancel: {
+          label: '<i class="fa fa-times"></i> Cancel'
+        },
+        confirm: {
+          label: '<i class="fa fa-check"></i> Confirm'
+        }
+      },
+      callback: function (result) {
+        if (result) {
+        var del_url = "{{ url('custom-admin:delete_delivery' , args=[1]) }}".replace(1, id);
+          $.get(del_url, function (res) {
+            if (res.status) {
+
+              show_noti_text = res.message;
+              show_noti_type = "success";
+
+            } else {
+              show_noti_text = res.error_msg || 'Not Deleted Successfully.Please try again!';
+              show_noti_type = "error";
+            }
+
+            show_noti(show_noti_type,show_noti_text)
+            table.ajax.reload();
+            window.location.reload();
+          });
+        }
+      }
+    });
+
+  });
+
+
+
+
+  $("#datatable").on('click', '.activate', function () {
+    var id = $(this).data('id');
+    $('.hidden_id').val(id)
+$('#modalLoginForm').modal('show')
+
+  });
+
+$('.select-store').click(function(){
+      var store_id=$("[name=store]").val();
+      var manager_id = $('.hidden_id').val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+      console.log(store_id, manager_id, csrftoken)
+      $.ajax({
+        url: "{{ url('custom-admin:update_manager_status')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "store_id" : store_id,
+          "manager_id": manager_id
+
+        },
+
+        success: function (res){
+                    if (res.status) {
+                        new PNotify({
+                            title: 'Success!',
+                            text: 'Manager assigned a store.',
+                            type: 'success',
+                            styling: 'bootstrap3',
+                            nonblock: {
+                                nonblock: true
+                            }
+                        });
+                        table.ajax.reload();
+                        window.location.reload();
+                        }
+                        }
+});
+});
+
+
+
+
+
+
+</script>
+{% endblock %}

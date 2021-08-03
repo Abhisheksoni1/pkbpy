@@ -1,0 +1,304 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Update Tax
+{% endblock %}
+
+{% block right_col %}
+<style>
+.form-control, input {
+    box-shadow: none;
+    width: 60%;
+}
+
+.store_tree{    max-height: 300px;overflow-x: scroll;}
+
+
+
+
+
+
+
+
+
+</style>
+<div class="right_col" role="main">
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Update Tax</h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+
+                    <div class="x_content">
+
+                        <form id="demo-form2" method="post" data-parsley-validate=""
+                              class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Title
+                                    <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    {{ form.title }}
+
+                                    {% if form_errors['title'] %}
+                                    <div class="alert alert-danger">{{ form.errors.title }}</div>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Tax Type<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    {{ form.tax_type }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Value Type<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    {{ form.value_type }}
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Order Type<span
+                                        class="required">*</span>
+
+                                </label>
+
+                                <div class="col-md-2 col-sm-6 col-xs-12">
+                                    {% set option =['DELIVERY', 'PICK UP', 'DINE IN'] %}
+                                    {% for name in option %}
+
+                                    {% if name in order_type %}
+
+                                    <input type="checkbox" name="order_type" value="{{name.upper()}}" checked
+                                           id={{name}}><label for={{name}}>{{ name.title() }}</label><br>
+
+                                    {% else %}
+
+
+                                    <input type="checkbox" name="order_type" value="{{name.upper()}}"
+                                           id={{OrderType}}><label for={{OrderType}}>{{ name.title() }}</label>
+
+                                    {% endif %}
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Description
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.description }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Amount <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.amount }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Apply on
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="store_tree">
+                                        <ul class="checktree">
+                                            <li>
+                                                <input id="Select All" type="checkbox"/>
+                                                <label for="Select All">Select All</label>
+                                                <ul>
+                                                    {% for store in data %}
+                                                    <li class="pos_rel">
+                                                        <input id="{{ store.id }}" type="checkbox"/>
+                                                        <label for="{{ store.id }}"> {{ store.name }}</label>
+                                                        <span class="store">+</span>
+                                                        <ul class="store_component">
+                                                            {% for kitchen in store.kitchen_names %}
+                                                            <li class="pos_rel">
+                                                                <input id="{{ kitchen.id}}" type="checkbox"/><label
+                                                                    for="{{ kitchen.id}}"> {{ kitchen.name }}</label>
+                                                                <span class="store">+</span>
+                                                                <ul   class="store_component" >
+                                                                    {% for category in kitchen.category_names %}
+                                                                    <li class="pos_rel">
+                                                                        <input id="{{category.id }}"
+                                                                               type="checkbox"/>
+                                                                        <label
+                                                                                for="{{category.id }}">{{category.name}}
+                                                                        </label>
+                                                                        <span class="store">+</span>
+                                                                        <ul class="store_component">
+                                                                            {% if tax_items %}
+
+                                                                            {% for item in category.item_names %}
+                                                                            <li>
+                                                                                <input id="1"
+                                                                                       type="checkbox"
+                                                                                       name="item_id"
+                                                                                       value="{{item.id}}" {{'checked'
+                                                                                if item.id in tax_items else ''}} />
+                                                                                <label for="1">
+                                                                                    {{ item.name}}
+                                                                                </label>
+                                                                            </li>
+                                                                            {% endfor %}
+                                                                            {% else %}
+                                                                            {% for item in category.item_names %}
+                                                                            <li>
+                                                                                <input id="2"
+                                                                                       type="checkbox"
+                                                                                       name="item_id"
+                                                                                       value="{{item.id}}"/>
+                                                                                <label for="2">
+                                                                                    {{ item.name}}
+                                                                                </label>
+                                                                            </li>
+                                                                            {% endfor %}
+
+                                                                            {% endif %}
+                                                                        </ul>
+
+                                                                    </li>
+                                                                    {% endfor %}
+
+                                                                </ul>
+                                                            </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <div class="control-label col-md-3 col-sm-3 col-xs-5"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    <input style="width:100px" type="submit" class="btn btn-success" value="Submit">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+
+{% endblock %}
+{% block extra_js %}
+<script>
+$(function(){
+		$("ul.checktree").checktree();
+
+
+
+
+
+
+// toogle
+
+
+
+    $(".store_component").hide();
+	$('.store').click(function(e){
+        var SH = this.SH^=1; // "Simple toggle  "
+
+        $(this).text(SH?'-':'+')
+               .next(".store_component").slideToggle();
+	});
+
+	// second under process
+
+if($("input[type=checkbox]").is(':checked')){
+
+    var check_check=$("input[type=checkbox]:checked")
+
+    check_check.parents('.store_component').css("display", "block");
+
+}
+
+
+
+    //
+
+
+
+
+});
+
+
+$("[name='order_type']:eq(0)")
+  .valAttr('','validate_checkbox_group')
+  .valAttr('qty','1-3')
+  .valAttr('error-msg','Please select at least one order type.');
+
+
+
+</script>
+{% endblock %}

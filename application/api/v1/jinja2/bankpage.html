@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<center style="color:black;" ><h1 style="margin-top: 50px;">Please do not refresh this page...</h1></center>
+<center style="color:black;"><h1 style="margin-top: 20px;">Processing...</h1></center>
+
+<div class="se-pre-con"></div>
+<form method="post" action="{{url}}" name="f1">
+{% for key,value in paytmdict.items() %}
+<input type="hidden" name="{{key}}" value="{{value}}">
+{% endfor %}
+<script type="text/javascript">
+document.f1.submit();
+</script>
+</form>
+
+</body>
+</html>

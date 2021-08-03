@@ -1,0 +1,76 @@
+{% extends 'website/base_templates/base.html' %}
+<!-- Start your project here-->
+
+{% block body %}
+<div class="menu-wrap"></div>
+<div class="clearfix"></div>
+
+<div class="bnr_top_110px">
+    <div class="inner_banner">
+        <img src="{{static('images/review_banner1.jpg')}}" alt="aboutus banner" class="ban_desk_ban"><img
+            src="{{static('images/review_banner-mob.jpg')}}" alt="" class="ban_mob_ban">
+
+    </div>
+
+    <div class="mobile_msg">
+        <ul>
+            <li><a href="tel:+91 9540665522 "><img src="{{static('images/icon/Call-Btn.png')}}" alt="call now"></a></li>
+            <li><a href="sms:+91 9540665522"><img src="{{static('images/icon/Msgl-Btn.png')}}" alt="call now"></a></li>
+        </ul>
+    </div>
+
+    <div class="cal_order_wrap play_store">
+        <div class="cal_order_now">
+
+
+            <a href="https://play.google.com/store/apps/details?id=com.rest.petukibiryani.user&hl=en"
+               onclick="trackOutboundLink('https://play.google.com/store/apps/details?id=com.rest.petukibiryani.user&hl=en'); return false;"
+               target="_blank"><img src="{{static('images/pkb_andriod.png')}}" alt="Download PKB app"></a>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="clearfix"></div>
+<section class="mid_page">
+    <div class="menu_screen">
+
+       <div class="container">
+		 <div class="review_p">
+			 <ul>
+
+			 <li><a href="https://www.zomato.com/petukibiryani" target="_blank"><img src="{{static('images/review_zomato.jpg')}}" alt="zomato"></a>
+				  <p><img src="{{static('images/icon/star_3.5.png')}}" alt="star 3.5"></p>
+				  <p>3.8/5</p>
+
+				 </li>
+				 <li><a href="https://www.swiggy.com/delhi/petu-ki-biryani-indirapuram-indirapuram"  target="_blank"><img src="{{static('images/review_swigy.jpg')}}" alt="swigy"></a>
+				  <p><img src="{{static('images/icon/star_4.5.png')}}" alt="star 4.5"></p>
+				 <p>4/5</p>
+				 </li>
+				 <li><a href="https://www.foodpanda.in/restaurant/m6gq/petu-ki-biryanib-shakti-khand-iv" target="_blank"><img src="{{static('images/review_foodpanda.jpg')}}" alt="foodpanda"></a>
+				  <p><img src="{{static('images/icon/star_4.5.png')}}" alt="star 4.5"></p>
+				  <p>4/5</p>
+				 </li>
+			 </ul>
+
+
+                <!--<div class="order_now">
+                <p><a href="#">Order Online now <span><img src="images/icon/arrow.png" alt="arrow"></span></a></p></div>-->
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="clearfix"></div>
+
+
+<!-- /Start your project here-->
+
+<!-- SCRIPTS -->
+
+{% endblock %}

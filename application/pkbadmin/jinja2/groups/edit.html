@@ -1,0 +1,292 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Update Group
+{% endblock %}
+
+{% block right_col %}
+
+<style>
+.form-control {
+    border-radius: 0;
+    width: 43%;
+}
+
+@media (min-width: 992px)
+.col-md-3 {
+    width: 30%;
+}
+
+</style>
+
+<div class="right_col" role="main">
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Update Group</h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+
+                    <div class="x_content">
+
+                        <form id="demo-form2" method="post" data-parsley-validate=""
+                              class="form-horizontal form-label-left">
+
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5">Name <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    {{ form.name }}
+                                    {% if form_errors['name'] %}
+                                    <div class="alert alert-danger">{{ form.errors.name }}</div>
+                                    {% endif %}
+
+
+                                    {% if errors %}
+                                    <div class="alert alert-danger">{{errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+
+                            <div class="clearfix"></div>
+
+                            <div class="ln_solid"></div>
+
+                            <div class="col-xs-offset-1 col-xs-4">
+
+                                <label for="fullname">All Permission</label>
+
+                                <select multiple="multiple" id='lstBox1' class="form-control" style="width:80%">
+
+                                    {% for permission in permissions %}
+
+                                    <option value="{{ permission.id }}"> {{ permission.name }}</option>
+
+                                    {% endfor %}
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="col-xs-1 subject-info-arrows text-center">
+
+                                <input type="button" id="btnAllRight" value=">>" class="btn btn-default"/><br/>
+
+                                <input type="button" id="btnRight" value=">" class="btn btn-default"/><br/>
+
+                                <input type="button" id="btnLeft" value="<" class="btn btn-default"/><br/>
+
+                                <input type="button" id="btnAllLeft" value="<<" class="btn btn-default"/>
+
+                            </div>
+
+
+                            <div class="col-xs-4">
+
+                                <label for="fullname">Assigned Permission</label>
+
+
+                                <select multiple="multiple" id='lstBox2' name="perms_select_box_ids" class="form-control"
+                                        style="width:80%">
+
+                                    {% if assigned_permissions %}
+
+                                    {% for permission in assigned_permissions %}
+
+                                    <option value="{{ permission['id']}}"> {{ permission['name']  }}</option>
+
+
+                                    {% endfor %}
+                                    {% endif %}
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="clearfix"></div>
+
+
+                            <div class="ln_solid"></div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5">
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 alert alert-danger" style="display:none" id="error-box">
+                                </div>
+                            </div>
+                            <div>
+
+                                <div class="form-group">
+
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 ">
+
+                                    <input style="width:75px" type="submit" class="btn btn-success" value="Submit">
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+  $.validate({
+
+        modules: 'date, security'
+
+    });
+
+
+
+
+
+    (function () {
+
+        $('#btnRight').click(function (e) {
+
+            var selectedOpts = $('#lstBox1 option:selected');
+
+            if (selectedOpts.length == 0) {
+
+                $('#error-box').show()
+                $('#error-box').text("Please select permission to move.");
+
+                e.preventDefault();
+
+            }
+
+            $('#lstBox2').append($(selectedOpts).clone());
+
+
+
+            $(selectedOpts).remove();
+
+            e.preventDefault();
+
+        });
+
+        $('#btnAllRight').click(function (e) {
+
+            var selectedOpts = $('#lstBox1 option');
+
+            if (selectedOpts.length == 0) {
+
+                $('#error-box').show()
+                $('#error-box').text("Please select permission to move.");
+
+                e.preventDefault();
+
+            }
+
+            $('#lstBox2').append($(selectedOpts).clone());
+
+
+
+            $(selectedOpts).remove();
+
+            e.preventDefault();
+
+        });
+
+        $('#btnLeft').click(function (e) {
+
+            var selectedOpts = $('#lstBox2 option:selected');
+
+            if (selectedOpts.length == 0) {
+
+               $('#error-box').show()
+                $('#error-box').text("Please select permission to move.");
+
+                e.preventDefault();
+
+            }
+
+            $('#lstBox1').append($(selectedOpts).clone());
+
+            $(selectedOpts).remove();
+
+            e.preventDefault();
+
+        });
+
+        $('#btnAllLeft').click(function (e) {
+
+            var selectedOpts = $('#lstBox2 option');
+
+            if (selectedOpts.length == 0) {
+
+                $('#error-box').show()
+                $('#error-box').text("Please select permission to move.");
+
+                e.preventDefault();
+
+            }
+
+            $('#lstBox1').append($(selectedOpts).clone());
+
+            $(selectedOpts).remove();
+
+            e.preventDefault();
+
+        });
+
+    }(jQuery));
+
+
+
+
+
+    $(document).ready(function () {
+
+        $("form").submit(function () {
+
+            $("#lstBox2 option").prop("selected", true)
+
+        });
+
+    });
+
+
+
+
+$('#lstBox1,#lstBox2').click(function(){
+
+$('#error-box').hide()
+}
+)
+
+
+
+</script>
+
+{% endblock %}

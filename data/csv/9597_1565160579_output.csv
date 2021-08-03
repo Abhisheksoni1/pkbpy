@@ -1,0 +1,6 @@
+id,name,description,short_description,food_type,is_offer_active,is_variant,base_price,is_outof_stock,status,is_deleted,created_on,updated_on
+50,Truffle Nuts Pudding [1 piece],Truffle Nuts Pudding [1 piece],Truffle Nuts Pudding [1 piece],Vegetarian,True,False,45,False,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+51,Melting Brownie [1 piece],Melting Brownie [1 piece],Melting Brownie [1 piece],Vegetarian,True,False,45,False,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+52,Rainbow Pastry [1 piece],Rainbow Pastry [1 piece],Rainbow Pastry [1 piece],Non-Vegetarian,True,False,75,False,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+53,Gulab Jamun,Gulab Jamun,Gulab Jamun,Vegetarian,True,False,23,False,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30
+54,Rasgulla,Rasgulla,Rasgulla,Non-Vegetarian,True,False,18,False,True,False,2019-05-16 12:20:24.966978+05:30,2019-05-16 12:20:24.966978+05:30

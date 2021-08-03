@@ -1,0 +1,427 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Add Promo Code
+{% endblock %}
+
+{% block right_col %}
+<style>
+.form-control, input {
+    box-shadow: none;
+    width: 60%;
+}
+
+.store_tree{max-height: 300px;overflow-x: scroll;}
+
+
+
+</style>
+
+<div class="right_col" role="main">
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Update Promo Code</h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+
+                    <div class="x_content">
+
+                        <form id="demo-form2" method="post" data-parsley-validate=""
+                              class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Title
+                                    <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    {{ form.title }}
+                                    {% if form_errors['title'] %}
+                                    <div class="alert alert-danger">{{ form_errors['title'] }}</div>
+
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                            <input value="{{old_name}}" name="old_name" hidden="true">
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5  "> Type <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 types">
+
+
+                                    {{ form.type }}
+                                    {% if form_errors['type'] %}
+                                    <div class="alert alert-danger">{{ form_errors.type }}</div>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group" id="max_discount">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Max Discount <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.max_discount }}
+                                    {% if form_errors['max_discount'] %}
+                                    <div class="alert alert-danger">{{ form_errors['max_discount'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group" id="amount_per">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Amount <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12" >
+
+
+                                    {{ form.amount }}
+                                    {% if form_errors['amount'] %}
+                                    <div class="alert alert-danger">{{ form_errors['amount'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                                  <div class="form-group" id="percentage">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5,id="> Percentage <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 ">
+
+
+                                    {{ form.percentage }}
+                                    {% if form_errors['percentage'] %}
+                                    <div class="alert alert-danger">{{ form_errors['percentage'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group ">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5 "> Minimum Order <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 ">
+
+
+                                    {{ form.minimum_order }}
+                                    {% if form_errors['minimum_order'] %}
+                                    <div class="alert alert-danger">{{ form_errors['minimum_order'] }}</div>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Description <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.description }}
+                                    {% if form_errors['description'] %}
+                                    <div class="alert alert-danger">{{ form_errors['description'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Image<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.image }}
+                                    {% if image_path %}
+                                    <img src="{{ MEDIA_URL }}{{directory_images}}{{image_path}}" width=250px
+                                         height=200px">
+                                    {% endif %}
+                                    <input value="{{image_path}}" name="old_image" hidden="true">
+                                </div>
+                            </div>
+
+                               <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Code <span
+                                        class="required"></span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.code }}
+                                    {% if form_errors['code'] %}
+                                    <div class="alert alert-danger">{{ form_errors['code'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Status <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.status }}
+                                    {% if form_errors['status'] %}
+                                    <div class="alert alert-danger">{{ form_errors['status'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> From Date <span
+                                        class="required">*</span>
+                                    <div id="txtFromDate"></div>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.from_date }}
+                                    {% if form_errors['from_date'] %}
+                                    <div class="alert alert-danger">{{ form_errors['from_date'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> To Date <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div id="txtToDate"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.to_date }}
+                                    {% if form_errors['to_date'] %}
+                                    <div class="alert alert-danger">{{ form_errors['to_date'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                             <div class="form-group">
+                                <div class="control-label col-md-3 col-sm-3 col-xs-5"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <button id="add-more" type="button" name="add-more" class="btn btn-primary">Code-
+                                    details
+
+                                    </button>
+                                </div>
+                            </div>
+                            {% for data in code_data %}
+                            <div class="form-group" >
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> code_details <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{data.key}}
+
+                                </div>
+
+                            </div>
+                            {% endfor %}
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> From Time <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.from_time }}
+                                    {% if form_errors['from_time'] %}
+                                    <div class="alert alert-danger">{{ form_errors['from_time'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                                        <div id="field">
+                            </div>
+
+                            <!-- Button -->
+
+
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> To Time <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.to_time }}
+                                    {% if form_errors['to_time'] %}
+                                    <div class="alert alert-danger">{{ form_errors['to_time'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="ln_solid"></div>
+                            <div>
+                                <div class="control-label col-md-3 col-sm-3 col-xs-5"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    <input style="width:100px" type="submit" class="btn btn-success" value="Submit">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+{% endblock %}
+{% block extra_js %}
+<script>
+    $('.types').on('change', function() {
+      var id =$('#id_type').val()
+      console.log(id)
+      var type_value=$(this).val();
+      console.log(type_value)
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+      if(id=="Fixed"){
+        console.log('hellooo')
+        $('#max_discount').hide();
+        $('#amount_per').show();
+        $('#percentage').hide();
+        }
+      if(id=="Percentage"){
+        $('#amount_per').hide();
+        $('#max_discount').show();
+        $('#percentage').show();
+        }
+      })
+    $('.types').change();
+
+</script>
+
+<script>
+    $(document).ready(function () {
+           //@naresh action dynamic childs
+           var next = 0;
+           $("#add-more").click(function(e){
+               e.preventDefault();
+               var addto = "#field" + next;
+               var addRemove = "#field" + (next);
+               next = next + 1;
+               var newIn =`<div id="field0" class="extra_field">
+                       <!-- Text input-->
+                       <div class="form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-5" >Code-details</label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <input  name="labels" type="text" placeholder="Label" class="form-control input-md">
+                           </div>
+                       </div>
+                        <button name="remove" class="btn btn-primary remove">Remove </button>
+                    </div>
+
+                    `;
+               var newInput = $(newIn);
+               $('#field').append(newInput);
+           });
+       });
+
+       $('#field').on('click', '.remove', function(){
+           console.log(this)
+           $(this).parent('.extra_field').remove();
+       })
+
+</script>
+
+<script >
+$('.time').bootstrapMaterialDatePicker
+({
+date: false,
+shortTime: false,
+format: 'HH:mm:ss'
+});
+
+</script>
+<script>
+      $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3d',
+});
+
+</script>
+<script>
+      $('.to').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3d',
+});
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends 'website/base_templates/base.html' %}
+<!-- Start your project here-->
+
+{% block body %}
+
+
+<div class="menu-wrap"></div>
+<div class="clearfix"></div>
+<div class="bnr_top_110px">
+    <div class="inner_banner">
+        <img src="{{static('images/about_us_banner1.jpg')}}" alt="aboutus banner" class="ban_desk_ban"><img
+            src="{{static('images/about_us_banner-mob.jpg')}}" alt="" class="ban_mob_ban">
+
+
+    </div>
+
+    <div class="mobile_msg">
+        <ul>
+            <li><a href="tel:+91 9540665522 "><img src="{{static('images/icon/Call-Btn.png')}}" alt="call now"></a></li>
+            <li><a href="sms:+91 9540665522"><img src="{{static('images/icon/Msgl-Btn.png')}}" alt="call now"></a></li>
+        </ul>
+    </div>
+
+    <!--<div class="cal_order_wrap">
+        <div class="cal_order_now">
+
+    <img src="images/icon/Floating-Btn.png" alt="call order now">
+
+    </div>
+        <div class="side_btn">
+        <span>+91 9540665522</span>
+        <img src="images/pkb_side_offer.gif" alt="image missing">
+        </div>
+
+    </div>-->
+
+    <div class="cal_order_wrap play_store">
+        <div class="cal_order_now">
+
+            <a href="https://play.google.com/store/apps/details?id=com.rest.petukibiryani.user&hl=en"
+               onclick="trackOutboundLink('https://play.google.com/store/apps/details?id=com.rest.petukibiryani.user&hl=en'); return false;"
+               target="_blank">
+                <img src="{{static('images/pkb_andriod.png')}}" alt="Download PKB app">
+            </a>
+
+
+        </div>
+
+    </div>
+
+</div><!--bnr_top_110px-->
+
+<div class="clearfix"></div>
+<section class="mid_page">
+
+    <div class="about_us_p">
+        <div class="container">
+            <div class="abt_lft_txt">
+                <h1>ABOUT US</h1>
+                <span></span>
+                <p>Cuisines have their own blend, aroma and they leave their own imprint in history. We, Indians are the
+                    flavour lovers and we like our food to be rich with aroma and right amount of spices. Biryani, just
+                    mentioning the word is enough to arouse and excite the gastronomic juices of million plates. </p>
+                <p>We understand the value that a good entrée of delightful food holds. 3 years back with a single
+                    vision to serve you only the best with authentic taste and uncompromising quality, “Petu Ki Biryani”
+                    was founded on April 2015. We established Petu Ki Biryani only to produce good cuisine, impart
+                    excellent services and provide a delightful and consistent experience to our food lovers. At Petu Ki
+                    Biryani, we focus on a meticulously crafted culinary adventure, that not only tantalizes your taste
+                    buds but will take your heart away. One of the things that make us unique among our customers is
+                    that we pitch very high with our food, sourcing freshest ingredients, carefully sourced meat and
+                    high-quality cuisines while keeping the prices reasonable for our customers.</p>
+                <p>To ensure that we live upto the customer’s satisfaction and the above philosophy are our elements
+                    such as time-tested recipes, fresh and premium ingredients be it spices, mints, herbs, our
+                    professional staff, innovative practices and intense commitment towards the food and food
+                    lovers.</p>
+            </div>
+            <div class="abt_lft_img">
+                <ul>
+                    <li><img src="{{static('images/about_us_img1.jpg')}}" alt=""></li>
+                    <li><img src="{{static('images/about_us_img2.jpg')}}" alt=""></li>
+                    <li><img src="{{static('images/about_us_img3.jpg')}}" alt=""></li>
+                    <li><img src="{{static('images/about_us_img4.jpg')}}" alt=""></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+
+    <div class="intro">
+        <div class="container">
+            <div class="intro_heading">
+                <p>INTRODUCTION</p>
+                <span></span>
+            </div>
+            <div class="pkb_specl">
+                <div class="pkb_specl_left_img">
+                    <img src="{{static('images/about_us_pkb_specl_img.jpg')}}" alt=" about us special image">
+                </div>
+
+                <div class="pkb_specl_left_text">
+                    <span class="pkb_specl_txt">PkB’s  Special </span><span
+                        class="handmade_txt">Handmade Handi Biryani</span>
+                    <p>Besides giving you the delicious tender pieces of meat swaddled in flavours, and perfect fluffy
+                        grains of rice, each a microcosm of everything flavourful, goes into the handi. The handi allows
+                        the steam to tenderise the meat in its own juices retaining the original taste of the rice and
+                        other contents in it, while keeping bacterias at bay. </p>
+
+                </div>
+            </div><!--pkb_specl-->
+
+            <div class="chef_specl">
+                <div class="chef_specl_right_img">
+                    <img src="{{static('images/chef-img.jpg')}}" alt="about us special image">
+                </div>
+
+                <div class="chef_specl_left_text">
+                    <span class="pkb_specl_txt">Chef ’s Special </span><span class="handmade_txt">Dum Biryani</span>
+                    <p>Biryani is an epitome and complex blend of flavours, long-grain rice, spices and fresh
+                        ingredients that is seasoned in several ways. Hand-pound spices like cardamom and cinnamon adds
+                        aroma; bay leaves, fresh coriander and mint leaves bring dish to life and adding nuts and dried
+                        fruits encourages another texture and flpkb_specl_left_imgavour to it. </p>
+
+                </div>
+            </div><!--chef_specl-->
+
+        </div>
+        <div class="clearfix"></div>
+    </div><!--intro-->
+
+
+    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14005.254182707937!2d77.371606!3d28.650329!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9d4a2a985cd96eb9!2sPetu+Ki+Biryani!5e0!3m2!1sen!2sin!4v1526470590329" width="100%" height="526" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+
+</section>
+
+
+
+{% endblock %}
+
+<!--{% block make_active %}-->
+<!--{% endblock %}-->

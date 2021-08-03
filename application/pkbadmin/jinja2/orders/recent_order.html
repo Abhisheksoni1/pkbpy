@@ -1,0 +1,79 @@
+{% extends '/layout.html' %}
+{% block title %}
+Recent Order
+{% endblock %}
+{% block right_col %}
+<div class="right_col" role="main">
+<div class="title_left">
+    <h3>Recent Orders: {{return_user.mobile}} ({{return_user.name if return_user.name else "N/A"}})</h3>
+</div>
+  <div class="title_right">
+
+    <h3>Wallet Amount: {{return_user.userwallet.amount if return_user.userwallet.amount else 0.00}}</h3>
+
+</div>
+
+{%if orders | length>0 %}
+{% for order in orders %}
+<div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+    <div class="well profile_view">
+      <div class="col-sm-12">
+        <h4 class="brief">Order No: <i>{{ order.order_no }} </i></h4>
+        <div class="left col-xs-7">
+          <h2>Order Detail</h2>
+          <p><strong>amount: </strong>{{ order.grand_total }}</p>
+          <ul class="list-unstyled">
+            <li><i class="fa fa-building"></i> Address: {{order.delivery_address}}</li>
+            <li><i class="fa fa-phone"></i> Order Items #:{% for item in  order.orderitems.all() %}
+            {{ item.item.name }}
+            {% endfor %} </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-xs-12 bottom text-center">
+        <div class="col-xs-12 col-sm-6 emphasis">
+          <p class="ratings">
+            <a>4.0</a>
+            <a href="#"><span class="fa fa-star"></span></a>
+            <a href="#"><span class="fa fa-star"></span></a>
+            <a href="#"><span class="fa fa-star"></span></a>
+            <a href="#"><span class="fa fa-star"></span></a>
+            <a href="#"><span class="fa fa-star-o"></span></a>
+          </p>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 emphasis">
+          <button type="button" class="btn btn-primary btn-xs repeat_order" data-order_id="{{order.id}}">
+            <i class="fa fa-repeat"></i> Repeat Order
+          </button>
+          <a  href="{{ url('custom-admin:view_order', args=[order.id] ) }}" class="btn btn-primary btn-xs repeat_order_detail" data-order_id="{{order.id}}">
+            <i class="fa fa-eye"> </i>Detail</a>
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
+  {% endfor %}
+  {% else %}
+  <div>
+    <h4>{{ "No Record Found" }}</h4>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
+{% block extra_js %}
+  <script>
+
+    $(document).ready(function(){
+    $('.repeat_order').click(function(){
+      var order_id= $(this).data('order_id')
+        window.location = "/admin/re-order/?re_order_id="+order_id;
+        });
+
+
+    })
+  </script>
+ {% endblock  %}

@@ -1,0 +1,6 @@
+name,food_type,category_name,half,full,base_price
+Paneer Butter Masala,Vegetarian,Veg,240,500,0
+Paneer Butter Masala,Vegetarian,Non-veg,241,501,0
+Paneer Butter Masala,Non-Vegetarian,Non-veg,242,502,0
+Paneer Butter Masala,Vegetarian,Non-veg,243,503,0
+Paneer Butter Masala,Non-Vegetarian,Non-veg,244,504,0

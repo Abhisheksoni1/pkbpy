@@ -1,0 +1,395 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Update Store
+{% endblock %}
+
+{% block right_col %}
+<style>
+.form-control, input {
+    box-shadow: none;
+    width: 60%;
+}
+
+
+</style>
+<!--<link rel="stylesheet" type="text/css" href="{{ static('vendors/bootstrap-material-datetimepicker/bootstrap-material-design.min.css') }}">-->
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Update Store</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <form id="demo-form2" method="post" data-parsley-validate=""
+                              class="form-horizontal form-label-left" enctype="multipart/form-data">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+                             <div class="form-group ">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-sm-offset-2 ">
+                                    {% if error %}
+                                    <div class="alert alert-danger"> {{ error }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+<!--                             <div class="form-group">-->
+<!--                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Manager-->
+<!--                                    <span-->
+<!--                                            class="required">*</span>-->
+<!--                                </label>-->
+<!--                                <div class="col-md-6 col-sm-6 col-xs-12">-->
+<!--                                    {{ form.manager }}-->
+<!--                                    {% if form_errors['manager'] %}-->
+<!--                                    <div class="alert alert-danger">{{ form.errors.manager }}</div>-->
+<!--                                    {% endif %}-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Name
+                                    <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.name }}
+                                    {% if form_errors['name'] %}
+                                    <div class="alert alert-danger">{{ form.errors.name }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <input value="{{old_name}}" name="old_name" hidden="true">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Tag Line<span
+                                        class="required"></span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.tag_line }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Logo<span
+                                        class="required"></span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.logo }}
+
+                                    {% if logo_path %}
+                                    <img src="{{ MEDIA_URL }}{{directory_logo}}{{logo_path}}" width=250px height=200px>
+
+                                    {% endif %}
+                                    <input value="{{logo_path}}" name="old_logo" hidden="true">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Image<span
+                                        class="required"></span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.image }}
+                                    {% if image_path %}
+                                    <img src="{{ MEDIA_URL }}{{directory_image}}{{image_path}}" width=250px height=200px">
+                                    {% endif %}
+                                    <input value="{{image_path}}" name="old_image" hidden="true">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5">Description<span
+                                        class="required"></span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.description }}
+                                </div>
+                            </div>
+                                 <div style="display: none">
+                            <input id="pac-input"
+                                   class="controls"
+                                   type="text"
+                                   placeholder="Enter a location">
+                        </div>
+                            <div class="form-group">
+                               <div class="col-md-6 col-sm-6 col-xs-12 col-sm-offset-3">
+                        <div id="map"></div>
+                        <div id="infowindow-content">
+                            <span id="place-name" class="title"></span><br>
+                            <strong>Location:</strong> <span id="place-id"></span><br>
+                            <span id="place-address"></span>
+                        </div>
+                          </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-sm-offset-3">
+                                    <tr>
+                                        <th>{{form.longitude}}</th>
+                                        {% if form_errors['longitude'] %}
+                                        <div class="alert alert-danger">{{ form.errors.longitude }}</div>
+                                        {% endif %}
+                                        <th>{{ form.latitude }}</th>
+                                        {% if form_errors['latitude'] %}
+                                        <div class="alert alert-danger">{{ form.errors.latitude }}</div>
+                                        {% endif %}
+                                    </tr>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Address<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.address }}
+                                    {% if form_errors['address'] %}
+                                    <div class="alert alert-danger">{{ form.errors.address }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Tin No<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.tin_no }}
+                                    {% if form_errors['tin_no'] %}
+                                    <div class="alert alert-danger">{{ form.errors.tin_no }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+
+
+<!--                            <div id="field">-->
+<!--                                 {% for attributes in store_attributes %}-->
+<!--                                <div id="field0" class="extra_field">-->
+<!--                                    &lt;!&ndash; Text input&ndash;&gt;-->
+
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >Attribute</label>-->
+<!--                                        <div class="col-md-6 col-sm-6 col-xs-12">-->
+<!--                                            <input  name="labels" type="text" placeholder="Label" value="{{attributes['key']}}"-->
+<!--                                                   class="form-control input-md">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; Text input&ndash;&gt;-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >Value</label>-->
+<!--                                        <div class="col-md-6 col-sm-6 col-xs-12">-->
+<!--                                            <input  name="value" type="text" placeholder="Value" value="{{attributes['value']}}"-->
+<!--                                                   class="form-control input-md">-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    &lt;!&ndash; File Button &ndash;&gt;-->
+<!--                                    <button name="remove" type="button" class="btn btn-primary remove">Remove </button>-->
+<!--                                </div>-->
+<!--                                {% endfor %}-->
+<!--                            </div>-->
+
+
+
+
+
+                             <!-- Button -->
+<!--                            <div class="form-group">-->
+<!--                                <div class="control-label col-md-3 col-sm-3 col-xs-5"></div>-->
+<!--                                <div class="col-md-6 col-sm-6 col-xs-12">-->
+<!--                                    <button id="add-more" type="button" name="add-more" class="btn btn-primary">Add-->
+<!--                                        Attribute-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                             <div class="form-group"> <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Minimum Order<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.minimum_order }}
+                                    {% if form_errors['minimum_order'] %}
+                                    <div class="alert alert-danger">{{ form.errors.minimum_order }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Cost for Two<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.cost_for_two }}
+                                    {% if form_errors['cost_for_two'] %}
+                                    <div class="alert alert-danger">{{ form.errors.cost_for_two }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Delivery Time<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.delivery_time }}
+                                    {% if form_errors['delivery_time'] %}
+                                    <div class="alert alert-danger">{{ form.errors.delivery_time }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Opening Time<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.opening_time }}
+                                    {% if form_errors['opening_time'] %}
+                                    <div class="alert alert-danger">{{ form.errors.opening_time }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Closing Time<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.closing_time }}
+                                    {% if form_errors['closing_time'] %}
+                                    <div class="alert alert-danger">{{ form.errors.closing_time }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="ln_solid"></div>
+                            <div>
+                                <div class="control-label col-md-3 col-sm-3 col-xs-5"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input style="width:100px" type="submit" class="btn btn-success" value="Submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+
+{% endblock %}
+{% block extra_js %}
+
+<script>
+  $(document).ready(function () {
+        //@naresh action dynamic childs
+        var next = 0;
+        $("#add-more").click(function(e){
+            e.preventDefault();
+            var addto = "#field" + next;
+            var addRemove = "#field" + (next);
+            next = next + 1;
+            var newIn =`<div id="field0" class="extra_field">
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >Attribute</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input  name="labels" type="text" placeholder="Label" class="form-control input-md">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >Value</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input name="value" type="text" placeholder="Value" class="form-control input-md">
+                        </div>
+                    </div>
+                    <button name="remove" class="btn btn-primary remove">Remove </button>
+                </div>
+                 `;
+            var newInput = $(newIn);
+            $('#field').append(newInput);
+        });
+    });
+
+    $('#field').on('click', '.remove', function(){
+        console.log(this)
+        $(this).parent('.extra_field').remove();
+    })
+
+
+</script>
+
+<script>
+
+
+
+// This sample uses the Place Autocomplete widget to allow the user to search
+      // for and select a place. The sample then displays an info window containing
+      // the place ID and other information about the place that the user has
+      // selected.
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13
+        });
+        var input = document.getElementById('pac-input');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+        // Specify just the place data fields that you need.
+        autocomplete.setFields(['place_id', 'geometry', 'name']);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        infowindow.setContent(infowindowContent);
+        var marker = new google.maps.Marker({map: map});
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          var place = autocomplete.getPlace();
+          console.log(place.geometry.location.lat());
+          console.log(place.geometry.location.lng());
+          $('#lngbox').val(parseFloat(place.geometry.location.lng().toFixed(5)));
+          $('#latbox').val(parseFloat(place.geometry.location.lat().toFixed(5)));
+          $('.address').val($('#pac-input').val());
+          if (!place.geometry) {
+            return;
+          }
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+          }
+          // Set the position of the marker using the place ID and location.
+          marker.setPlace({
+            placeId: place.place_id,
+            location: place.geometry.location
+          });
+          marker.setVisible(true);
+          infowindowContent.children['place-name'].textContent = place.name;
+          infowindowContent.children['place-id'].textContent = place.place_id;
+          infowindowContent.children['place-address'].textContent =
+              place.formatted_address;
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr-INLeH6yG9JI_AkVJlRygrHvOa7Q_KU&libraries=places&callback=initMap"
+        async defer></script>
+<!--<script src="{{ static('vendors/bootstrap-material-datetimepicker/bootstrap-material-datetimepicker.js') }}"></script>-->
+<script >
+$('.time').bootstrapMaterialDatePicker
+({
+date: false,
+shortTime: false,
+format: 'HH:mm:ss'
+});
+
+</script>
+{% endblock %}

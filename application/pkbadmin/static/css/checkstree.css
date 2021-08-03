@@ -1,0 +1,32 @@
+
+body { margin: 0 auto; }
+
+ul {
+  list-style-type: none;
+  margin: 3px;
+}
+
+ul.checktree li:before {
+  height: 1em;
+  width: 12px;
+  border-bottom: 1px dashed;
+  content: "";
+  display: inline-block;
+  top: -0.3em;
+}
+ul.checktree li.pos_rel:before{width: 22px;border-top: 1px dashed;height:7px;border-bottom:none}
+ul.checktree li { border-left: 1px dashed;float:left;width:100%; }
+ul.checktree li:last-child:before { border-left: 1px dashed; }
+ul.checktree li:last-child { border-left: none; }
+ul.checktree input { width:15px }
+
+.checktree .plus ~ label{color:#7c1318  }
+.expanded{background:url(https://img.icons8.com/windows/32/000000/plus-minus.png) no-repeat;background-position:100% -16px;padding-right:50px; }
+
+.store{background:#7c1318; /*border:1px solid #fdc90a;*/ color:#fff;font-size:18px;padding:0 2px 2px ;float:left;  line-height:16px;width:16px;margin-top:0px;text-align:center ;
+position:absolute;left:-8px;}
+
+.pos_rel,.store_component li{position:relative}
+
+
+.pos_rel ul{padding-left:27px;}

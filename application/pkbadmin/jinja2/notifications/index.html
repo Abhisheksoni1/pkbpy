@@ -1,0 +1,155 @@
+{% extends '/layout.html' %}
+{% block title %}
+Clients
+{% endblock %}
+
+{% block right_col %}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>User Notifications</h3>
+            </div>
+            <div class="title_right">
+                <div class="pull-right">
+                    <a href="{{url('custom-admin:get_notifications')}}" class="btn btn-primary">Send Notification</a>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                        <table class="table table-striped table-bordered dataTable no-footer contact_list_table">
+                            <thead>
+                                <tr>
+                                    <th>S.no.</th>
+                                    <th>User Id</th>
+                                    <th>Title</th>
+                                    <th>Message</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+    var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+    var tableOption = {
+
+        serverSide: true,
+
+        dom: 'Blfrtip',
+        lengthMenu: [[50, 100, 1000], [50, 100, 1000]],
+
+        buttons: [
+
+            {
+
+                extend: "excel",
+
+                className: "btn-sm",
+
+                exportOptions: {
+
+                    columns: [1,2,3,4]
+
+                }
+
+            },
+
+            {
+
+                extend: "csv",
+
+                className: "btn-sm",
+
+                exportOptions: {
+
+                    columns: [1,2,3,4]
+
+                }
+
+            }
+
+        ],
+
+        ajax: {
+            url: "/admin/notifications/get/",
+            type: 'POST',
+            data: function (data) {
+            data.csrfmiddlewaretoken = csrftoken
+        },
+        },
+         columnDefs: [{
+                "targets": -1,
+                "render": function (data, type, full, meta) {
+                    return `<div class="btn-group">
+                      <a href="javascript:void(0)"  type="button" class="btn btn-primary">Action</a>
+                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li><a href="javascript:void(0)" class="` + ((full.is_block == "0") ? "block" : "unblock") + `"  data-block-id="` + full.id + `" data-status="` + full.is_block + `" >` + ((full.is_block == "0") ? "Block" : "Unblock") + `</a>
+                        </li>
+                        <li><a href="javascript:void(0)" class="delete" data-id="` + full.id + `">Delete</a>
+                        </li>
+                      </ul>
+                    </div>
+                    `;
+                }
+            },
+            { "width": "40%", "targets": 4}
+        ],
+        columns: [
+            {data: 'id', orderable: false, className: "text-center"},
+            {data: "user__mobile", className: "text-center"},
+            {data: "title", className: "text-center"},
+            {data: "message", className: "text-center"},
+            {data: "created_on", className: "text-center"},
+            {data: null, orderable: false, className: "text-center"}
+        ],
+
+
+        //responsive: true
+        "drawCallback": function (settings) {
+
+            var api = new $.fn.dataTable.Api(settings);
+
+            api.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+
+                var page = api.page();
+
+                var len = api.page.len();
+
+                cell.innerHTML = (page * len) + (i + 1);
+
+                api.cell(cell).invalidate('dom');
+            });
+        }
+    };
+
+
+
+    $(document).ready(function () {
+       var table = $(".contact_list_table").DataTable(tableOption);
+	   table.ajax.reload();
+    });s
+</script>
+{% endblock %}
+

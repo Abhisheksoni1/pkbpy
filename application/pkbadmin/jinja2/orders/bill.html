@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fildum Bill</title>
+    <style type="text/css">
+body {background-color: #E3E3E3; margin: 0; padding: 0}
+p{margin: 0;font-size: 16px;line-height: 20px;padding: 0}
+.head{font-size:14px;line-height: 20px}
+.product_table p{font-size: 14px;line-height: 14px;}
+.product_table th{font-size: 14px;}
+.font_14 , .font_14 p{font-size: 14px;line-height: 16px;}
+
+    </style>
+</head>
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td align="left" valign="top">
+            <table width="300" border="0" cellspacing="0" cellpadding="0" bgcolor="#fff">
+                <tr>
+                    <td align="center">
+                        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+
+                            <tr>
+                                <td align="center" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top" style="text-transform: uppercase"><p class="font_14">
+                                    ReTail Invoice</p></td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" valign="top"><p style="font-size: 20px"><strong>Fildum</strong></p></td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top"><p class="head">{{order.kitchen.address}}<br>
+                                    <br>
+                                    www.petukibiryani.com<br>
+                                    GSTIN -09AACCFZ1284H1ZX<br>
+                                    FSSAI -22718692000194</p></td>
+                            </tr>
+                            <tr>
+                                <td height="10" align="center" valign="top" style="line-height:10px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" valign="top"
+                                    style="border-top: 1px solid #000;line-height:10px;font-size: 0;" height="10">&nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" class="font_14">
+                                    <p>Name: {{order.user.name}} (M: {{order.user.mobile}})</p>
+                                    <p>Adr: {{order.delivery_address}}</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td height="10" align="center" valign="top" style="line-height:10px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top"
+                                    style="border-top: 1px solid #000;line-height:10px;font-size: 0;" height="10">&nbsp;
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" valign="top">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="font_14">
+                                        <tbody>
+                                        <tr>
+                                            <td width="50%"><p>Date: {{order.created_on.date()}} <br> Cashier:{{ order.kitchen.store.managers.get().manager.name }}</p>
+                                                <p><strong>Token no:
+                                                    {{order.receipt_no}} </strong></p>
+                                            </td>
+                                            <td width="50%" valign="top"><p>Delivery: {{order.delivery_type}}<br> Bill
+                                                no: {{order.receipt_no}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- end header part -->
+                            <tr>
+                                <td height="10" align="center" valign="top" style="line-height:10px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top"
+                                    style="border-top: 1px solid #000;line-height:5px;font-size: 0;" height="5">&nbsp;
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" valign="top">
+                                    <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0"
+                                           class="product_table">
+                                        <tbody>
+                                        <tr valign="middle">
+                                            <th height="20" align="left" style="border-bottom:1px solid #000;">No.</th>
+                                            <th align="left" style="border-bottom:1px solid #000;">Item</th>
+                                            <th align="right" width="37" style="border-bottom:1px solid #000;">Qty.</th>
+                                            <th align="left" width="42" style="border-bottom:1px solid #000;">Price</th>
+                                            <th align="right" style="border-bottom:1px solid #000;">Amount</th>
+                                        </tr>
+                                        {% for item in order.orderitems.all() %}
+                                        <tr>
+                                            <td height="5" style="line-height:5px;font-size: 15px;">{{loop.index}}</td>
+                                            <td>{{item.item.name}}</td>
+                                            <td>{{item.quantity}}</td>
+                                            <td>{{item.unit_price}}</td>
+                                            <td align="right">{{item.total_price}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        <tr>
+                                            <td align="left" valign="top"><p></p></td>
+                                            <td align="left" valign="top"><p></p></td>
+                                            <td align="left" valign="top"><p></p></td>
+                                            <td align="left" valign="top"><p></p></td>
+                                            <td align="right" valign="top"><p></p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="5" align="center" valign="top" style="line-height:5px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top"
+                                    style="border-top: 1px solid #000;line-height:5px;font-size: 0;" height="5">&nbsp;
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" valign="top">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td align="right" valign="top"> Total Qty: {{order.orderitems.count()}} Sub Total</td>
+                                            <td align="right" valign="top">{{order.total_price}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="line-height:3px;font-size: 0;" height="3"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top" style="line-height:10px;font-size: 0;" height="10">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top">[Net Total inclusive of GST]</td>
+                            </tr>
+
+
+                            <tr>
+                                <td align="center" valign="top">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="font_14">
+                                        <tbody>
+                                        <tr>
+                                            <td align="right"><p><br> SGST@ 2.5% </p></td>
+                                            <td align="right"><p>{{  total_tax/2 if total_tax else '0.00' }}</p></td>
+                                            <td align="right"><p></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5" style="line-height:5px;font-size: 0;"></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right"><p><br> CGST@ 2.5%</p></td>
+                                            <td align="right"><p>{{ total_tax/2 if total_tax else '0.00' }}</p></td>
+                                            <td align="right"><p></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5" style="line-height:5px;font-size: 0;"></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td align="right" valign="top"> Delivery charge</td>
+                                            <td align="right" valign="top">{{order.delivery_charge}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5" style="line-height:5px;font-size: 0;"></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td align="right" valign="top"> Packaging charge</td>
+                                            <td align="right" valign="top">{{order.packaging_charges}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5" style="line-height:5px;font-size: 0;"></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            {%set total_amount = order.total_price+total_tax+order.delivery_charge+order.packaging_charges %}
+                                            <td align="right" valign="top">Total amount </td>
+                                            <td align="right" valign="top">{{ total_amount }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5" style="line-height:5px;font-size: 0;"></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td align="right" valign="top">Redeem Points</td>
+                                            <td align="right" valign="top">- {{order.points}}</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td align="right" valign="top">Discount</td>
+                                            <td align="right" valign="top">- {{order.total_discount}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5" style="line-height:5px;font-size: 0;"></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="10" align="center" valign="top" style="line-height:10px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top"
+                                    style="border-top: 1px solid #000;line-height:8px;font-size: 0;" height="8">&nbsp;
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td align="center" valign="top">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                         <tr>
+                                            <td align="right">Total</td>
+                                            <td align="right">{{ total_amount -(order.total_discount+order.points)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">Round Off</td>
+                                            <td align="right">{{(order.payable_price|round)-(order.payable_price)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right"><p class="head"><strong> Grand Total </strong></p></td>
+                                            <td align="right"><p class="head"><strong>{{(total_amount-(order.points+order.total_discount))|round}} </strong></p></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="5" align="center" valign="top" style="line-height:5px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top"> Payment Mode: {{ order.purchase_method }}</td>
+                            </tr>
+                            <tr>
+                                <td height="5" align="center" valign="top" style="line-height:5px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top" style="border-top: 1px solid #000;" height="10">&nbsp;
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td align="center" valign="top"><p><strong>Payment Accepted via paytm-<br>
+                                    9540665588</strong></p></td>
+                            </tr>
+                            <tr>
+                                <td height="10" align="center" valign="top" style="line-height:10px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" valign="top"><p><strong>Thanks ..... plz order again <br>
+                                    E.&.O.E</strong></p></td>
+                            </tr>
+                            <tr>
+                                <td height="10" align="center" valign="top" style="line-height:10px;font-size: 0;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top"><p> For ZERO MASALA LLP </p></td>
+                            </tr>
+
+                            <tr>
+                                <td height="20"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="10" align="center" valign="top" style="line-height:10px;font-size: 0;">&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+
+<!--    <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+	  <tbody>
+		  <tr><td align="left" valign="top"  >
+                          <table width="300" border="0" cellspacing="0" cellpadding="0" bgcolor="#fff" style="border: 1px solid #ccc">
+	  <tr>
+		  <td align="center"> <table width="90%" border="0" cellspacing="0" cellpadding="0" >
+	  <tbody>
+
+		<tr>
+		  <td height="20"></td>
+		</tr>
+
+		<tr>
+		  <td align="center" valign="top" style="font-size: 12px;"> Duplicate</td>
+		</tr>
+		   <tr>
+		  <td align="center" valign="top"  style="font-size: 12px;"><?php echo date('d/m/y h:i:s A');?><span></span></td>
+		</tr>
+		   <tr>
+		  <td align="center" valign="top"  style="font-size: 12px;"> Order No: <?php echo $order_detail['order_no'];?> </td>
+		</tr>
+		   <tr>
+		  <td align="center" valign="top"  style="font-size: 12px;"><span>Zomato</span>:</td>
+		</tr>
+		   <tr>
+		  <td align="center" valign="top" height="20"  style="font-size: 14px;"> <b><?php echo  $order_detail['delivery_type'] ? $order_detail['delivery_type']:"Delivery"; ?></b></td>
+		</tr>
+		   <tr><td align="center" valign="top" height="10"  style="border-top: 1px dashed #000;"></td></tr><br>
+		  <tr>
+			<td align="center" valign="top"  >
+			<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+	  <tbody>
+              <tr valign="top">
+
+		  <th align="left" style="font-size: 14px;">Item</th>
+		  <th align="center" valign="right" style="font-size: 14px;">Quantity</th>
+
+		</tr>
+                <?php foreach($ordered_items as $order_item) { ?>
+		  <tr>
+
+		  <td align="left" style="font-size: 14px;"><?php echo $order_item['sub_category_name'] ; ?></td>
+		  <td align="center" valign="right" style="font-size: 14px;"><?php echo $order_item['quantity']; ?></td>
+
+		</tr>
+                <?php } ?>
+
+
+	  </tbody>
+	</table>
+	</td></tr>
+		   <tr><td align="center" valign="top" height="10"></td></tr>
+		   <tr><td align="center" valign="top" height="10"  style="border-top: 1px dashed #000;"></td></tr>
+		  <tr><td align="left" valign="top"><span style="font-size: 14px;"><b>Payment Status:</b></span> <span style="font-size: 12px;"></span>Cash</td></tr>
+		  <tr><td align="left" valign="top" style="font-size: 14px;"><b>Special Note:</b> <?php echo $order_detail['special_note']? $order_detail['special_note']:'N/A' ?></td></tr>
+		<tr><td align="center" valign="top" >&nbsp;</td></tr>
+
+
+	  </tbody>
+	</table>
+	</td>
+	</tr>
+	</table>
+	</td></tr>
+	  </tbody>
+	</table>-->
+
+</body>
+</html>
+

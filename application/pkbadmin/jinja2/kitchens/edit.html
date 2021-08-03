@@ -1,0 +1,451 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Update Kitchen
+{% endblock %}
+
+{% block right_col %}
+<style>
+.form-control, input {
+    box-shadow: none;
+    width: 60%;
+}
+
+
+
+</style>
+<link rel="stylesheet" type="text/css" href="{{ static('vendors/bootstrap-material-datetimepicker/bootstrap-material-design.min.css') }}">
+
+
+<div class="right_col" role="main">
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Update Kitchen</h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+
+                    <div class="x_content">
+
+                        <form id="demo-form2" method="post" data-parsley-validate=""
+                              class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Store Name
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+                                title="Can not change store here." >{{store.name}}
+                                </button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Name
+                                    <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    {{ form.name }}
+
+                                    {% if form_errors['name'] %}
+                                    <div class="alert alert-danger">{{ form.errors.name }}</div>
+                                    {% endif %}
+                                    {% if name_error %}
+                                    <div class="alert alert-danger">{{ name_error}}</div>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Short Name
+                                <span
+                                    class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.short_name }}
+                                    {% if form_errors['short_name'] %}
+                                    <div class="alert alert-danger">{{ form.errors.short_name }}</div>
+                                    {% endif %}
+                                    {% if short_name %}
+                                    <div class="alert alert-danger">{{ short_name }}</div>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+                            <input value="{{old_name}}" name="old_name" hidden="true">
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Tag Line
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    {{ form.tag_line }}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Logo
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.logo }}
+                                    {% if logo_path %}
+
+                                    <img src="{{ MEDIA_URL }}{{directory_logo}}{{logo_path}}" width=250px height=200px>
+                                    {% endif %}
+
+                                    <input value="{{logo_path}}" name="old_logo" hidden="true">
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Image
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.image }}
+
+                                    {% if image_path %}
+                                    <img src="{{ MEDIA_URL }}{{directory_image}}{{image_path}}" width=250px
+                                         height=200px>
+                                    {% endif %}
+                                    <input value="{{image_path}}" name="old_image" hidden="true">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5">Description
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.description }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Location</label>
+                                <div id='map'></div>
+                                <div id="current"></div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-sm-offset-3">
+                                    <tr>
+                                        <th>{{form.longitude}}</th>
+                                        {% if form_errors['longitude'] %}
+                                        <div class="alert alert-danger">{{ form.errors.longitude }}</div>
+                                        {% endif %}
+                                        <th>{{ form.latitude }}</th>
+                                        {% if form_errors['latitude'] %}
+                                        <div class="alert alert-danger">{{ form.errors.latitude }}</div>
+                                        {% endif %}
+                                    </tr>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Address<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.address}}
+                                    {% if form_errors['address'] %}
+                                    <div class="alert alert-danger">{{ form.errors.address }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                               <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Mobile Number<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.mobile }}
+
+                                    {% if form_errors['mobile'] %}
+                                    <div class="alert alert-danger">{{ form.errors.mobile }}</div>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+
+<!--                            <div id="field">-->
+<!--                                {% for attributes in kitchen_attributes %}-->
+<!--                                <div id="field0" class="extra_field">-->
+<!--                                    &lt;!&ndash; Text input&ndash;&gt;-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label col-md-3 col-sm-3 col-xs-5">Attribute</label>-->
+<!--                                        <div class="col-md-6 col-sm-6 col-xs-12">-->
+<!--                                            <input name="labels" type="text" placeholder="Label"-->
+<!--                                                   value="{{attributes['key']}}"-->
+<!--                                                   class="form-control input-md">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; Text input&ndash;&gt;-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label col-md-3 col-sm-3 col-xs-5">Value</label>-->
+<!--                                        <div class="col-md-6 col-sm-6 col-xs-12">-->
+<!--                                            <input name="value" type="text" placeholder="Value"-->
+<!--                                                   value="{{attributes['value']}}"-->
+<!--                                                   class="form-control input-md">-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <button name="remove" type="button" class="btn btn-primary remove">Remove</button>-->
+<!--                                </div>-->
+<!--                                {% endfor %}-->
+<!--                            </div>-->
+
+
+                            <!-- Button -->
+<!--                            <div class="form-group">-->
+<!--                                <div class="control-label col-md-3 col-sm-3 col-xs-5"></div>-->
+<!--                                <div class="col-md-6 col-sm-6 col-xs-12">-->
+<!--                                    <button id="add-more" type="button" name="add-more" class="btn btn-primary">Add-->
+<!--                                        Attribute-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                             <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Minimum Order<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.minimum_order }}
+                                    {% if form_errors['minimum_order'] %}
+                                    <div class="alert alert-danger">{{ form.errors.minimum_order }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Cost for Two<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.cost_for_two }}
+                                    {% if form_errors['cost_for_two'] %}
+                                    <div class="alert alert-danger">{{ form.errors.cost_for_two }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Delivery Charges<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.delivery_charges }}
+                                    {% if form_errors['delivery_charges'] %}
+                                    <div class="alert alert-danger">{{ form.errors.delivery_charges }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Packing Charges<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.packing_charges }}
+                                    {% if form_errors['packing_charges'] %}
+                                    <div class="alert alert-danger">{{ form.errors.packing_charges }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                                 <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> COD Limit
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.cod_limit }}
+                                    {% if form_errors['cod_limit'] %}
+                                    <div class="alert alert-danger">{{ form.errors.cod_limit }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Delivery Time<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.delivery_time }}
+                                    {% if form_errors['delivery_time'] %}
+                                    <div class="alert alert-danger">{{ form.errors.delivery_time }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Opening Time<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.opening_time }}
+                                    {% if form_errors['opening_time'] %}
+                                    <div class="alert alert-danger">{{ form.errors.opening_time }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Closing Time<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.closing_time }}
+                                    {% if form_errors['closing_time'] %}
+                                    <div class="alert alert-danger">{{ form.errors.closing_time }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+
+
+                            <div class="ln_solid"></div>
+                            <div>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+
+                                    <input style="width:100px" type="submit" class="btn btn-success" value="Submit">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+
+{% endblock %}
+{% block extra_js %}
+
+<script>
+  $(document).ready(function () {
+        var next = 0;
+        $("#add-more").click(function(e){
+            e.preventDefault();
+            var addto = "#field" + next;
+            var addRemove = "#field" + (next);
+            next = next + 1;
+            var newIn =`<div id="field0" class="extra_field">
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >Attribute</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input  name="labels" type="text" placeholder="Label" class="form-control input-md">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >Value</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input name="value" type="text" placeholder="Value" class="form-control input-md">
+                        </div>
+                    </div>
+                    <button name="remove" class="btn btn-primary remove">Remove </button>
+                </div>
+                 `;
+            var newInput = $(newIn);
+            $('#field').append(newInput);
+        });
+    });
+
+    $('#field').on('click', '.remove', function(){
+        console.log(this)
+        $(this).parent('.extra_field').remove();
+    })
+
+
+</script>
+
+<script>
+
+    function initMap(){
+    var latlng = new google.maps.LatLng(28.5839505, 77.3149011);
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: latlng,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        title: 'Set lat/lon values',
+        draggable: true
+    });
+
+    google.maps.event.addListener(marker, 'dragend', function (event) {
+        console.log(this)
+        document.getElementById("latbox").value = this.getPosition().lat().toFixed(5);
+        document.getElementById("lngbox").value = this.getPosition().lng().toFixed(5);
+        geocodePosition(marker.getPosition());
+    });
+
+    }
+
+    function geocodePosition(pos) {
+    geocoder = new google.maps.Geocoder();
+    console.log(pos)
+    geocoder.geocode({
+    latLng: pos
+    }, function(responses) {
+    if (responses && responses.length > 0) {
+    console.log(responses[0].formatted_address.split(','))
+      $('.address').val(responses[0].formatted_address);
+    } else {
+    $('#current').text('Cannot determine address at this location.')
+    }
+    });
+    }
+
+
+</script>
+<script src="{{ static('vendors/bootstrap-material-datetimepicker/bootstrap-material-datetimepicker.js') }}"></script>
+<script >
+$('.time').bootstrapMaterialDatePicker
+({
+date: false,
+shortTime: false,
+format: 'HH:mm:ss'
+});
+
+</script>
+
+{% endblock %}

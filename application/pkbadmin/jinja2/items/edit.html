@@ -1,0 +1,406 @@
+{% extends '/layout.html' %}
+{% block title %}
+Update Item
+{% endblock %}
+{% block right_col %}
+<style>
+    .form-control, input {
+    box-shadow: none;
+    width: 60%;
+    }
+</style>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Update Item</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <form id="demo-form2" method="post" data-parsley-validate=""
+                              class="form-horizontal form-label-left" enctype="multipart/form-data">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+
+                         <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Store Name
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+                                            title="Can not change store here.">{{store.name}}
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Kitchen Name
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+                                            title="Can not change kitchen here.">{{kitchen.name}}
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Category Name
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+                                            title="Can not change category here.">{{category.name}}
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Name
+                                    <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.name }}
+                                    {% if form_errors['name'] %}
+                                    <div class="alert alert-danger">{{ form.errors.name }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Short Description
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.short_description }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Description
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.description }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Image
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.image }}
+                                    {% if image_path %}
+
+                                    <img src="{{ MEDIA_URL }}{{directory+image_path}}" width=250px height=200px>
+                                    {% endif %}
+                                    <input value="{{image_path}}" name="old_image" hidden="true">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Food Type
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.food_type }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Is Offer Active
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.is_offer_active }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Is Out of Stock
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.is_outof_stock}}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Base Price<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {{ form.base_price}}
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Is Variant
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {% if is_variant %}
+                                    <input type="checkbox" class="isVariant" name="is_variant" checked/>
+                                    {% else %}
+                                    <input type="checkbox" class="isVariant" name="is_variant"/>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            {% if item_types %}
+                            <div class="price-variations">
+                                {% set types = ["full", "half", "quarter"] %}
+
+                                {% for type in types %}
+
+                                {% for item in item_prices %}
+
+                                {% if type in item_types and type == item.quantity_type %}
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> {{type.title()}}
+                                    </label>
+                                    <input type="text" name="quantity_type" value="{{type}}" hidden="true">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                        <input type="text"
+                                               name="price"
+                                               class="form-control"
+                                               data-validation="float"
+                                               data-validation-length="max10"
+                                               data-validation-error-msg="You did not enter the price."
+                                               placeholder="Price"
+                                               maxlength="100"
+                                               value="{{item.price}}"
+                                               id="id_price1">
+                                        <input type="text" name="item_price_description" class="form-control"
+                                               placeholder="Item Price Description" maxlength="100"
+                                               id="id_item_price_description1" value="{{item.description}}">
+                                        </p>
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                                {% if type not in item_types %}
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> {{ type.title()}}
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" hidden="true" name="quantity_type" value="{{type}}">
+
+                                        <input type="text"
+                                               name="price"
+                                               class="form-control"
+                                               data-validation="float"
+                                               data-validation-length="max10"
+                                               data-validation-error-msg="You did not enter the price."
+                                               placeholder="Price"
+                                               maxlength="100"
+                                               id="id_price2">
+                                        <input type="text" name="item_price_description" class="form-control"
+                                               placeholder="Item Price Description" maxlength="100"
+                                               id="id_item_price_description2">
+                                        </p>
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
+                            {% endif %}
+
+
+                            <div class="for-new price-variations" style="display:none">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> Full
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="quantity_type" value="full" hidden="true">
+                                        <input type="text"
+                                               name="price"
+                                               class="form-control"
+                                               data-validation="float"
+                                               data-validation-length="max10"
+                                               data-validation-error-msg="You did not enter the price."
+                                               placeholder="Price"
+                                               maxlength="100"
+                                               id="id_price11">
+                                        <input type="text" name="item_price_description" class="form-control"
+                                               placeholder="Item Price Description" maxlength="100"
+                                               id="id_item_price_description11">
+                                        </p>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> Half
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="quantity_type" value="half" hidden="true">
+                                        <input type="text"
+                                               name="price"
+                                               class="form-control"
+                                               data-validation="float"
+                                               data-validation-length="max10"
+                                               data-validation-error-msg="You did not enter the price."
+                                               placeholder="Price"
+                                               maxlength="100"
+                                               id="id_price22">
+                                        <input type="text" name="item_price_description" class="form-control"
+                                               placeholder="Item Price Description" maxlength="100"
+                                               id="id_item_price_description22">
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-5"> Quarter
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="quantity_type" value="quarter" hidden="true">
+                                        <input type="text"
+                                               name="price"
+                                               class="form-control"
+                                               data-validation="float"
+                                               data-validation-length="max10"
+                                               data-validation-error-msg="You did not enter the price."
+                                               placeholder="Price"
+                                               maxlength="100"
+                                               id="id_price33">
+                                        <input type="text" name="item_price_description" class="form-control"
+                                               placeholder="Item Price Description" maxlength="100"
+                                               id="id_item_price_description33">
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="ln_solid"></div>
+                            <div>
+                                <div class="control-label col-md-3 col-sm-3 col-xs-5"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input style="width:100px" type="submit" class="btn btn-success" value="Submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $('.myCheck').click(function(){
+
+    if($(this).is(':checked')){
+        $(this).siblings('.quantity').show()
+    }
+    else{
+    $(this).siblings('.quantity').hide();
+    $(this).siblings('.quantity').find("input[type=text], textarea").val('');
+
+    }
+    })
+
+    $('.isVariant').click(function(){
+    if($(this).is(':checked')){
+        $('.price-variations').show();
+        if($('.price-variations').length ==2){
+            $('.for-new').attr('style', 'display:none');
+            }
+    }
+    else{
+    $('.price-variations').hide();
+    }
+    })
+
+
+</script>
+
+<script>
+
+    $('.stores').change(function(){
+
+      var store_id=$(this).val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+      $.ajax({
+        url: "{{url('custom-admin:get_kitchens_by_store')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "store_id" : store_id
+
+        },
+        success: function (data) {
+           if(data.status){
+                $('.kitchen_list').html('');
+                kitchen_list=data.data;
+
+                if(kitchen_list.length>0){
+                    var kitchen_html=`<select name="kitchen" type="radio"
+                     class="btn btn-primary btn-md" data-parsley-multiple="gender" id="id_kitchen">`
+                    var options=''
+                    $.each(data.data, function (i, u) {
+                        options+=`<option value="`+u.id+`">`+u.name+`</option>`
+                    });
+                    options+'</select>';
+                    $('.kitchen_list').append(kitchen_html+options);
+				}
+				else{
+				alert('this store has no kitchen')
+				}
+           }
+        }
+      });
+
+    })
+
+//  $('.stores').change();
+
+    $('.kitchen_list').on('change', '#id_kitchen', function(){
+
+      var kitchen_id=$(this).val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+      $.ajax({
+        url: "{{url('custom-admin:get_categories_by_kitchen')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "kitchen_id" : kitchen_id
+
+        },
+        success: function (data) {
+           if(data.status){
+                $('.categories_list').html('');
+                categories_list=data.data;
+                if(categories_list.length>0){
+                    var category_html=`<select name="category_name" type="radio"
+                     class="btn btn-primary btn-md" data-parsley-multiple="gender" id="id_category_name">`
+                    var options=''
+                    $.each(categories_list, function (i, u) {
+                        options+=`<option value="`+u.id+`">`+u.name+`</option>`
+                    });
+                    options+'</select>';
+                    $('.categories_list').append(category_html+options);
+				}
+				else{
+				    alert('this store has no category')
+				}
+           }
+        }
+      });
+
+    })
+</script>
+{% endblock %}

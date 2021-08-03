@@ -1,0 +1,321 @@
+{% extends '/layout.html' %}
+{% block title %}
+Clients
+{% endblock %}
+
+{% block right_col %}
+
+<div class="right_col" role="main">
+
+    <div class="">
+ <div class="clearfix"></div>
+        <div class="page-title">
+   <h3 class="pull-left"> Order History List</h3>
+                {% if "Manager" in user.group_name %}
+                <a href="{{url('custom-admin:take_order')}}" class="btn btn-primary pull-right">Take  Order</a>
+                {% endif %}
+
+            <div class="clearfix"></div><br>
+
+<div class="br_full">
+            <div class="title_left">
+
+
+                <div class="" style="margin-left:15px;">
+                    <a href="javascript:void(0)" class="btn btn-primary pull-left order_status_on_btn" data-status="">All Orders</a>
+                    <a href="javascript:void(0)" class="btn btn-primary pull-left order_status_on_btn" data-status="0">Pending Orders</a>
+                    <a href="javascript:void(0)" class="btn btn-primary pull-left order_status_on_btn" data-status="1">Confirmed Orders</a>
+                    <a href="javascript:void(0)" class="btn btn-primary pull-left order_status_on_btn" data-status="2">Delivered Orders</a>
+                    <a href="javascript:void(0)" class="btn btn-primary pull-left order_status_on_btn" data-status= "3">Declined Orders</a>
+                    <a href="javascript:void(0)" class="btn btn-primary pull-left order_status_on_btn" data-status= "4">Dispatched Orders</a>
+                </div>
+
+
+            </div>
+
+            <div class="">
+
+
+<div class="col-lg-2 pull-right">
+                    <select name="order_status" class="form-control" required="required">
+                        <option value="">All</option>
+                        <option value="0">Pending Orders</option>
+                        <option value="1">Confirmed Orders</option>
+                        <option value="2">Delivered Orders</option>
+                        <option value="3">Declined Orders</option>
+                         <option value="4">Dispatched Orders</option>
+
+
+                    </select></div>
+                    <div class="col-lg-2  pull-right">
+                    <select name="filter_by_kitchen" class="form-control" required="required">
+                        <option value="">All Kitchen</option>
+                        {% if kitchens %}
+                        <option value="{{kitchens.id}}">{{kitchens.name}}</option>
+                        {% endif %}
+
+                    </select></div>
+
+            </div>
+
+        </div>
+</div>
+    </div>
+
+    <div class="clearfix"></div>
+
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <table id="datatable" class="table table-striped table-bordered dataTable no-footer subject_list_table">
+
+                        <thead>
+                        <tr>
+                            <th>S.no.</th>
+                            <th>Order No.</th>
+                            <th>User Name</th>
+                            <th>Mobile</th>
+                            <th>Order Total</th>
+                            <th>Delivery Address</th>
+                            <th>Order Date/Time</th>
+                            <th>Order Status</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+
+  var table = {};
+
+  var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+  var tableOption = {
+    serverSide: true,
+    "processing": true,
+    //"stateSave": true,
+    "stateDuration": -1,
+    "language": {
+      "processing": "loading please wait ..."
+    },
+    //searching: false,
+    dom: '<lBf<t>ip><"processing_wrapper"r>',
+      buttons: [ {
+                extend: 'excel',
+                text: 'Excel',
+                className: 'btn btn-default',
+                exportOptions: {
+                columns: [1,2,3,4,5,6,7],
+                }
+                 },
+
+                {
+           extend: 'csv',
+           footer: false,
+          exportOptions: {
+                columns: [1,2,3,4,5,6,7],
+                }
+       },
+           ],
+
+    "lengthMenu": [[10, 50, 100, 200, 500, 2000, 5000], [10, 50, 100, 200, 500, 2000, 5000]],
+    ajax: {
+      url: "/admin/allorder/get/",
+      type: 'POST',
+      data: function (data) {
+        data.csrfmiddlewaretoken = csrftoken
+
+         data.order_status = $("[name=order_status]").val();
+         data.kitchen_id = $("[name=filter_by_kitchen]").val();
+
+        {% if type %}
+          data.type = "{{type}}"
+        {% endif %}
+
+      },
+      timeout: 300000
+    },
+    columnDefs: [{
+      "targets": -1,
+      "orderable": false,
+      "render": function (data, type, full, meta) {
+
+         var view_url = "{{ url('custom-admin:view_order' , args=[1]) }}".replace(1, full.id);
+
+         var edit_url = "#";
+
+         console.log(edit_url)
+
+        return `<div class="btn btn-primary ">
+                    <a href="`+view_url+`" >view</a>
+                  </div>`;
+      }
+    },
+    {
+      "targets": -4,
+      "render": function (data, type, full, meta) {
+
+        console.log(full)
+        return full.delivery_address;
+      }
+    },
+       {
+      "targets": -3,
+      "render": function (data, type, full, meta) {
+        console.log(typeof(full.created_on))
+        console.log(full.created_on.split("T"))
+        var date = full.created_on.split("T")[0]
+        var time = full.created_on.split("T")[1].split(":")
+
+        return (date + "  " + time[0]+":"+time[1]);
+      }
+    },
+
+    {
+      "targets": -2,
+      "render": function (data, type, full, meta) {
+        if(full.order_status == 0){
+        return "Pending";
+        }
+        if(full.order_status == 1){
+        return "Confirmed";
+        }
+        if(full.order_status == 2){
+        return "Delivered";
+        }
+        if(full.order_status == 3){
+        return "Declined";
+        }
+        if(full.order_status == 4){
+        return "Dispatched";
+        }
+      }
+    }
+    ],
+   columns: [
+            {data: null, orderable: false, className: "text-center"},
+            {data: "order_no", className: "text-center"},
+            {data: "user__name", className: "text-center"},
+            {data: "user__mobile", className: "text-center"},
+            {data: "grand_total", className: "text-center"},
+            {data: "null" ,orderable: false, className: "text-center"},
+            {data: "created_on", className: "text-center"},
+            {data: "order_status", className: "text-center"},
+            {data: null, orderable: false, className: "text-center"},
+        ], "order": [],
+    //responsive: true
+    "drawCallback": function (settings) {
+      var api = new $.fn.dataTable.Api(settings);
+      api.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+        var page = api.page();
+        var len = api.page.len();
+        cell.innerHTML = (page * len) + (i + 1);
+        api.cell(cell).invalidate('dom');
+      });
+    }
+  };
+
+
+  window.table = $("#datatable").DataTable(tableOption);
+  $("#datatable").on('processing.dt', function (e, settings, processing) {
+    $('.processing_wrapper').css('display', processing ? 'block' : 'none');
+  });
+
+
+  $("#datatable").on('click', '.delete', function () {
+    var id = $(this).data('id');
+
+    bootbox.confirm({
+      title: "Delete Order ?",
+      message: "Do you want to delete this order.",
+      buttons: {
+        cancel: {
+          label: '<i class="fa fa-times"></i> Cancel'
+        },
+        confirm: {
+          label: '<i class="fa fa-check"></i> Confirm'
+        }
+      },
+      callback: function (result) {
+        if (result) {
+        var del_url = "{{ url('custom-admin:delete_client' , args=[1]) }}".replace(1, id);
+          $.get(del_url, function (res) {
+            if (res.status) {
+
+              show_noti_text = res.message;
+              show_noti_type = "success";
+
+            } else {
+              show_noti_text = res.error_msg || 'Not Deleted Successfully.Please try again!';
+              show_noti_type = "error";
+            }
+
+            show_noti(show_noti_type,show_noti_text)
+            table.ajax.reload();
+          });
+        }
+      }
+    });
+
+  });
+
+
+$("[name=order_status]").change ( function() {
+ table.ajax.reload();
+
+}
+)
+
+$("[name=filter_by_kitchen]").change ( function() {
+ table.ajax.reload();
+
+}
+)
+$('.order_status_on_btn').click(function() {
+    status=$(this).data('status');
+    console.log(status)
+    $("[name=order_status]").val(status);
+    table.ajax.reload();
+
+}
+)
+
+$(document).ready(function(){
+
+ order_status = window.location.search.split("=")[1];
+ if(order_status){
+     $("[name=order_status]").val(order_status);
+     table.ajax.reload();
+
+ }
+ window.history.replaceState({}, document.title,window.location.href.split('?')[0]);
+});
+
+</script>
+
+{% endblock %}
+

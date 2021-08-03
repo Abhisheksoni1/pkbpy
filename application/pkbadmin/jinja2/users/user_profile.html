@@ -1,0 +1,385 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block right_col %}
+<div class="right_col" role="main">
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>User Profile</h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+
+                    <div class="x_content">
+
+                        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+
+
+                            <div id="anu" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content ">
+
+
+                                        <!-------Header------------>
+                                        <div class="modal-header ">
+                                            <h2 class="modal-tital"><b>User Wallet Detail </b></h2>
+                                        </div>
+                                        <!-------Header-Close------------>
+
+
+                                        <!-------Modal-Body------------>
+                                        <div class="modal-body">
+                                            <table class="table table-striped table-bordered">
+                                                <thead>
+                                                <tr>
+                                                    <th>Wallet Log</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                                {% if user_wallet_log %}
+                                                {% for walletlog in user_wallet_log %}
+                                                <tr>
+                                                    <td>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            {{ walletlog.wallet_log_for }}
+                                                        </div>
+                                                    </td>
+
+
+                                                    <td>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            {{ walletlog.amount }}
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                {% endif %}
+
+                                                </thead>
+
+                                            </table>
+
+                                        </div>
+                                        <!-------Close-Modal-Body------------>
+
+                                        <!-------Modal-Footer------------>
+                                        <div class="modal-footer">
+                                            <button type="button" data-dismiss="modal" class="btn btn-success">close
+                                            </button>
+                                        </div>
+
+                                        <!-------Close-Modal-Footer------------>
+
+
+                                    </div><!---Close modal content-->
+
+                                </div><!-----Close modal -dialog--->
+
+                            </div><!-----Close modal-fade---->
+
+
+                        </div>
+
+                        <div class=" profile_box">
+ <button type="button" class="btn btn_edit_profile" data-toggle="modal"  data-target="#anu">User Wallet  </button>
+                            {% if users.profile_pic %}
+                            <div class="profile_img">
+                                <div id="crop-avatar">
+                                    <img class="img-responsive avatar-view" src="#" style="width:50px; height:50px">
+                                </div>
+                            </div>
+                            {% else %}
+
+                            <div class="profile_img">
+                                <div id="crop-avatar1">
+                                    <img class="img-responsive avatar-view" src="{{ MEDIA_URL }}/default.jpeg"
+                                         style="width:50px; height:50px">
+                                </div>
+                            </div>
+                            {% endif %}
+
+
+                            <h3>{{ users.name if users.name else "N/A"}}</h3>
+
+                            <ul class="list-unstyled user_data">
+
+                                <li>
+                                    <i class="fa fa-mobile user-profile-icon"></i> {{users.mobile if
+                                    users.mobile else "N/A" }}
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope user-profile-icon"></i> {{ users.email if
+                                    users.email else "N/A" }}
+                                </li>
+                                <li>
+                                    <i class="fa fa-birthday-cake user-profile-icon"></i> {{ users.dob if
+                                    users.dob else "N/A"}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-inr"></i> {{users.userwallet.amount if
+                                    users.userwallet.amount else "N/A" }}
+                                </li>
+                                <li> preferences: {{ users.userprofile.preferences if users.userprofile.preferences else "N/A"}}</li>
+
+
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="page-title">
+            <div class="title_left">
+                <h3>User Adress</h3>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+    <input type="hidden" value="{{users.pk}}" name="pk">
+
+    <div class="row user_adress">
+
+
+
+            {% if addresses %}
+            {% for address in addresses %}
+            <div class="col-md-3 col-sm-4 col-xs-12 ">
+                <div class="store-box">
+                <b>{{ address.address_type.title() }}</b>
+                <ul class="list-unstyled user_data">
+                    <li>
+                        <p>{{ address.address_line1 }}, {{ address.address_line2 }}</p>
+                        <p>{{ address.state }} , {{ address.country }} </p>
+                        <p>{{ address.pincode }}</p>
+                    </li>
+
+                </ul>
+</div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+
+
+    </div>
+
+    <br>
+
+
+
+    <!------T---------->
+     <div class="page-title">
+            <div class="title_left">
+                <h3>User Order List</h3>
+            </div>
+        </div>
+
+
+    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+
+        <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="x_panel">
+
+                            <div class="x_content">
+                                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                                <table id="datatable"
+                                       class="table table-striped table-bordered dataTable no-footer subject_list_table">
+
+                                    <thead>
+                                    <tr>
+                                        <th>S.no.</th>
+                                        <th>Order No.</th>
+                                        <th>User Name</th>
+                                        <th>Mobile</th>
+                                        <th>Order Total</th>
+                                        <th>Delivery Address</th>
+                                        <th>Order Date/Time</th>
+                                        <th>Order Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-------T--------->
+
+
+</div>
+
+
+
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+
+  var table = {};
+
+  var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+  var tableOption = {
+    serverSide: true,
+    "processing": true,
+    //"stateSave": true,
+    "stateDuration": -1,
+    "language": {
+      "processing": "loading please wait ..."
+    },
+    //searching: false,
+    dom: '<lf<t>ip><"processing_wrapper"r>',
+    "lengthMenu": [[10, 50, 100, 200, 500, 2000, 5000], [10, 50, 100, 200, 500, 2000, 5000]],
+    ajax: {
+      url: "/admin/user-profile/get/",
+      type: 'POST',
+      data: function (data) {
+        data.csrfmiddlewaretoken = csrftoken
+        data.user_id = $("[name=pk]").val();
+
+        {% if type %}
+          data.type = "{{type}}"
+        {% endif %}
+
+      },
+      timeout: 300000
+    },
+    columnDefs: [{
+      "targets": -1,
+      "render": function (data, type, full, meta) {
+        if(full.order_status == 0){
+        return "Pending";
+        }
+        if(full.order_status == 1){
+        return "Confirmed";
+        }
+        if(full.order_status == 2){
+        return "Delivered";
+        }
+        if(full.order_status == 3){
+        return "Declined";
+        }
+      }
+    }
+
+    ],
+   columns: [
+            {data: null, orderable: false, className: "text-center"},
+            {data: "order_no", className: "text-center"},
+            {data: "user__name", className: "text-center"},
+            {data: "user__mobile", className: "text-center"},
+            {data: "grand_total", className: "text-center"},
+            {data: "delivery_address" ,orderable: false, className: "text-center"},
+            {data: "created_on", className: "text-center"},
+            {data: "order_status", className: "text-center"},
+        ], "order": [],
+    //responsive: true
+    "drawCallback": function (settings) {
+      var api = new $.fn.dataTable.Api(settings);
+      api.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+        var page = api.page();
+        var len = api.page.len();
+        cell.innerHTML = (page * len) + (i + 1);
+        api.cell(cell).invalidate('dom');
+      });
+    }
+  };
+
+
+  window.table = $("#datatable").DataTable(tableOption);
+  $("#datatable").on('processing.dt', function (e, settings, processing) {
+    $('.processing_wrapper').css('display', processing ? 'block' : 'none');
+  });
+
+
+  $("#datatable").on('click', '.delete', function () {
+    var id = $(this).data('id');
+
+    bootbox.confirm({
+      title: "Delete Order ?",
+      message: "Do you want to delete this order.",
+      buttons: {
+        cancel: {
+          label: '<i class="fa fa-times"></i> Cancel'
+        },
+        confirm: {
+          label: '<i class="fa fa-check"></i> Confirm'
+        }
+      },
+      callback: function (result) {
+        if (result) {
+        var del_url = "#";
+          $.get(del_url, function (res) {
+            if (res.status) {
+
+              show_noti_text = res.message;
+              show_noti_type = "success";
+
+            } else {
+              show_noti_text = res.error_msg || 'Not Deleted Successfully.Please try again!';
+              show_noti_type = "error";
+            }
+
+            show_noti(show_noti_type,show_noti_text)
+            table.ajax.reload();
+          });
+        }
+      }
+    });
+
+  });
+
+
+$("[name=order_status]").change ( function() {
+ table.ajax.reload();
+
+}
+)
+
+</script>
+
+{% endblock %}

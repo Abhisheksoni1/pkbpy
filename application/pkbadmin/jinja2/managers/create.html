@@ -1,0 +1,169 @@
+{% extends '/layout.html' %}
+{% block title %}
+Manager
+{% endblock %}
+{% block right_col %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Create Manager</h3>
+            </div>
+        </div>
+        <div class="container">
+            <form method="post" enctype="multipart/form-data" class="form-horizontal form-label-left" novalidate="">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4 coll-lg-offset-4 col-md-offset-4">
+                        <h1>Details</h1>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-sm-6 col-md-6 col-lg-6 coll-lg-offset-4 col-md-offset-2 ">
+
+                        <div class="form-group">
+
+                            <label for="role"> Role <span
+                                    class="required">*</span>:</label>
+                            <select type="text" name="manager" data-validation="required"
+                                    data-validation-error-msg="Group is required field."
+                                    class="form-control col-md-7 col-xs-12">
+                                {% for group in groups %}
+                                <option value="{{ group.id }}">{{ group.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="role"> Kitchen <span
+                                    class="required">*</span>:</label>
+                            </label>
+                            <select type="text" name="kitchen" data-validation="required"
+                                    data-validation-error-msg="Store is required field."
+                                    class="form-control col-md-7 col-xs-12">
+                                {% for kitchen in kitchens %}
+                                <option value="{{ kitchen.id }}">{{ kitchen.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="first_name">First Name <span
+                                    class="required">*</span>:</label>
+                            {{ form.first_name }}
+                            {% if form_errors['first_name'] %}
+                            <div class="alert alert-danger">{{ form.errors.first_name }}</div>
+                            {% endif %}
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="last_name">Last Name <span
+                                    class="required">*</span> :</label>
+                            {{ form.last_name }}
+                            {% if form_errors['last_name'] %}
+                            <div class="alert alert-danger">{{ form.errors.last_name }}</div>
+                            {% endif %}
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="Mobile">Mobile Number <span
+                                    class="required">*</span> :</label>
+                            {{ form.mobile }}
+                            {% if form_errors['mobile'] %}
+                            <div class="alert alert-danger">{{ form.errors.mobile }}</div>
+                            {% endif %}
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="Email">Email ID <span
+                                    class="required">*</span>:</label>
+                            {{ form.email }}
+                            {% if form_errors['email'] %}
+                            <div class="alert alert-danger">{{ form.errors.email }}</div>
+                            {% endif %}
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="gender">Gender <span
+                                    class="required">*</span> :</label>
+
+                            <select name="gender" id="gender_id" class="form-control">
+                                {% if gender %}
+                                <option value="{{gender}}" selected> {{gender}}</option>
+
+                                {% else %}
+                                 <option value="" selected> Choose gender</option>
+                                {% endif %}
+                                {% if gender=='Male'%}
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                                {% elif gender=='Female'%}
+                                 <option value="Male">Male</option>
+                                <option value="Others">Others</option>
+                                {% elif gender=='Others'%}
+                                 <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                {%else%}
+                                 <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                                {% endif %}
+                            </select>
+                            {% if form_errors['gender'] %}
+                            <div class="alert alert-danger">{{ form.errors.gender }}</div>
+                            {% endif %}
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="DOB">DOB <span
+                                    class="required">*</span>:</label>
+                            {{ form.dob }}
+                            {% if form_errors['dob'] %}
+                            <div class="alert alert-danger">{{ form.errors.dob }}</div>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ln_solid">
+                </div>
+                <div class="row">
+                    <div class="col-md-1 col-sm-3 col-xs-3 col-md-offset-4">
+                        <a href="{{url('custom-admin:manager_index')}}" class="btn btn-primary">Cancel</a>
+                    </div>
+                    <div class="col-md-1 col-sm-3 col-xs-3">
+                        <a href="{{url('custom-admin:add_manager')}}" class="btn btn-primary" type="reset">Reset</a>
+                    </div>
+                    <div class="col-md-1 col-sm-3 col-xs-3 ">
+                        <input type="hidden" name="role_id" value="4" class="form-control"/>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+
+   $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3d',
+});
+
+</script>
+{% endblock %}

@@ -1,0 +1,91 @@
+.mt_50{margin-top:50px;}
+.mt_30{margin-top:30px;}
+.br_full{border:1px solid #ddd;display:inline-block;width:100%;float:left;border-bottom:none;padding:10px 0;}
+.btn_store_on_off{transition:1s; font-size:18px;font-weight:400;color:#fff59d;text-align:center;background:#f44336;border-radius:5px;display:inline-block;line-height:20px;margin:20px 0 0 0;padding:10px 30px;text-transform:uppercase;}
+.btn_store_on_off:hover{color:#f44336;background:#fff59d;}
+
+.profile_top{  display:inline-block;}
+.profile_top h2{margin:0;font-size:16px;padding-right:10px;}
+.top_right_click{background:#fff;display:inline-block; margin-right:20px}
+
+.store-box {height: 130px;width:100%;border:1px solid #d8d3d3;padding: 10px;margin:15px 0;background:#fff; transition: box-shadow .3s;}
+.store-box:hover{box-shadow: 0 0 11px rgba(33,33,33,.2); }
+
+.x_content select[multiple]{height:500px;}
+
+/*-----------               On off switch                ------------------                  On off switch             ----------  */
+.onoffswitch {position: relative; width: 90px;-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;margin-top:-10px;float:right;}
+.onoffswitch-checkbox {display: none;}
+.onoffswitch-label {display: block; overflow: hidden; cursor: pointer;border: 2px solid #c2d4d8; border-radius: 20px;}
+.onoffswitch-inner {display: block; width: 200%; margin-left: -100%;transition: margin 0.3s ease-in 0s;}
+.onoffswitch-inner:before, .onoffswitch-inner:after {display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;box-sizing: border-box;}
+.onoffswitch-inner:before {content: "ON";padding-left: 10px;background-color: #fff59d; color: #003050;}
+.onoffswitch-inner:after {content: "OFF";padding-right: 10px;background-color: #f44336; color: #fff59d;text-align: right;}
+.onoffswitch-switch {display: block; width: 18px; margin: 6px;background: #FFFFFF;position: absolute; top: 0; bottom:5px;right: 56px;border: 2px solid #999999; border-radius: 20px;transition: all 0.3s ease-in 0s; }
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {margin-left: 0;}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {right: 0px;}
+
+
+/*-----------               On off switch                ------------------                  On off switch             ----------  */
+
+.nav-tabs ~ #myTabContent{    margin-top: 10px;}
+.profile_box .profile_img {float:left;margin-right:5px;}
+.profile_box h3{margin:0}
+.btn_edit_profile{float:right}
+.profile_box .list-unstyled{float: left;}
+.btn_new{transition:1s; font-size:14px;font-weight:400;color:#fff;text-align:center;background:#f44336;border-radius:5px;display:inline-block;line-height:20px;margin:0px 0 0 0;padding:5px 15px;}
+.btn_new:hover{background:#fff59d;color:#f44336}
+
+
+.user_adress .store-box{margin-top:0}
+#datatable .btn_both{width:70px; display: inline-block;border-radius:3px;padding:7px 5px;}
+.btn_both a{float:left;display:inline-block;line-height:14px;color:#fff;width:24px;}
+.btn_both .delete{border-left:1px solid #909090;padding-left:10px; margin-left:10px;}
+#datatable .dropdown-menu{min-width: 90px;}
+
+
+/*--------------                chcek box radio button -----------  */
+.mktoRadioList input {opacity: 0;position: absolute;}
+.mktoRadioList input, .mktoRadioList label {display: inline-block;vertical-align: middle;margin: 5px;cursor: pointer;}
+.mktoRadioList label {position: relative;}
+.mktoRadioList input + label:before {content: '';background: #fff;border: 2px solid #f44336;display: inline-block;vertical-align: middle;width: 20px;height: 20px;padding:1px;line-height:15px;margin-right: 10px;text-align: center;margin-top:-2px;}
+
+.mktoRadioList input + label:before {border-radius: 50%;}
+.mktoRadioList input:checked + label:before {content: "\f111";font-family: 'FontAwesome';color: #e02214;}
+.mktoRadioList input:focus + label {/* outline: 1px solid #ddd; focus style */}
+.mktoRadioList > label {margin-left:0;}
+
+/*--------------                chcek box radio button -----------  */
+.br_full .autocomplete{ width:100%;}
+.wallet_lbl{margin-top: 4px;margin-left: 10px;}
+.wallet_lbl input[type="checkbox"]{margin:3px 5px  0 0;float:left}
+.take_ordr hr{ margin-bottom: 10px;margin-top: 10px;}
+.take_ordr .mktoRadioList label{margin: 5px 10px 2px; }
+.btn_add_adress{border:1px solid #ccc; transition:1s; font-size:16px;font-weight:400;color:#003050;text-align:center;background:#fff59d;border-radius:5px;display:inline-block;line-height:12px;margin:19px 0 0 0;padding:10px 30px;text-transform:uppercase;}
+.btn_add_adress:hover{color:#fff59d;background:#003050;}
+
+
+
+#id_gender li{    margin-right: 15px;    display: inline-block;}
+.delete_order:hover span{color:red; }
+
+.txt_bg_header{background:#f3f3f3;width:30%;float:left;border-bottom: 1px solid #e6e6e6;    padding: 5px 15px;height:30px;}
+.txt_header{background:#fff;width:70%;float:left;border-bottom: 1px solid #f3f3f3; padding: 5px 15px;height:30px;}
+
+
+.js .inputfile {width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1;}
+.inputfile + label {max-width: 80%;font-size: 1.25rem;/* 20px */font-weight: 700;text-overflow: ellipsis;white-space: nowrap;cursor: pointer;display: inline-block;overflow: hidden;padding: 0.625rem 1.25rem;/* 10px 20px */}
+.no-js .inputfile + label {display: none;}
+.inputfile:focus + label,.inputfile.has-focus + label {outline: 1px dotted #000;outline: -webkit-focus-ring-color auto 5px;}
+.inputfile + label svg {width: 1em;height: 1em;vertical-align: middle;fill: currentColor;margin-top: -0.25em;/* 4px */margin-right: 0.25em;/* 4px */}
+
+/* style 6 */
+.inputfile-6{height:0}
+.inputfile-6 + label {color: #d3394c;}
+.inputfile-6 + label {border: 1px solid #d3394c;background-color: #f1e5e6;padding: 0;}
+.inputfile-6:focus + label,.inputfile-6.has-focus + label,.inputfile-6 + label:hover {border-color: #722040;}
+.inputfile-6 + label span,.inputfile-6 + label strong {padding: 0.625rem 1.25rem;/* 10px 20px */}
+.inputfile-6 + label span {width: 200px;min-height: 2em;display: inline-block;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;vertical-align: top;}
+.inputfile-6 + label strong {height: 100%;color: #f1e5e6;background-color: #f44336;display: inline-block;}
+.inputfile-6:focus + label strong,.inputfile-6.has-focus + label strong,.inputfile-6 + label:hover strong {background-color: #722040;}
+@media screen and (max-width: 50em) {.inputfile-6 + label strong {display: block;}}

@@ -1,0 +1,412 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block right_col %}
+<!-- page content -->
+
+<div class="right_col" role="main">
+<div class="clearfix"></div>
+      <div class="tile_count container mt_30">
+          <div class="col-lg-12">
+               {%if not user.is_superuser and bool == False %}
+            <a type="button" class="btn_store_on_off mr_25" href="{{url('custom-admin:add_stores')}}">
+                    Add Store</a>
+              {% endif %}
+
+
+               {%if not user.is_superuser and  bool == True  %}
+
+            <a type="button" class="btn_store_on_off mr_25" href="{{url('custom-admin:edit_stores', args=[user.storeowner.store.id])}}">
+                    Store View</a>
+                 {% endif %}
+<a type="button" class="btn_store_on_off mr_25" href="{{url('custom-admin:get_kitchen_timings')}}">
+                   Kitchen On/Off</a>
+
+                         <a type="button" class="btn_store_on_off"  href="{{url('custom-admin:all_order')}}?order-status=0">
+                   Pending Orders</a>
+          </div>
+
+
+
+    </div>
+
+    <!-- top tiles -->
+    <div class="col-lg-12 ">
+        <div class="title_right  br_full">
+            <div class="">
+                <div class="col-md-3 col-sm-4 col-xs-6 col-lg-2">
+                    <label>Select Store</label>
+                <select name="order_status" class="form-control store_list" required="required">
+                    <option value="">Store</option>
+                    <option value="{{store.id}}">{{store.name if store else None}}</option>
+
+
+                </select>
+                    </div>
+                <div class="col-md-3 col-sm-4 col-xs-6  col-lg-2">
+                    <label>Select Kitchen</label>
+                <select name="filter_by_kitchen" class="form-control kitchen_list" required="required">
+                    <option value="">Kitchen</option>
+                    {% for kitchen in kitchen %}
+                    <option value="{{kitchen.id}}">{{kitchen.name}}</option>
+                    {% endfor %}
+
+                </select>
+                    </div>
+<div class="col-md-3 col-sm-4 col-xs-6  col-lg-2">
+     <label>Select Graph Type: </label>
+        <select id="graph_type" class="form-control month_list" >
+            <option value="monthly" selected="">Monthly</option>
+            <option value="weekly">Weekly</option>
+            <option value="daily">Daily</option>
+        </select>
+</div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- /top tiles -->
+
+
+
+
+
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <!-- Left section will be here -->
+                    <div class="x_panel tile ">
+
+                        <div class="x_content">
+
+                            <div id="Order_chart" class=""></div>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+{% endblock %}
+
+{% block extra_js_lib %}
+
+<script>
+    $(document).ready(function(e) {
+        $(function() {
+            Highcharts.chart('Order_chart', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Monthly Orders'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Number of Orders'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y} </b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Pending Order',
+                    data: {{pending_order_month}}
+
+                }, {
+                    name: 'Confirmed Order',
+                    data: {{confirmed_order_month}}
+                }, {
+                    name: 'Delivered Order',
+                    data: {{delivered_order_month}}
+
+                }, {
+                    name: 'Declined Order',
+                    data: {{declined_order_month}}
+
+
+                }],
+                credits: {
+                    enabled: false
+                },
+            });
+        });
+    });
+
+    $('#graph_type').change(function(){
+
+      var order_type=$(this).val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+      var kitchen_id = $('.kitchen_list').val();
+      if(order_type=='monthly'){
+        window.location.reload();
+        }
+     $.ajax({
+        url: "{{url('custom-admin:get_filter_orders')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "order_type" : order_type,
+          "kitchen_id" : kitchen_id
+        },
+        success: function (data) {
+        console.log(kitchen_id)
+        if(data.status){
+        data=data.data;
+        var data2 = [
+            ['Pending Order', data.pending_order],
+            ['Confirmed Order', data.confirmed_order],
+            ['Delivered Order', data.delivered_order],
+            ['Declined Order',  data.declined_order],
+            ];
+
+        $(function() {
+        Highcharts.chart('Order_chart', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Orders'
+                    },
+                    xAxis: {
+                        type: 'category',
+                        labels: {
+
+                                style: {
+                                    fontSize: '13px',
+                                    fontFamily: 'Verdana, sans-serif'
+                                }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                            title: {
+                                text: 'Number of Orders'
+                            }
+                    },
+                    legend: {
+                            enabled: false
+                        },
+                    tooltip: {
+                            pointFormat: '<b>{point.y}</b>',
+                        },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [{
+                                name: 'Population',
+                                data: data2,
+                                dataLabels: {
+                                    enabled: true,
+                                    rotation: 0,
+                                    color: '#FFFFFF',
+                                    align: 'right',
+                                    //format: '{point.y:.1f}', // one decimal
+                                    y: 10, // 10 pixels down from the top
+                                    style: {
+                                        fontSize: '13px',
+                                        fontFamily: 'Verdana, sans-serif'
+                                    }
+                                }
+                            }],
+                    credits: {
+                                enabled: false
+                            },
+                });
+            });
+            }
+        }
+      });
+      });
+
+</script>
+
+<script>
+  $('.store_list').change(function(){
+
+      var store_id=$(this).val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+      console.log(store_id.length==0)
+      console.log(csrftoken)
+
+
+     $.ajax({
+        url: "{{url('custom-admin:get_store_kitchens')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "store_id" : store_id
+
+        },
+        success: function (data) {
+           if(data.status){
+                $('.kitchen_list').html('');
+                kitchen_list=data.data;
+
+
+                if(kitchen_list.length>0){
+
+                    var options='<option value="">Kitchen</option>'
+                    $.each(data.data, function (i, u) {
+                        console.log(i, u)
+                        options+=`<option value="`+u.id+`">`+u.name+`</option>`
+                    });
+
+
+                    $('.kitchen_list').append(options);
+				}
+				else{
+				alert('this store has no kitchen')
+				}
+           }
+        }
+      });
+
+    })
+    $('.store_list').change();
+
+
+</script>
+
+<script>
+$('.kitchen_list').change(function(){
+
+    var kitchen_id=$(this).val();
+    var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+
+     $.ajax({
+        url: "{{url('custom-admin:get_kitchen_order_filter')}}",
+        type: 'POST',
+        data:  {
+          "kitchen_id" : kitchen_id,
+          "csrfmiddlewaretoken" : csrftoken,
+        },
+        success: function (data){
+        data = data.data
+        $('#graph_type').val('monthly');
+        $(function() {
+            Highcharts.chart('Order_chart', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Monthly Orders'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Number of Orders'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y} </b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Pending Order',
+                    data: data.pending_order
+
+                }, {
+                    name: 'Confirmed Order',
+                    data: data.confirmed_order
+                }, {
+                    name: 'Delivered Order',
+                    data: data.delivered_order
+
+                }, {
+                    name: 'Declined Order',
+                    data: data.declined_order
+
+
+                }],
+                credits: {
+                    enabled: false
+                },
+            });
+        });
+}
+ });
+});
+
+</script>
+
+<!--threejs for better visualization.-->
+
+
+{% endblock %}

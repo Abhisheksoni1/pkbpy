@@ -1,0 +1,504 @@
+{% extends '/layout.html' %}
+
+{% block title %}
+Add Discount
+{% endblock %}
+
+{% block right_col %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+<!--<link rel="stylesheet" type="text/css" href="{{ static('vendors/bootstrap-material-datetimepicker/bootstrap-material-design.min.css') }}">-->
+
+<style>
+.form-control, input {
+    box-shadow: none;
+    width: 60%;
+}
+
+.store_tree{max-height: 300px;overflow-x: scroll;}
+
+
+
+</style>
+
+
+<div class="right_col" role="main">
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Add Discount</h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+
+                    <div class="x_content">
+
+                        <form id="demo-form2" method="post" data-parsley-validate=""
+                              class="form-horizontal form-label-left">
+
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Title
+                                    <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    {{ form.title }}
+                                    {% if form_errors['title'] %}
+                                    <div class="alert alert-danger">{{ form_errors['title'] }}</div>
+
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5 "> Type <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 types">
+
+
+                                    {{ form.type }}
+                                    {% if form_errors['type'] %}
+                                    <div class="alert alert-danger">{{ form_errors.type }}</div>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group" id="max_discount">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Percentage <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 max_discount">
+
+
+                                    {{ form.percentage }}
+                                    {% if form_errors['percentage'] %}
+                                    <div class="alert alert-danger">{{ form_errors['percentage'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group" id="amount">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Amount <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.amount }}
+                                    {% if form_errors['amount'] %}
+                                    <div class="alert alert-danger">{{ form_errors['amount'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Description <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.description }}
+                                    {% if form_errors['description'] %}
+                                    <div class="alert alert-danger">{{ form_errors['description'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Terms and Condition <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.terms_and_conditions }}
+                                    {% if form_errors['terms_and_conditions'] %}
+                                    <div class="alert alert-danger">{{ form_errors['terms_and_conditions'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Status <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.status }}
+                                    {% if form_errors['status'] %}
+                                    <div class="alert alert-danger">{{ form_errors['status'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Order Type<span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-2 col-sm-6 col-xs-12">
+
+                                    <input type="checkbox" name="order_type" value="DELIVERY"
+                                           id="TaxOrderType1"><label for="TaxOrderType1">Delivery</label>
+                                    <input type="checkbox" name="order_type" value="PICK UP"
+                                           id="TaxOrderType2"><label for="TaxOrderType2">Pick Up</label>
+                                    <input type="checkbox" name="order_type" value="DINE IN"
+                                           id="TaxOrderType3"><label for="TaxOrderType3">Dine In</label></div>
+                                {% if form_errors['order_type'] %}
+                                <div class="alert alert-danger">{{ form_errors['order_type'] }}</div>
+                                {% endif %}
+
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Code <span
+                                        class="required"></span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.code }}
+                                    {% if form_errors['code'] %}
+                                    <div class="alert alert-danger">{{ form_errors['code'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group" id="code_validation">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Validation On Code <span
+                                        class="required"></span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.validate_on_code }}
+                                    {% if form_errors['validate_on_code'] %}
+                                    <div class="alert alert-danger">{{ form_errors['validate_on_code'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Apply on <span
+                                        class="required"></span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="store_tree">
+                                        <ul class="checktree">
+                                            <li>
+                                                <input id="Select All" type="checkbox"/>
+                                                <label for="Select All">Select All</label>
+                                                <ul>
+                                                    {% for store in data %}
+                                                    <li class="pos_rel">
+                                                        <input id="{{ store.id }}" type="checkbox"/>
+                                                        <label for="{{ store.id }}"> {{ store.name }} </label>
+                                                        <span class="store">+</span>
+
+                                                        <ul class="store_component">
+                                                            {% for kitchen in store.kitchen_names %}
+                                                            <li class="pos_rel">
+                                                                <input id="{{ kitchen.id}}" type="checkbox"/>
+                                                                <label for="{{ kitchen.id}}"> {{ kitchen.name }}</label>
+                                                                <span class="store">+</span>
+                                                                <ul
+                                                                        class="store_component">
+                                                                    {% for category in kitchen.category_names %}
+                                                                    <li class="pos_rel">
+                                                                        <input id="{{category.id }}" type="checkbox"/>
+                                                                        <label for="{{category.id }}">{{category.name}} </label>
+                                                                        <span class="store">+</span>
+                                                                        <ul class="store_component">
+                                                                            {% for item in category.item_names %}
+                                                                            <li>
+                                                                                <input id="{{ item.id }}"
+                                                                                       type="checkbox"
+                                                                                       name="item_id"
+                                                                                       value="{{item.id}}"/>
+                                                                                <label for="{{ item.id }}">
+                                                                                    {{ item.name}}
+                                                                                </label>
+                                                                            </li>
+                                                                            {% endfor %}
+                                                                        </ul>
+
+                                                                    </li>
+                                                                    {% endfor %}
+
+                                                                </ul>
+                                                            </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> Add On <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.add_on }}
+                                    {% if form_errors['add_on'] %}
+                                    <div class="alert alert-danger">{{ form_errors['add_on'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> From Date <span
+                                        class="required">*</span>
+                                    <div id="txtFromDate"></div>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.from_date }}
+                                    {% if form_errors['from_date'] %}
+                                    <div class="alert alert-danger">{{ form_errors['from_date'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> To Date <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div id="txtToDate"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.to_date }}
+                                    {% if form_errors['to_date'] %}
+                                    <div class="alert alert-danger">{{ form_errors['to_date'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> From Time <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.from_time }}
+                                    {% if form_errors['from_time'] %}
+                                    <div class="alert alert-danger">{{ form_errors['from_time'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-5"> To Time <span
+                                        class="required">*</span>
+
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    {{ form.to_time }}
+                                    {% if form_errors['to_time'] %}
+                                    <div class="alert alert-danger">{{ form_errors['to_time'] }}</div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="ln_solid"></div>
+                            <div>
+                                <div class="control-label col-md-3 col-sm-3 col-xs-5"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    <input style="width:100px" type="submit" class="btn btn-success" value="Submit">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script>
+$(function() {
+  $('input[name="datetimes"]').daterangepicker({
+    timePicker: true,
+    startDate: moment().startOf('hour'),
+    endDate: moment().startOf('hour').add(32, 'hour'),
+    locale: {
+      format: 'YYYY-MM-DD hh:mm A'
+    }
+  });
+});
+
+</script>
+<script>
+$(function(){
+		$("ul.checktree").checktree();
+
+
+// toogle
+
+
+    $(".store_component").hide();
+	$('.store').click(function(e){
+        var SH = this.SH^=1; // "Simple toggle  "
+
+        $(this).text(SH?'-':'+')
+               .next(".store_component").slideToggle();
+	});
+
+	// second under process
+
+	$(".store_component_1").hide();
+	$('.store_1').click(function(e){
+        var SH = this.SH^=1; // "Simple toggle  "
+
+        $(this).text(SH?'-':'+')
+               .next(".store_component_1").slideToggle();
+	});
+
+});
+
+
+
+</script>
+<script >
+$('.time').bootstrapMaterialDatePicker
+({
+date: false,
+shortTime: false,
+format: 'HH:mm:ss'
+});
+
+</script>
+<script>
+      $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3d',
+});
+
+</script>
+<script>
+      $('.to').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3d',
+});
+
+</script>
+
+
+<script>
+
+    $('.types').change(function(){
+
+      var type_value=$(this).val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+      console.log(type_value)
+      console.log(csrftoken)
+      if(type_value=="Fixed"){
+        $('#max_discount').hide();
+        $('#amount').show();
+        }
+      else{
+         $('#max_discount').show();
+         $('#amount').hide();
+            }
+      })
+      $('.types').change();
+
+      $('.code').change(function(){
+      var code_value=$(this).val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+      console.log(code_value)
+      console.log(csrftoken)
+      if((!$.trim(code_value)))
+        $('#code_validation').hide();
+      else
+         $('#code_validation').show();
+
+      })
+      $('.code').change();
+
+
+</script>
+
+{% endblock %}

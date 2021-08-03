@@ -1,0 +1,489 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Manager Dashboard
+{% endblock %}
+
+{% block right_col %}
+<!-- page content -->
+<div class="right_col" role="main">
+    <!-- top tiles -->
+    <div class="clearfix"></div>
+    <div class="row tile_count">
+
+
+        <div class="col-md-3 col-sm-4 col-xs-6 ">
+            <a href="{{url('custom-admin:all_order')}}" class="tile_stats_count">
+            <span class="count_top"><i class="fa fa-graduation-cap"></i> Total Orders</span>
+            <div class="count">{{ total_orders }}</div>
+            </a>
+        </div>
+<!--        <div class="col-md-3 col-sm-4 col-xs-6 ">-->
+<!--            <a href="{{url('custom-admin:all_order')}}" class="tile_stats_count">-->
+<!--            <span class="count_top"><i class="fa fa-graduation-cap"></i> New Orders</span>-->
+<!--            <div class="count">{{ total_orders }}</div>-->
+<!--            </a>-->
+<!--        </div>-->
+
+  {%if user.kitchenmanager.kitchen %}
+    <div class="col-md-9 col-sm-8 col-xs-6 ">
+        <a type="button" class="btn_store_on_off mr_25"  href="{{url('custom-admin:edit_kitchens', args=[user.kitchenmanager.kitchen.id])}}"> Kitchen View </a>
+        <a type="button" class="btn_store_on_off mr_25"  href="{{url('custom-admin:get_kitchen_timings')}}">  Kitchen Timings On/Off</a>
+        <a type="button" class="btn_store_on_off mr_25"  href="{{url('custom-admin:all_order')}}?order-status=0"> Pending Orders</a>
+        <a type="button" class="btn_store_on_off "  href="{{url('custom-admin:take_order')}}"> Take Orders</a>
+    </div>
+    {% endif %}
+        <div class="col-md-3 col-sm-4 col-xs-6 ">
+           </div>
+<div class="col-md-3 col-sm-4 col-xs-6 ">
+    </div>
+        <div class="col-md-3 col-sm-4 col-xs-6 "> </div>
+    </div>
+
+    <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                <div class="br_full">
+                <div class="col-md-3 col-sm-4 col-xs-6  col-lg-2">
+     <label>Select Graph Type: </label>
+        <select id="graph_type" class="form-control kitchen_list" >
+            <option value="monthly" selected="">Monthly</option>
+            <option value="weekly">Weekly</option>
+            <option value="daily">Daily</option>
+        </select>
+</div>
+          <div class="col-md-3 col-sm-4 col-xs-6  col-lg-2">
+  <label>Select Kitchen: </label>
+                <input type="hidden" value="{{kitchen_list}}" id="k_list">
+                <select name="filter_by_kitchen"  id='kitchen_list' class="form-control" required="required">
+                    <option value="">Kitchen </option>
+                    {% for kitchen in kitchen %}
+                    <option value="{{kitchen.id}}">{{kitchen.name}}</option>
+                    {% endfor %}
+                </select>
+
+
+            </div>
+</div>
+ </div>
+
+
+ <div class="col-md-12 col-sm-12 col-xs-12">
+        <!-- Left section will be here -->
+        <div class="x_panel tile ">
+
+            <div class="x_content">
+
+                <div id="Order_chart" class=""></div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+
+<!-- </div>
+    </div>
+</div>
+</div> -->
+    <!-- /top tiles -->
+<div class="clearfix"></div>
+
+<!-- /page content -->
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+<audio controls style="visibility: hidden;" preload="auto|metadata|none" controls loop>
+   <source id="source" src="{{static ('sound/pkbneworder.mp3')}}" type="audio/mpeg">
+   Your browser does not support the audio element.
+</audio>
+{% endblock %}
+
+{% block extra_js_lib %}
+
+
+<script>
+    $(document).ready(function(e) {
+        $(function() {
+            Highcharts.chart('Order_chart', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Monthly Orders'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Number of Orders'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y} </b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Pending Order',
+                    data: {{pending_order_month}}
+
+                }, {
+                    name: 'Confirmed Order',
+                    data: {{confirmed_order_month}}
+                }, {
+                    name: 'Delivered Order',
+                    data: {{delivered_order_month}}
+
+                }, {
+                    name: 'Declined Order',
+                    data: {{declined_order_month}}
+
+
+                }],
+                credits: {
+                    enabled: false
+                },
+            });
+        });
+    });
+
+  $('#graph_type').change(function(){
+
+      var order_type=$(this).val();
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+      var kitchen_id = $('#kitchen_list').val();
+      if(order_type=='monthly'){
+        window.location.reload();
+      }
+     $.ajax({
+        url: "{{url('custom-admin:get_filter_orders')}}",
+        type: 'POST',
+        data:  {
+          "csrfmiddlewaretoken" : csrftoken,
+          "order_type" : order_type,
+          "kitchen_id" : kitchen_id
+        },
+        success: function (data) {
+        console.log(kitchen_id)
+        if(data.status){
+        data=data.data;
+        var data2 = [
+            ['Pending Order', data.pending_order],
+            ['Confirmed Order', data.confirmed_order],
+            ['Delivered Order', data.delivered_order],
+            ['Declined Order',  data.declined_order],
+            ];
+
+        $(function() {
+        Highcharts.chart('Order_chart', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Orders'
+                    },
+                    xAxis: {
+                        type: 'category',
+                        labels: {
+
+                                style: {
+                                    fontSize: '13px',
+                                    fontFamily: 'Verdana, sans-serif'
+                                }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                            title: {
+                                text: 'Number of Orders'
+                            }
+                    },
+                    legend: {
+                            enabled: false
+                        },
+                    tooltip: {
+                            pointFormat: '<b>{point.y}</b>',
+                        },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [{
+                                name: 'Population',
+                                data: data2,
+                                dataLabels: {
+                                    enabled: true,
+                                    rotation: 0,
+                                    color: '#FFFFFF',
+                                    align: 'right',
+                                    //format: '{point.y:.1f}', // one decimal
+                                    y: 10, // 10 pixels down from the top
+                                    style: {
+                                        fontSize: '13px',
+                                        fontFamily: 'Verdana, sans-serif'
+                                    }
+                                }
+                            }],
+                    credits: {
+                                enabled: false
+                            },
+                });
+            });
+            }
+        }
+      });
+      });
+
+</script>
+
+<script>
+$('#kitchen_list').change(function(){
+
+    var kitchen_id=$(this).val();
+    var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+
+     $.ajax({
+        url: "{{url('custom-admin:get_kitchen_order_filter')}}",
+        type: 'POST',
+        data:  {
+          "kitchen_id" : kitchen_id,
+          "csrfmiddlewaretoken" : csrftoken,
+        },
+        success: function (data){
+        data = data.data
+        $('#graph_type').val('monthly');
+        $(function() {
+            Highcharts.chart('Order_chart', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Monthly Orders'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Number of Orders'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y} </b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Pending Order',
+                    data: data.pending_order
+
+                }, {
+                    name: 'Confirmed Order',
+                    data: data.confirmed_order
+                }, {
+                    name: 'Delivered Order',
+                    data: data.delivered_order
+
+                }, {
+                    name: 'Declined Order',
+                    data: data.declined_order
+
+
+                }],
+                credits: {
+                    enabled: false
+                },
+            });
+        });
+}
+ });
+});
+
+
+</script>
+ <script>
+        $(function () {
+            // Correctly decide between ws:// and wss://
+            var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
+            var ws_path = ws_scheme + '://' + window.location.host + "/order/";
+            console.log("Connecting to " + ws_path);
+
+            var socket = new ReconnectingWebSocket(ws_path);
+
+            // Handle incoming messages
+            socket.onmessage = function (message) {
+                // Decode the JSON
+                console.log("Got websocket message " + message.data);
+                var data = JSON.parse(message.data);
+                kitchen_list = eval($("#k_list").val());
+                 console.log(kitchen_list, "yes, arry");
+                 console.log(data.kitchen_id, "yes, kitchen");
+                 console.log(kitchen_list.includes(Number(data.kitchen_id)));
+                if (data.message && data.msg_type == 0){
+                    if(kitchen_list.includes(Number(data.kitchen_id))){
+                        console.log(data.kitchen_id, "yes, Play");
+                        $('audio').get(0).pause();
+                        $('audio').get(0).play();
+                    }
+                }
+                // Handle errors
+                if (data.error) {
+                    alert(data.error);
+                    return;
+                }
+                // Handle joining
+                if (data.join) {
+                    console.log("Joining room " + data.join);
+                    var roomdiv = $(
+                            "<div class='room' id='room-" + data.join + "'>" +
+                            "<h2>" + data.title + "</h2>" +
+                            "<div class='messages'></div>" +
+                            "<form><input><button>Send</button></form>" +
+                            "</div>"
+                    );
+                    // Hook up send button to send a message
+                    roomdiv.find("form").on("submit", function () {
+                        socket.send(JSON.stringify({
+                            "command": "send",
+                            "room": data.join,
+                            "message": roomdiv.find("input").val()
+                        }));
+                        roomdiv.find("input").val("");
+                        return false;
+                    });
+                    $("#chats").append(roomdiv);
+                    // Handle leaving
+                } else if (data.leave) {
+                    console.log("Leaving room " + data.leave);
+                    $("#room-" + data.leave).remove();
+                    // Handle getting a message
+                } else if (data.message || data.msg_type != 0) {
+                    var msgdiv = $("#room-" + data.room + " .messages");
+                    var ok_msg = "";
+                    // msg types are defined in chat/settings.py
+                    // Only for demo purposes is hardcoded, in production scenarios, consider call a service.
+                    switch (data.msg_type) {
+                        case 0:
+                            // Message
+                            ok_msg = "<div class='message'>" +
+                                    "<span class='username'>" + data.username + "</span>" +
+                                    "<span class='body'>" + data.message + "</span>" +
+                                    "</div>";
+                            break;
+                        case 1:
+                            // Warning / Advice messages
+                            ok_msg = "<div class='contextual-message text-warning'>" + data.message +
+                                    "</div>";
+                            break;
+                        case 2:
+                            // Alert / Danger messages
+                            ok_msg = "<div class='contextual-message text-danger'>" + data.message +
+                                    "</div>";
+                            break;
+                        case 3:
+                            // "Muted" messages
+                            ok_msg = "<div class='contextual-message text-muted'>" + data.message +
+                                    "</div>";
+                            break;
+                        case 4:
+                            // User joined room
+                            ok_msg = "<div class='contextual-message text-muted'>" + data.username +
+                                    " joined the room!" +
+                                    "</div>";
+                            break;
+                        case 5:
+                            // User left room
+                            ok_msg = "<div class='contextual-message text-muted'>" + data.username +
+                                    " left the room!" +
+                                    "</div>";
+                            break;
+                        default:
+                            console.log("Unsupported message type!");
+                            return;
+                    }
+                    msgdiv.append(ok_msg);
+                    msgdiv.scrollTop(msgdiv.prop("scrollHeight"));
+                } else {
+                    console.log("Cannot handle message!");
+                }
+            };
+            // Says if we joined a room or not by if there's a div for it
+            inRoom = function (roomId) {
+                return $("#room-" + roomId).length > 0;
+            };
+            // Room join/leave
+
+            // Helpful debugging
+            socket.onopen = function () {
+                console.log("Connected to chat socket");
+                socket.send(JSON.stringify({
+                        "command": "join"
+                    }));
+            };
+            socket.onclose = function () {
+                console.log("Disconnected from chat socket");
+            }
+        });
+    </script>
+
+{% endblock %}
